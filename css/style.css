@@ -1772,3 +1772,261 @@ a.tech-tag:hover {
 .team-bio {
   margin-top: auto;
 }
+
+/* ==========================================================================
+   SDLC ACCENT MODEL — 26 Aug 2026
+   Measured from sdlccorp.com, then translated to the green palette.
+
+   The surprise from measuring their live page: the accent is used far LESS
+   than it looks. On their whole homepage the blue appears as text 5 times
+   (all 11px eyebrow labels) and as a fill 3 times (none of them a real CTA).
+
+   Their actual rules, which this block implements:
+     1. Primary CTA is OFF-WHITE with dark ink — not the accent colour
+     2. Secondary CTA is a translucent dark fill, white text
+     3. Both are full pills (9999px), 14px, weight 600, tight padding
+     4. The accent enters headlines as a text-clipped GRADIENT, not flat fill
+     5. Stat numbers are WHITE at a modest size, not big and coloured
+     6. Trust pills are translucent dark + hairline border, no accent at all
+     7. The accent is reserved for small uppercase eyebrows and hairline glows
+
+   Deviation from SDLC, deliberate: their pill border is rgba(255,255,255,0.08)
+   = 1.22:1 against their ground, and their card edge is 1.12:1. Both are
+   invisible and both fail WCAG 1.4.11. Ours use 0.38 alpha = 3.57:1.
+   ========================================================================== */
+
+:root {
+  /* Pill geometry, from their computed styles */
+  --pill: 9999px;
+
+  /* Gradient stops for headline emphasis — every stop verified on --bg-dark:
+     #F1F5F0 17.12:1 · #62B84F 7.62:1 · #8FE87A 12.57:1 */
+  --accent-bright: #8FE87A;
+
+  /* Elevated surface so cards have a real edge (SDLC's is 1.12:1) */
+  --bg-surface-3: #1E3527;
+
+  /* Hairline that is actually visible: 3.57:1 */
+  --border-hairline: rgba(255, 255, 255, 0.38);
+}
+
+/* --- 1 + 2 + 3. Button hierarchy ---------------------------------------- */
+
+.btn-chamfer,
+.btn-nav-cta {
+  border-radius: var(--pill);
+  letter-spacing: 0.06em;
+}
+
+/* Primary: off-white fill, dark ink. 17.12:1 */
+.btn-primary {
+  background: var(--text-primary);
+  color: var(--bg-dark);
+  border: 1px solid var(--text-primary);
+}
+.btn-primary:hover {
+  background: #FFFFFF;
+  border-color: #FFFFFF;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(143, 232, 122, 0.18);
+}
+
+/* Secondary: translucent dark fill, white text, visible edge. 15.59:1 */
+.btn-secondary {
+  background: rgba(20, 35, 27, 0.7);
+  color: var(--text-primary);
+  border: 1px solid var(--border-field);
+}
+.btn-secondary:hover {
+  background: rgba(30, 53, 39, 0.85);
+  border-color: var(--accent-green);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+/* The nav CTA follows the primary treatment */
+.btn-nav-cta {
+  background: var(--text-primary);
+  color: var(--bg-dark);
+  border: 1px solid var(--text-primary);
+}
+.btn-nav-cta:hover {
+  background: #FFFFFF;
+  border-color: #FFFFFF;
+}
+
+/* --- 4. Headline emphasis as a clipped gradient -------------------------- */
+
+/* SDLC: linear-gradient(110deg, #F5F5F5 20%, #0052FF 55%, #00C6FF 80%, #F5F5F5 100%)
+   The word starts in the body colour, travels through the accent, and returns.
+   Flat colour is the fallback, so this degrades safely. */
+.section-heading span.highlight,
+h1 span.highlight,
+h2 span.highlight {
+  color: var(--accent-green);
+}
+
+@supports (-webkit-background-clip: text) or (background-clip: text) {
+  .section-heading span.highlight,
+  h1 span.highlight,
+  h2 span.highlight {
+    background-image: linear-gradient(
+      110deg,
+      var(--text-primary) 8%,
+      var(--accent-green) 42%,
+      var(--accent-bright) 68%,
+      var(--text-primary) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    /* Descenders get clipped without this */
+    padding-bottom: 0.06em;
+  }
+}
+
+/* Windows high-contrast and forced-colors must not lose the text */
+@media (forced-colors: active) {
+  .section-heading span.highlight,
+  h1 span.highlight,
+  h2 span.highlight {
+    -webkit-text-fill-color: currentColor;
+    color: CanvasText;
+    background-image: none;
+  }
+}
+
+/* --- 5. Stat numbers: white, modest, heavy ------------------------------- */
+
+/* Was accent-green at --fs-2xl. SDLC runs theirs at 18px/w600 in plain white,
+   which reads as fact rather than decoration. */
+.metric-val {
+  color: var(--text-primary);
+  font-size: var(--fs-xl);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.metric-label {
+  color: var(--text-secondary);
+}
+
+/* --- 6. Trust pill strip ------------------------------------------------- */
+
+.trust-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border-card);
+}
+
+.trust-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(20, 35, 27, 0.8);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--pill);
+  padding: 6px 14px 7px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  text-decoration: none;
+}
+.trust-pill svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  stroke: var(--accent-green);
+  fill: none;
+  stroke-width: 2;
+}
+a.trust-pill:hover {
+  border-color: var(--accent-green);
+  color: var(--text-primary);
+}
+
+/* --- 7. The accent, demoted to eyebrows and hairlines -------------------- */
+
+.section-num-label,
+.badge-tag {
+  color: var(--accent-green);
+}
+
+/* Tech tags follow the pill geometry now */
+.tech-tag {
+  border-radius: var(--pill);
+  padding: 5px 13px 6px;
+}
+
+/* Cards get a real edge — SDLC's is 1.12:1 and invisible */
+.section-content-card,
+.service-card,
+.insight-card,
+.team-card {
+  border-radius: 16px;
+}
+.service-card,
+.insight-card,
+.team-card {
+  background: var(--bg-surface-3);
+}
+
+/* A single hairline accent glow at the top of a card, replacing the old
+   full-width gradient bar */
+.section-content-card::before {
+  background: linear-gradient(90deg, var(--accent-bright), var(--accent-green) 30%, transparent 75%);
+}
+
+/* Twin CTA under the hero copy — SDLC runs solid + ghost side by side */
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+@media (max-width: 430px) {
+  .hero-cta-row { flex-direction: column; align-items: stretch; }
+  .hero-cta-row .btn-chamfer { justify-content: center; }
+}
+
+/* --- Hero fit. The trust strip + twin CTA made the stage-01 card taller
+       than the viewport, and .scroll-section had no vertical padding on
+       desktop, so the card clipped under the fixed header. --------------- */
+
+.scroll-section {
+  padding-top: calc(var(--header-height) + 32px);
+  padding-bottom: 56px;
+}
+
+/* Stage 01 carries the most content, so it gets more width — the strip
+   needs to fit in two rows, not three. */
+#stage-01 .section-content-card {
+  max-width: 680px;
+}
+
+.trust-strip {
+  margin-top: 18px;
+  padding-top: 16px;
+  gap: 8px;
+}
+.hero-cta-row {
+  margin-top: 22px;
+}
+
+/* The cue collides with the taller card; only show it where there is room */
+@media (max-height: 940px) {
+  #stage-01 .scroll-cue { display: none; }
+}
+
+/* Tighten the stage-01 vertical rhythm — two proof rows plus a CTA row need
+   the space back from margins rather than from content. */
+#stage-01 .section-content-card { padding: 30px 36px 32px; }
+#stage-01 .section-metrics-row  { margin-top: 18px; padding-top: 15px; }
+#stage-01 .section-body         { margin-bottom: 0; }
