@@ -104,7 +104,20 @@
 
         <!-- F-02: set FORM_ENDPOINT in js/main.js. Until it is set the form
            falls back to a pre-filled mailto: instead of faking success. -->
-        <form id="contact-form" method="POST" action="" novalidate>
+        <form id="contact-form" method="POST" action="https://api.web3forms.com/submit" novalidate>
+
+          <!-- ────────────────────────────────────────────────────────────────
+               WEB3FORMS. Paste your access key below and the form goes live.
+               Get one free at https://web3forms.com — enter support@deploybirds.com,
+               and the key arrives by email as a UUID. It is safe to commit:
+               the key only permits sending TO your own verified address.
+               Until it is replaced, the form falls back to a pre-filled mailto.
+               ──────────────────────────────────────────────────────────────── -->
+          <input type="hidden" name="access_key" value="PASTE-YOUR-WEB3FORMS-ACCESS-KEY-HERE">
+
+          <!-- Reserved Web3Forms fields that shape the notification email -->
+          <input type="hidden" name="subject" value="New discovery request — deploybirds.com">
+          <input type="hidden" name="from_name" value="DeployBirds Website">
           <div class="form-group">
             <label class="form-label" for="name">Your Name / Title</label>
             <input type="text" id="name" name="name" autocomplete="name" class="form-input"
@@ -143,11 +156,10 @@
             </label>
           </div>
 
-          <!-- honeypot: real people never fill this in -->
-          <div aria-hidden="true" style="position:absolute;left:-9999px;">
-            <label for="company-url">Company URL</label>
-            <input type="text" id="company-url" name="company_url" tabindex="-1" autocomplete="off">
-          </div>
+          <!-- Honeypot. "botcheck" is Web3Forms' reserved name, so their server
+               rejects the submission too rather than relying on our JS alone.
+               Their docs require display:none specifically. -->
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" aria-hidden="true">
 
           <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
 
