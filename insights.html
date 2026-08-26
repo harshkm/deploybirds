@@ -3,6 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- GitHub Pages cannot set response headers, so the policy goes here.
+       frame-ancestors is deliberately absent: it is inert in a meta tag and
+       logs a console warning on every page load. Clickjacking protection
+       needs a real X-Frame-Options/CSP header, which means putting a CDN in
+       front of Pages. 'unsafe-inline' in style-src is required
+       by the 194 inline style= attributes still in the markup; removing those
+       would let it be dropped. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Technical Insights › DeployBirds</title>
   <meta name="description" content="Deep-dive engineering articles on Kubernetes orchestration, VAPT penetration testing, database indexing, and high-concurrency systems.">
 
