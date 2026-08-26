@@ -5,10 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Architecture & Team › DeployBirds</title>
   <meta name="description" content="Meet the engineering team behind DeployBirds. Learn about our reference cloud architecture, disciplined delivery process, and commitment to full accountability.">
+
+  <link rel="canonical" href="https://deploybirds.com/about.html">
+
+  <!-- Social preview (F-18/F-19: previously zero OG tags -> blank link cards) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DeployBirds">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:url" content="https://deploybirds.com/about.html">
+  <meta property="og:title" content="Architecture & Team › DeployBirds">
+  <meta property="og:description" content="Meet the engineering team behind DeployBirds. Learn about our reference cloud architecture, disciplined delivery process, and commitment to full accountability.">
+  <meta property="og:image" content="https://deploybirds.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="DeployBirds — we build, secure and scale digital products.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Architecture & Team › DeployBirds">
+  <meta name="twitter:description" content="Meet the engineering team behind DeployBirds. Learn about our reference cloud architecture, disciplined delivery process, and commitment to full accountability.">
+  <meta name="twitter:image" content="https://deploybirds.com/assets/og-image.png">
+
+  <!-- Icons (F-18: /favicon.ico was 404-ing on every page load) -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/icon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <meta name="theme-color" content="#0A1310">
+
+  <!-- Fonts (F-11: moved out of style.css, where @import forced a 4-hop chain.
+       IBM Plex Sans dropped entirely - it was requested but never referenced.) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800;900&display=swap">
+
   
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
 
   <!-- Header -->
   <header class="site-header">
@@ -34,7 +67,7 @@
 
     <div class="nav-cta-wrap">
       <a href="contact.html" class="btn-nav-cta">
-        <span>Work With Us</span>
+        <span>Get a Quote</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
       <button class="mobile-menu-btn" aria-label="Toggle Navigation">☰ MENU</button>
@@ -51,7 +84,7 @@
     <a href="contact.html" class="btn-chamfer btn-primary" style="margin-top: 10px;">Work With Us</a>
   </div>
 
-  <main class="page-container">
+  <main id="main" class="page-container">
     
     <!-- Hero Section -->
     <div class="page-hero">
@@ -66,33 +99,34 @@
     <section class="cards-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); margin-bottom: 70px;">
       <div class="service-card" style="padding: 26px;">
         <span class="badge-tag" style="margin-bottom: 12px;">Pillar 01</span>
-        <h3 style="font-size: 1.25rem;">Security-First Delivery</h3>
-        <p style="font-size: 0.9rem; margin-bottom: 0;">VAPT vulnerability assessments and static/dynamic code reviews baked into every milestone, not billed as an afterthought.</p>
+        <h2 class="sr-only">How we work</h2>
+        <h3 style="font-size: var(--fs-lg);">Security-First Delivery</h3>
+        <p style="font-size: var(--fs-sm); margin-bottom: 0;">VAPT vulnerability assessments and static/dynamic code reviews baked into every milestone, not billed as an afterthought.</p>
       </div>
 
       <div class="service-card" style="padding: 26px;">
         <span class="badge-tag" style="margin-bottom: 12px;">Pillar 02</span>
-        <h3 style="font-size: 1.25rem;">Built to Scale From Day One</h3>
-        <p style="font-size: 0.9rem; margin-bottom: 0;">Cloud-native Kubernetes architecture and load-tested infrastructure designed to handle millions of requests without midnight pages.</p>
+        <h3 style="font-size: var(--fs-lg);">Built to Scale From Day One</h3>
+        <p style="font-size: var(--fs-sm); margin-bottom: 0;">Cloud-native Kubernetes architecture and load-tested infrastructure designed to handle millions of requests without midnight pages.</p>
       </div>
 
       <div class="service-card" style="padding: 26px;">
         <span class="badge-tag" style="margin-bottom: 12px;">Pillar 03</span>
-        <h3 style="font-size: 1.25rem;">Transparent Timelines</h3>
-        <p style="font-size: 0.9rem; margin-bottom: 0;">Weekly demos, shared sprint boards, and clear deliverables. No black-box development or hidden surprise fees.</p>
+        <h3 style="font-size: var(--fs-lg);">Transparent Timelines</h3>
+        <p style="font-size: var(--fs-sm); margin-bottom: 0;">Weekly demos, shared sprint boards, and clear deliverables. No black-box development or hidden surprise fees.</p>
       </div>
 
       <div class="service-card" style="padding: 26px;">
         <span class="badge-tag" style="margin-bottom: 12px;">Pillar 04</span>
-        <h3 style="font-size: 1.25rem;">Flexible Engagement</h3>
-        <p style="font-size: 0.9rem; margin-bottom: 0;">Fixed Price, Time & Material, or Dedicated Team — whatever matches your project certainty and budget needs.</p>
+        <h3 style="font-size: var(--fs-lg);">Flexible Engagement</h3>
+        <p style="font-size: var(--fs-sm); margin-bottom: 0;">Fixed Price, Time & Material, or Dedicated Team — whatever matches your project certainty and budget needs.</p>
       </div>
     </section>
 
     <!-- Reference Architecture Interactive Showcase (Page 9 from Deck) -->
     <section style="margin-bottom: 80px;">
       <div class="badge-tag">How We Build</div>
-      <h2 style="font-size: 2.2rem; font-weight: 800; text-transform: uppercase; margin: 16px 0 12px;">DeployBirds Reference Architecture</h2>
+      <h2 style="font-size: var(--fs-2xl); font-weight: 800; text-transform: uppercase; margin: 16px 0 12px;">DeployBirds Reference Architecture</h2>
       <p style="color: var(--text-secondary); max-width: 680px; margin-bottom: 32px;">
         Every engagement starts from a hardened, observable baseline, then adapts to your unique stack and business constraints.
       </p>
@@ -150,7 +184,7 @@
 
         </div>
 
-        <div style="margin-top: 24px; text-align: center; font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-lime);">
+        <div style="margin-top: 24px; text-align: center; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--accent-lime);">
           › Hardened baseline deployed on AWS, Google Cloud, or Microsoft Azure with 99.99% uptime target.
         </div>
       </div>
@@ -159,7 +193,7 @@
     <!-- 6-Stage Process Flow (Page 8 from Deck) -->
     <section style="margin-bottom: 80px;">
       <div class="badge-tag">Our Process</div>
-      <h2 style="font-size: 2.2rem; font-weight: 800; text-transform: uppercase; margin: 16px 0 12px;">From Idea to Production</h2>
+      <h2 style="font-size: var(--fs-2xl); font-weight: 800; text-transform: uppercase; margin: 16px 0 12px;">From Idea to Production</h2>
       <p style="color: var(--text-secondary); max-width: 640px; margin-bottom: 32px;">
         The same disciplined engineering flow, whether it's a 2-week emergency sprint or a multi-year partnership.
       </p>
@@ -167,38 +201,38 @@
       <div class="cards-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
         <div class="service-card" style="padding: 22px;">
           <div class="card-top"><span class="card-num">01</span><span class="card-category-badge">Step 1</span></div>
-          <h4 style="font-size: 1.1rem; margin-bottom: 6px;">Discovery</h4>
-          <p style="font-size: 0.85rem; margin: 0;">Understand goals, technical constraints, user personas, and core success metrics.</p>
+          <h3 style="font-size: var(--fs-lg); margin-bottom: 6px;">Discovery</h3>
+          <p style="font-size: var(--fs-sm); margin: 0;">Understand goals, technical constraints, user personas, and core success metrics.</p>
         </div>
 
         <div class="service-card" style="padding: 22px;">
           <div class="card-top"><span class="card-num">02</span><span class="card-category-badge">Step 2</span></div>
-          <h4 style="font-size: 1.1rem; margin-bottom: 6px;">Planning</h4>
-          <p style="font-size: 0.85rem; margin: 0;">Scope, cloud architecture blueprints, sprint timelines, and written engagement model.</p>
+          <h3 style="font-size: var(--fs-lg); margin-bottom: 6px;">Planning</h3>
+          <p style="font-size: var(--fs-sm); margin: 0;">Scope, cloud architecture blueprints, sprint timelines, and written engagement model.</p>
         </div>
 
         <div class="service-card" style="padding: 22px;">
           <div class="card-top"><span class="card-num">03</span><span class="card-category-badge">Step 3</span></div>
-          <h4 style="font-size: 1.1rem; margin-bottom: 6px;">Design</h4>
-          <p style="font-size: 0.85rem; margin: 0;">Wireframes, high-fidelity UI in Figma, design systems, and technical design sign-off.</p>
+          <h3 style="font-size: var(--fs-lg); margin-bottom: 6px;">Design</h3>
+          <p style="font-size: var(--fs-sm); margin: 0;">Wireframes, high-fidelity UI in Figma, design systems, and technical design sign-off.</p>
         </div>
 
         <div class="service-card" style="padding: 22px;">
           <div class="card-top"><span class="card-num">04</span><span class="card-category-badge">Step 4</span></div>
-          <h4 style="font-size: 1.1rem; margin-bottom: 6px;">Development</h4>
-          <p style="font-size: 0.85rem; margin: 0;">Iterative 2-week sprint builds with weekly video demos, shared boards, and merge reviews.</p>
+          <h3 style="font-size: var(--fs-lg); margin-bottom: 6px;">Development</h3>
+          <p style="font-size: var(--fs-sm); margin: 0;">Iterative 2-week sprint builds with weekly video demos, shared boards, and merge reviews.</p>
         </div>
 
         <div class="service-card" style="padding: 22px;">
           <div class="card-top"><span class="card-num">05</span><span class="card-category-badge">Step 5</span></div>
-          <h4 style="font-size: 1.1rem; margin-bottom: 6px;">Testing & Security</h4>
-          <p style="font-size: 0.85rem; margin: 0;">Comprehensive QA regression testing, k6 load testing, and VAPT pen-testing before release.</p>
+          <h3 style="font-size: var(--fs-lg); margin-bottom: 6px;">Testing & Security</h3>
+          <p style="font-size: var(--fs-sm); margin: 0;">Comprehensive QA regression testing, k6 load testing, and VAPT pen-testing before release.</p>
         </div>
 
         <div class="service-card" style="padding: 22px;">
           <div class="card-top"><span class="card-num">06</span><span class="card-category-badge">Step 6</span></div>
-          <h4 style="font-size: 1.1rem; margin-bottom: 6px;">Launch & Support</h4>
-          <p style="font-size: 0.85rem; margin: 0;">Zero-downtime production deployment, telemetry alerting, and ongoing SLA-backed AMC.</p>
+          <h3 style="font-size: var(--fs-lg); margin-bottom: 6px;">Launch & Support</h3>
+          <p style="font-size: var(--fs-sm); margin: 0;">Zero-downtime production deployment, telemetry alerting, and ongoing SLA-backed AMC.</p>
         </div>
       </div>
     </section>
@@ -206,7 +240,7 @@
     <!-- Core Team Grid -->
     <section style="margin-bottom: 80px;">
       <div class="badge-tag">The People Behind the Code</div>
-      <h2 style="font-size: 2.2rem; font-weight: 800; text-transform: uppercase; margin: 16px 0 32px;">Core Engineering Team</h2>
+      <h2 style="font-size: var(--fs-2xl); font-weight: 800; text-transform: uppercase; margin: 16px 0 32px;">Core Engineering Team</h2>
 
       <div class="team-grid">
         <div class="team-card">
@@ -242,7 +276,7 @@
     <!-- Newsletter Signup Module -->
     <div class="newsletter-box">
       <span class="badge-tag">Stay in the Loop</span>
-      <h2 style="font-size: 2rem; margin: 16px 0 12px; text-transform: uppercase;">DeployBirds Dispatch</h2>
+      <h2 style="font-size: var(--fs-2xl); margin: 16px 0 12px; text-transform: uppercase;">DeployBirds Dispatch</h2>
       <p style="color: var(--text-secondary); margin-bottom: 24px;">
         Monthly architecture breakdowns, cloud cost optimization tactics, and offensive security alerts. No sales spam.
       </p>
@@ -271,17 +305,17 @@
       </div>
 
       <div class="footer-col">
-        <h5>Reference Blueprint</h5>
+        <h2 class="footer-col-title">Reference Blueprint</h2>
         <ul class="footer-links">
-          <li><a href="#" class="footer-link">Edge CDN & WAF</a></li>
-          <li><a href="#" class="footer-link">App & Microservices</a></li>
-          <li><a href="#" class="footer-link">Data & Caching</a></li>
-          <li><a href="#" class="footer-link">CI/CD Automation</a></li>
+          <li><a href="services.html#cloud" class="footer-link">Edge CDN &amp; WAF</a></li>
+          <li><a href="services.html#dev" class="footer-link">App &amp; Microservices</a></li>
+          <li><a href="services.html#data" class="footer-link">Data &amp; Caching</a></li>
+          <li><a href="services.html#cloud" class="footer-link">CI/CD Automation</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h5>Quick Links</h5>
+        <h2 class="footer-col-title">Quick Links</h2>
         <ul class="footer-links">
           <li><a href="index.html" class="footer-link">Flight Engine</a></li>
           <li><a href="services.html" class="footer-link">Services & Work</a></li>
@@ -292,9 +326,9 @@
       </div>
 
       <div class="footer-col">
-        <h5>Contact</h5>
+        <h2 class="footer-col-title">Contact</h2>
         <ul class="footer-links">
-          <li><a href="mailto:atuljha.arth@gmail.com" class="footer-link">atuljha.arth@gmail.com</a></li>
+          <li><a href="mailto:support@deploybirds.com" class="footer-link">support@deploybirds.com</a></li>
           <li><a href="tel:+919708167283" class="footer-link">+91 97081 67283</a></li>
           <li><a href="https://wa.me/919708167283" target="_blank" class="footer-link">WhatsApp us</a></li>
         </ul>
@@ -302,11 +336,11 @@
     </div>
 
     <div class="footer-bottom">
-      <div>© 2026 DeployBirds. All rights reserved.</div>
+      <div>© 2026 DeployBirds. All rights reserved. &nbsp;·&nbsp; <a href="privacy.html" class="footer-link" style="display:inline;">Privacy Policy</a></div>
       <div>Obsidian & Electric Lime Architecture</div>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script defer src="js/main.js"></script>
 </body>
 </html>

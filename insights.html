@@ -5,10 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Technical Insights › DeployBirds</title>
   <meta name="description" content="Deep-dive engineering articles on Kubernetes orchestration, VAPT penetration testing, database indexing, and high-concurrency systems.">
+
+  <link rel="canonical" href="https://deploybirds.com/insights.html">
+
+  <!-- Social preview (F-18/F-19: previously zero OG tags -> blank link cards) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DeployBirds">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:url" content="https://deploybirds.com/insights.html">
+  <meta property="og:title" content="Technical Insights › DeployBirds">
+  <meta property="og:description" content="Deep-dive engineering articles on Kubernetes orchestration, VAPT penetration testing, database indexing, and high-concurrency systems.">
+  <meta property="og:image" content="https://deploybirds.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="DeployBirds — we build, secure and scale digital products.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Technical Insights › DeployBirds">
+  <meta name="twitter:description" content="Deep-dive engineering articles on Kubernetes orchestration, VAPT penetration testing, database indexing, and high-concurrency systems.">
+  <meta name="twitter:image" content="https://deploybirds.com/assets/og-image.png">
+
+  <!-- Icons (F-18: /favicon.ico was 404-ing on every page load) -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/icon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <meta name="theme-color" content="#0A1310">
+
+  <!-- Fonts (F-11: moved out of style.css, where @import forced a 4-hop chain.
+       IBM Plex Sans dropped entirely - it was requested but never referenced.) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800;900&display=swap">
+
   
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
 
   <!-- Header -->
   <header class="site-header">
@@ -51,7 +84,7 @@
     <a href="contact.html" class="btn-chamfer btn-primary" style="margin-top: 10px;">Get a Quote</a>
   </div>
 
-  <main class="page-container">
+  <main id="main" class="page-container">
     
     <div class="page-hero">
       <div class="badge-tag">Engineering Dispatch</div>
@@ -71,6 +104,7 @@
     </div>
 
     <!-- Insights Card Grid with Custom Illustrated Cover Art -->
+    <h2 class="sr-only">Latest engineering articles</h2>
     <div class="insights-grid">
 
       <!-- Post 1: Cloud & DevOps -->
@@ -260,7 +294,7 @@
     <!-- Newsletter Box -->
     <div class="newsletter-box" style="margin-top: 80px;">
       <span class="badge-tag">Architecture Dispatch</span>
-      <h2 style="font-size: 2rem; margin: 16px 0 12px; text-transform: uppercase;">Get Engineering Deep Dives</h2>
+      <h2 style="font-size: var(--fs-2xl); margin: 16px 0 12px; text-transform: uppercase;">Get Engineering Deep Dives</h2>
       <p style="color: var(--text-secondary); margin-bottom: 24px;">
         Zero marketing fluff. Just technical blueprints, performance benchmarks, and security incident analyses delivered once a month.
       </p>
@@ -289,17 +323,17 @@
       </div>
 
       <div class="footer-col">
-        <h5>Topics</h5>
+        <h2 class="footer-col-title">Topics</h2>
         <ul class="footer-links">
-          <li><a href="#" class="footer-link">Kubernetes & IaC</a></li>
-          <li><a href="#" class="footer-link">VAPT Penetration Testing</a></li>
-          <li><a href="#" class="footer-link">PostgreSQL Optimization</a></li>
-          <li><a href="#" class="footer-link">High-Load Concurrency</a></li>
+          <li><a href="services.html#cloud" class="footer-link">Kubernetes &amp; IaC</a></li>
+          <li><a href="services.html#security" class="footer-link">VAPT Penetration Testing</a></li>
+          <li><a href="services.html#data" class="footer-link">PostgreSQL Optimization</a></li>
+          <li><a href="services.html#perf" class="footer-link">High-Load Concurrency</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h5>Quick Links</h5>
+        <h2 class="footer-col-title">Quick Links</h2>
         <ul class="footer-links">
           <li><a href="index.html" class="footer-link">Home</a></li>
           <li><a href="services.html" class="footer-link">Services & Work</a></li>
@@ -309,9 +343,9 @@
       </div>
 
       <div class="footer-col">
-        <h5>Contact</h5>
+        <h2 class="footer-col-title">Contact</h2>
         <ul class="footer-links">
-          <li><a href="mailto:atuljha.arth@gmail.com" class="footer-link">atuljha.arth@gmail.com</a></li>
+          <li><a href="mailto:support@deploybirds.com" class="footer-link">support@deploybirds.com</a></li>
           <li><a href="tel:+919708167283" class="footer-link">+91 97081 67283</a></li>
           <li><a href="https://wa.me/919708167283" target="_blank" class="footer-link">WhatsApp us</a></li>
         </ul>
@@ -319,11 +353,11 @@
     </div>
 
     <div class="footer-bottom">
-      <div>© 2026 DeployBirds. All rights reserved.</div>
+      <div>© 2026 DeployBirds. All rights reserved. &nbsp;·&nbsp; <a href="privacy.html" class="footer-link" style="display:inline;">Privacy Policy</a></div>
       <div>Knowledge Base & Research</div>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script defer src="js/main.js"></script>
 </body>
 </html>

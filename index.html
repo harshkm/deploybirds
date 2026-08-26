@@ -6,13 +6,102 @@
   <title>DeployBirds › End-to-End Software, Cloud & Security Partner</title>
   <meta name="description" content="We build, secure and scale digital products for growing businesses. Development, cloud infra, VAPT security and 24/7 AMC from one accountable team.">
 
+  <link rel="canonical" href="https://deploybirds.com/">
+
+  <!-- Social preview (F-18/F-19: previously zero OG tags -> blank link cards) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DeployBirds">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:url" content="https://deploybirds.com/">
+  <meta property="og:title" content="DeployBirds › End-to-End Software, Cloud & Security Partner">
+  <meta property="og:description" content="We build, secure and scale digital products for growing businesses. Development, cloud infra, VAPT security and 24/7 AMC from one accountable team.">
+  <meta property="og:image" content="https://deploybirds.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="DeployBirds — we build, secure and scale digital products.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DeployBirds › End-to-End Software, Cloud & Security Partner">
+  <meta name="twitter:description" content="We build, secure and scale digital products for growing businesses. Development, cloud infra, VAPT security and 24/7 AMC from one accountable team.">
+  <meta name="twitter:image" content="https://deploybirds.com/assets/og-image.png">
+
+  <!-- Icons (F-18: /favicon.ico was 404-ing on every page load) -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/icon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <meta name="theme-color" content="#0A1310">
+
+  <!-- Fonts (F-11: moved out of style.css, where @import forced a 4-hop chain.
+       IBM Plex Sans dropped entirely - it was requested but never referenced.) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800;900&display=swap">
+
+
   <!-- CSS Stylesheets -->
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- Three.js (r128) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- Three.js r128 — deferred and integrity-pinned (F-10).
+       NOTE: r128 is from 2021. Upgrading to r18x is a separate task:
+       three-scene.js uses APIs that changed after r155. -->
+  <script defer
+          src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
+          integrity="sha384-CI3ELBVUz9XQO+97x6nwMDPosPR5XvsxW2ua7N1Xeygeh1IxtgqtCkGfQY9WWdHu"
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"></script>
+
+  <!-- F-19: structured data — none existed before -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": "https://deploybirds.com/#organization",
+    "name": "DeployBirds",
+    "url": "https://deploybirds.com/",
+    "logo": "https://deploybirds.com/assets/icon-512.png",
+    "image": "https://deploybirds.com/assets/og-image.png",
+    "description": "End-to-end software partner: custom web and mobile development, cloud infrastructure and DevOps, database architecture, VAPT security testing, and 24/7 SLA-backed maintenance.",
+    "email": "support@deploybirds.com",
+    "telephone": "+91-97081-67283",
+    "areaServed": "Worldwide",
+    "priceRange": "$$",
+    "sameAs": [
+      "https://linkedin.com/company/deploybirds",
+      "https://instagram.com/deploybirds"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "support@deploybirds.com",
+      "telephone": "+91-97081-67283",
+      "availableLanguage": ["en", "hi"]
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Engineering & Cloud Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web & Mobile App Development",  "url": "https://deploybirds.com/services.html#dev" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "DevOps & Cloud Infrastructure", "url": "https://deploybirds.com/services.html#cloud" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Database Design & Management",  "url": "https://deploybirds.com/services.html#data" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cybersecurity & VAPT",          "url": "https://deploybirds.com/services.html#security" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Maintenance & Support (AMC)",   "url": "https://deploybirds.com/services.html#support" } }
+      ]
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://deploybirds.com/",
+    "name": "DeployBirds",
+    "publisher": { "@id": "https://deploybirds.com/#organization" }
+  }
+  </script>
 </head>
 <body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
 
   <!-- Persistent Header -->
   <header class="site-header">
@@ -64,7 +153,7 @@
   <div id="webgl-canvas-container"></div>
 
   <!-- Continuous 9-Stage Scroll Journey -->
-  <main class="scroll-experience-wrap">
+  <main id="main" class="scroll-experience-wrap">
 
     <!-- Stage 01: Hero & Brand Statement -->
     <section id="stage-01" class="scroll-section active" data-stage="1" data-title="Launch & Initiation">
@@ -237,15 +326,15 @@
         </p>
         <div class="section-metrics-row">
           <div class="metric-item">
-            <span class="metric-val" style="font-size: 1.1rem; color: #fff;">Fixed Price</span>
+            <span class="metric-val" style="font-size: var(--fs-lg); color: #fff;">Fixed Price</span>
             <span class="metric-label">Defined Scope & Budget</span>
           </div>
           <div class="metric-item">
-            <span class="metric-val" style="font-size: 1.1rem; color: #fff;">Time & Material</span>
+            <span class="metric-val" style="font-size: var(--fs-lg); color: #fff;">Time & Material</span>
             <span class="metric-label">Sprint-by-Sprint Flow</span>
           </div>
           <div class="metric-item">
-            <span class="metric-val" style="font-size: 1.1rem; color: #fff;">Dedicated Team</span>
+            <span class="metric-val" style="font-size: var(--fs-lg); color: #fff;">Dedicated Team</span>
             <span class="metric-label">Staff Augmentation</span>
           </div>
         </div>
@@ -256,14 +345,14 @@
     <section id="stage-09" class="scroll-section section-center" data-stage="9" data-title="Initiate Project">
       <div class="section-content-card" style="max-width: 680px; margin: 0 auto; text-align: center;">
         <span class="section-num-label">09 · Mission Control</span>
-        <h2 class="section-heading" style="font-size: clamp(2.4rem, 4.5vw, 3.8rem);">
+        <h2 class="section-heading" style="font-size: clamp(1.9rem, 6vw, 3.8rem);">
           Ready for <span class="highlight">Takeoff?</span>
         </h2>
         <p class="section-body" style="max-width: 540px; margin: 0 auto 32px;">
           Tell us what you're building. We sign a mutual NDA upfront and return with a complimentary architectural evaluation and scoped proposal within 24 hours.
         </p>
         <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-          <a href="contact.html" class="btn-chamfer btn-primary" style="font-size: 0.95rem; padding: 16px 36px;">
+          <a href="contact.html" class="btn-chamfer btn-primary" style="font-size: var(--fs-base); padding: 16px 36px;">
             <span>Schedule Discovery Call</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
@@ -297,13 +386,13 @@
         <p>
           End-to-end software partner for growing businesses. Development, databases, DevOps, cybersecurity, and cloud operations by one accountable team.
         </p>
-        <div style="margin-top: 16px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-lime);">
+        <div style="margin-top: 16px; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--accent-lime);">
           › Response Time: Guaranteed within 24 hours
         </div>
       </div>
 
       <div class="footer-col">
-        <h5>Core Services</h5>
+        <h2 class="footer-col-title">Core Services</h2>
         <ul class="footer-links">
           <li><a href="services.html#dev" class="footer-link">Custom Web & Mobile</a></li>
           <li><a href="services.html#cloud" class="footer-link">DevOps & Cloud Infra</a></li>
@@ -314,7 +403,7 @@
       </div>
 
       <div class="footer-col">
-        <h5>Navigation</h5>
+        <h2 class="footer-col-title">Navigation</h2>
         <ul class="footer-links">
           <li><a href="services.html" class="footer-link">Services & Work</a></li>
           <li><a href="launchpad.html" class="footer-link">Launchpad Program</a></li>
@@ -325,9 +414,9 @@
       </div>
 
       <div class="footer-col">
-        <h5>Direct Channels</h5>
+        <h2 class="footer-col-title">Direct Channels</h2>
         <ul class="footer-links">
-          <li><a href="mailto:atuljha.arth@gmail.com" class="footer-link">atuljha.arth@gmail.com</a></li>
+          <li><a href="mailto:support@deploybirds.com" class="footer-link">support@deploybirds.com</a></li>
           <li><a href="tel:+919708167283" class="footer-link">+91 97081 67283</a></li>
           <li><a href="https://wa.me/919708167283" target="_blank" class="footer-link">WhatsApp Direct</a></li>
           <li><a href="https://linkedin.com/company/deploybirds" target="_blank" class="footer-link">LinkedIn: /company/deploybirds</a></li>
@@ -337,13 +426,13 @@
     </div>
 
     <div class="footer-bottom">
-      <div>© 2026 DeployBirds. All rights reserved. Hardened, observable, and built to scale.</div>
+      <div>© 2026 DeployBirds. All rights reserved. Hardened, observable, and built to scale. &nbsp;·&nbsp; <a href="privacy.html" class="footer-link" style="display:inline;">Privacy Policy</a></div>
       <div>Engineered with DeployBirds Core Architecture</div>
     </div>
   </footer>
 
   <!-- Scripts -->
-  <script src="js/three-scene.js"></script>
-  <script src="js/main.js"></script>
+  <script defer src="js/three-scene.js"></script>
+  <script defer src="js/main.js"></script>
 </body>
 </html>

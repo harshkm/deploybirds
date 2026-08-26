@@ -10,6 +10,41 @@
   const container = document.getElementById('webgl-canvas-container');
   if (!container) return;
 
+  // F-08: never start a fullscreen animation when the OS asks for less motion.
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) {
+    document.documentElement.classList.add('no-webgl');
+    return;
+  }
+
+  // F-29 / F-10: the library is deferred and may fail (blocked CDN, SRI
+  // mismatch), and WebGL itself may be unavailable. Previously either case
+  // threw and left the canvas layer blank with no fallback.
+  if (typeof THREE === 'undefined') {
+    document.documentElement.classList.add('no-webgl');
+    console.warn('[three-scene] Three.js failed to load — using static backdrop.');
+    return;
+  }
+
+  const webglSupported = (() => {
+    try {
+      const c = document.createElement('canvas');
+      return !!(window.WebGLRenderingContext &&
+                (c.getContext('webgl') || c.getContext('experimental-webgl')));
+    } catch (e) {
+      return false;
+    }
+  })();
+
+  if (!webglSupported) {
+    document.documentElement.classList.add('no-webgl');
+    console.warn('[three-scene] WebGL unavailable — using static backdrop.');
+    return;
+  }
+
+  // F-28: cached instead of read on every scroll tick
+  let isNarrow = window.innerWidth < 1024;
+
   // Scene Variables
   let scene, camera, renderer;
   let shipGroup, thrusterGlow, radarRing1, radarRing2, starfield, dataNodesGroup;
@@ -293,8 +328,8 @@
     targetRotation.y = cur.rot.y + (nxt.rot.y - cur.rot.y) * factor;
     targetRotation.z = cur.rot.z + (nxt.rot.z - cur.rot.z) * factor;
 
-    // Mobile adjust (center & scale down)
-    if (window.innerWidth < 1024) {
+    // Mobile adjust (center & scale down)  — uses the cached flag (F-28)
+    if (isNarrow) {
       targetPosition.x = 0;
       targetPosition.y = 0.5;
       targetPosition.z = -1.2;
@@ -302,13 +337,27 @@
   }
 
   function onWindowResize() {
+    isNarrow = window.innerWidth < 1024;
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
     onScroll();
   }
 
+  // F-08: the loop used to run unconditionally, rendering in background tabs
+  // and draining battery. It now stops whenever the page is hidden.
+  let running = true;
+  document.addEventListener('visibilitychange', () => {
+    const wasRunning = running;
+    running = !document.hidden;
+    if (running && !wasRunning) {
+      clock.getDelta();   // discard the idle gap so nothing jumps
+      animate();
+    }
+  });
+
   function animate() {
+    if (!running) return;
     requestAnimationFrame(animate);
 
     const delta = clock.getDelta();

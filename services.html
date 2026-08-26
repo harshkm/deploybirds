@@ -5,10 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Services & Work › DeployBirds</title>
   <meta name="description" content="Explore DeployBirds' full catalog of 12 engineering and cloud services: Development, DevOps, VAPT Security, Database Architecture, and 24/7 AMC.">
+
+  <link rel="canonical" href="https://deploybirds.com/services.html">
+
+  <!-- Social preview (F-18/F-19: previously zero OG tags -> blank link cards) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DeployBirds">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:url" content="https://deploybirds.com/services.html">
+  <meta property="og:title" content="Services & Work › DeployBirds">
+  <meta property="og:description" content="Explore DeployBirds' full catalog of 12 engineering and cloud services: Development, DevOps, VAPT Security, Database Architecture, and 24/7 AMC.">
+  <meta property="og:image" content="https://deploybirds.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="DeployBirds — we build, secure and scale digital products.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Services & Work › DeployBirds">
+  <meta name="twitter:description" content="Explore DeployBirds' full catalog of 12 engineering and cloud services: Development, DevOps, VAPT Security, Database Architecture, and 24/7 AMC.">
+  <meta name="twitter:image" content="https://deploybirds.com/assets/og-image.png">
+
+  <!-- Icons (F-18: /favicon.ico was 404-ing on every page load) -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/icon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <meta name="theme-color" content="#0A1310">
+
+  <!-- Fonts (F-11: moved out of style.css, where @import forced a 4-hop chain.
+       IBM Plex Sans dropped entirely - it was requested but never referenced.) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800;900&display=swap">
+
   
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
 
   <!-- Header -->
   <header class="site-header">
@@ -34,7 +67,7 @@
 
     <div class="nav-cta-wrap">
       <a href="contact.html" class="btn-nav-cta">
-        <span>Request Scope</span>
+        <span>Get a Quote</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
       <button class="mobile-menu-btn" aria-label="Toggle Navigation">☰ MENU</button>
@@ -51,7 +84,7 @@
     <a href="contact.html" class="btn-chamfer btn-primary" style="margin-top: 10px;">Request Scope</a>
   </div>
 
-  <main class="page-container">
+  <main id="main" class="page-container">
     
     <!-- Hero Header -->
     <div class="page-hero">
@@ -74,10 +107,11 @@
     </div>
 
     <!-- 12 Services Numbered Grid -->
+    <h2 class="sr-only">All 12 services</h2>
     <div class="cards-grid">
 
       <!-- 01: Web & Mobile -->
-      <div class="service-card" data-category="dev">
+      <div class="service-card" data-category="dev" id="dev">
         <div>
           <div class="card-top">
             <span class="card-num">01</span>
@@ -107,7 +141,7 @@
       </div>
 
       <!-- 02: Database Systems -->
-      <div class="service-card" data-category="data">
+      <div class="service-card" data-category="data" id="data">
         <div>
           <div class="card-top">
             <span class="card-num">02</span>
@@ -137,7 +171,7 @@
       </div>
 
       <!-- 03: DevOps & Cloud Infrastructure -->
-      <div class="service-card" data-category="cloud">
+      <div class="service-card" data-category="cloud" id="cloud">
         <div>
           <div class="card-top">
             <span class="card-num">03</span>
@@ -167,7 +201,7 @@
       </div>
 
       <!-- 04: Digital Marketing & SEO -->
-      <div class="service-card" data-category="dev">
+      <div class="service-card" data-category="dev" id="marketing">
         <div>
           <div class="card-top">
             <span class="card-num">04</span>
@@ -196,7 +230,7 @@
       </div>
 
       <!-- 05: UI/UX & Product Design -->
-      <div class="service-card" data-category="dev">
+      <div class="service-card" data-category="dev" id="design">
         <div>
           <div class="card-top">
             <span class="card-num">05</span>
@@ -225,7 +259,7 @@
       </div>
 
       <!-- 06: QA & Testing -->
-      <div class="service-card" data-category="qa">
+      <div class="service-card" data-category="qa" id="qa">
         <div>
           <div class="card-top">
             <span class="card-num">06</span>
@@ -254,7 +288,7 @@
       </div>
 
       <!-- 07: Maintenance & Support (AMC) -->
-      <div class="service-card" data-category="consulting">
+      <div class="service-card" data-category="consulting" id="support">
         <div>
           <div class="card-top">
             <span class="card-num">07</span>
@@ -283,7 +317,7 @@
       </div>
 
       <!-- 08: Cloud Migration & Consulting -->
-      <div class="service-card" data-category="cloud">
+      <div class="service-card" data-category="cloud" id="migration">
         <div>
           <div class="card-top">
             <span class="card-num">08</span>
@@ -312,7 +346,7 @@
       </div>
 
       <!-- 09: Cybersecurity & VAPT -->
-      <div class="service-card" data-category="security">
+      <div class="service-card" data-category="security" id="security">
         <div>
           <div class="card-top">
             <span class="card-num">09</span>
@@ -341,7 +375,7 @@
       </div>
 
       <!-- 10: Load & Performance Testing -->
-      <div class="service-card" data-category="qa">
+      <div class="service-card" data-category="qa" id="perf">
         <div>
           <div class="card-top">
             <span class="card-num">10</span>
@@ -370,7 +404,7 @@
       </div>
 
       <!-- 11: API Testing & Integration -->
-      <div class="service-card" data-category="dev">
+      <div class="service-card" data-category="dev" id="api">
         <div>
           <div class="card-top">
             <span class="card-num">11</span>
@@ -399,7 +433,7 @@
       </div>
 
       <!-- 12: Technical Consulting & Staff Augmentation -->
-      <div class="service-card" data-category="consulting">
+      <div class="service-card" data-category="consulting" id="consulting">
         <div>
           <div class="card-top">
             <span class="card-num">12</span>
@@ -432,7 +466,7 @@
     <!-- Featured Case Studies Section -->
     <div style="margin-top: 90px;">
       <div class="badge-tag">Verified Engineering Impact</div>
-      <h2 style="font-size: 2.2rem; font-weight: 800; text-transform: uppercase; margin: 16px 0 32px;">Production Case Studies</h2>
+      <h2 style="font-size: var(--fs-2xl); font-weight: 800; text-transform: uppercase; margin: 16px 0 32px;">Production Case Studies</h2>
 
       <div class="cards-grid">
         
@@ -447,11 +481,11 @@
             <p>Architected a microservices backend with PostgreSQL read-replicas, Redis caching, and automated Terraform infrastructure on AWS for over 1.2M daily active transactions.</p>
             <div class="section-metrics-row" style="margin-bottom: 20px;">
               <div class="metric-item">
-                <span class="metric-val" style="font-size: 1.5rem;">99.995%</span>
+                <span class="metric-val" style="font-size: var(--fs-xl);">99.995%</span>
                 <span class="metric-label">Uptime Achieved</span>
               </div>
               <div class="metric-item">
-                <span class="metric-val" style="font-size: 1.5rem;">-65%</span>
+                <span class="metric-val" style="font-size: var(--fs-xl);">-65%</span>
                 <span class="metric-label">API Latency</span>
               </div>
             </div>
@@ -475,11 +509,11 @@
             <p>Executed zero-downtime database and container migration from legacy on-prem servers to GCP, implementing automated VAPT scans and strict least-privilege IAM controls.</p>
             <div class="section-metrics-row" style="margin-bottom: 20px;">
               <div class="metric-item">
-                <span class="metric-val" style="font-size: 1.5rem;">0 min</span>
+                <span class="metric-val" style="font-size: var(--fs-xl);">0 min</span>
                 <span class="metric-label">Migration Downtime</span>
               </div>
               <div class="metric-item">
-                <span class="metric-val" style="font-size: 1.5rem;">$42k/mo</span>
+                <span class="metric-val" style="font-size: var(--fs-xl);">$42k/mo</span>
                 <span class="metric-label">Cost Reduced</span>
               </div>
             </div>
@@ -503,11 +537,11 @@
             <p>Conducted distributed stress testing with k6 and restructured database indexes to support 150,000 simultaneous checkouts without checkout deadlocks or crashes.</p>
             <div class="section-metrics-row" style="margin-bottom: 20px;">
               <div class="metric-item">
-                <span class="metric-val" style="font-size: 1.5rem;">150K</span>
+                <span class="metric-val" style="font-size: var(--fs-xl);">150K</span>
                 <span class="metric-label">Concurrent Users</span>
               </div>
               <div class="metric-item">
-                <span class="metric-val" style="font-size: 1.5rem;">0 Errors</span>
+                <span class="metric-val" style="font-size: var(--fs-xl);">0 Errors</span>
                 <span class="metric-label">During Flash Sale</span>
               </div>
             </div>
@@ -526,7 +560,7 @@
     <!-- CTA Banner -->
     <div class="newsletter-box" style="margin-top: 80px;">
       <span class="badge-tag">Discovery Session</span>
-      <h2 style="font-size: 2rem; margin: 16px 0 12px; text-transform: uppercase;">Have a Project in Mind?</h2>
+      <h2 style="font-size: var(--fs-2xl); margin: 16px 0 12px; text-transform: uppercase;">Have a Project in Mind?</h2>
       <p style="color: var(--text-secondary); margin-bottom: 24px;">
         Share your technical brief with our team. We respond with a scoped proposal, architecture review, and engagement model within 24 hours.
       </p>
@@ -552,7 +586,7 @@
       </div>
 
       <div class="footer-col">
-        <h5>Quick Links</h5>
+        <h2 class="footer-col-title">Quick Links</h2>
         <ul class="footer-links">
           <li><a href="index.html" class="footer-link">Flight Engine</a></li>
           <li><a href="services.html" class="footer-link">Services & Work</a></li>
@@ -563,7 +597,7 @@
       </div>
 
       <div class="footer-col">
-        <h5>Engagement</h5>
+        <h2 class="footer-col-title">Engagement</h2>
         <ul class="footer-links">
           <li><a href="contact.html" class="footer-link">Fixed Price Projects</a></li>
           <li><a href="contact.html" class="footer-link">Time & Material Sprints</a></li>
@@ -573,9 +607,9 @@
       </div>
 
       <div class="footer-col">
-        <h5>Contact</h5>
+        <h2 class="footer-col-title">Contact</h2>
         <ul class="footer-links">
-          <li><a href="mailto:atuljha.arth@gmail.com" class="footer-link">atuljha.arth@gmail.com</a></li>
+          <li><a href="mailto:support@deploybirds.com" class="footer-link">support@deploybirds.com</a></li>
           <li><a href="tel:+919708167283" class="footer-link">+91 97081 67283</a></li>
           <li><a href="https://wa.me/919708167283" target="_blank" class="footer-link">WhatsApp us</a></li>
         </ul>
@@ -583,11 +617,11 @@
     </div>
 
     <div class="footer-bottom">
-      <div>© 2026 DeployBirds. All rights reserved.</div>
+      <div>© 2026 DeployBirds. All rights reserved. &nbsp;·&nbsp; <a href="privacy.html" class="footer-link" style="display:inline;">Privacy Policy</a></div>
       <div>Designed with Precision & Accountability</div>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script defer src="js/main.js"></script>
 </body>
 </html>

@@ -2,7 +2,9 @@
    DEPLOYBIRDS — Professional SaaS Design System
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+/* Fonts are linked from each page's <head> (preconnect + stylesheet).
+   Do NOT re-add @import here: it forces a 4-hop serial discovery chain
+   (html -> style.css -> fonts css -> woff2) and delays first text paint. */
 
 :root {
   /* Core Palette */
@@ -20,11 +22,14 @@
   /* Typography Colors */
   --text-primary: #F1F5F0;
   --text-secondary: #8FA898;
-  --text-muted: #5A7262;
+  --text-muted: #7A9384;   /* was #5A7262 = 3.61:1, failed AA (F-12) */
 
   /* Borders */
   --border-subtle: rgba(98, 184, 79, 0.12);
-  --border-card: rgba(98, 184, 79, 0.15);
+  --border-card: rgba(98, 184, 79, 0.28);  /* was 0.15 = 1.27:1 — decorative card edges (F-14) */
+  /* Interactive boundaries must clear WCAG 1.4.11's 3:1. Solved: alpha 0.58
+     composites to #3d7134 = 3.3:1 on --bg-dark. (F-14) */
+  --border-field: rgba(98, 184, 79, 0.58);
   --border-strong: rgba(98, 184, 79, 0.35);
   --border-light: #DCE8DA;
 
@@ -32,6 +37,16 @@
   --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
   --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Type scale — use ONLY these (F-17) */
+  --fs-xs:   0.8125rem;                      /* 13px — labels, tags, meta */
+  --fs-sm:   0.875rem;
+  --fs-base: 1rem;
+  --fs-lg:   1.125rem;
+  --fs-xl:   clamp(1.15rem, 2.4vw, 1.5rem);
+  --fs-2xl:  clamp(1.3rem,  4vw, 2.25rem);
+  --fs-3xl:  clamp(1.75rem, 5vw, 3.25rem);
+  --fs-4xl:  clamp(2rem,    6vw, 4rem);
 
   /* Layout */
   --header-height: 80px;
@@ -131,7 +146,7 @@ body {
   color: var(--text-primary);
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 1.35rem;
+  font-size: var(--fs-xl);
   letter-spacing: -0.02em;
 }
 
@@ -157,7 +172,7 @@ body {
 
 .nav-link {
   font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: var(--fs-xs);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -191,7 +206,7 @@ body {
 
 .btn-nav-cta {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: var(--fs-xs);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -222,7 +237,7 @@ body {
   border-radius: 4px;
   cursor: pointer;
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: var(--fs-sm);
 }
 
 .mobile-nav-drawer {
@@ -244,7 +259,7 @@ body {
 }
 
 .mobile-nav-drawer .nav-link {
-  font-size: 1rem;
+  font-size: var(--fs-base);
   padding: 10px 0;
 }
 
@@ -257,7 +272,7 @@ body {
   justify-content: center;
   gap: 10px;
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: var(--fs-sm);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -285,7 +300,7 @@ body {
 .btn-secondary {
   background: transparent;
   color: var(--text-primary);
-  border: 1.5px solid rgba(98, 184, 79, 0.4);
+  border: 1.5px solid rgba(98, 184, 79, 0.75);  /* was 0.4 = 2.19:1 (F-14) */
 }
 
 .btn-secondary:hover {
@@ -299,7 +314,7 @@ body {
   align-items: center;
   gap: 6px;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -312,7 +327,7 @@ body {
 
 .badge-tag::before {
   content: '›';
-  font-size: 0.95rem;
+  font-size: var(--fs-base);
   line-height: 1;
 }
 
@@ -357,7 +372,7 @@ body {
 
 .section-content-card {
   max-width: 580px;
-  background: rgba(10, 19, 16, 0.78);
+  background: rgba(10, 19, 16, 0.93);  /* was 0.78 — text dropped to 3.73:1 over bright wireframes (F-13) */
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--border-card);
@@ -387,7 +402,7 @@ body {
 
 .section-num-label {
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   font-weight: 600;
   color: var(--accent-green);
   letter-spacing: 0.15em;
@@ -411,7 +426,7 @@ body {
 }
 
 .section-body {
-  font-size: 1.05rem;
+  font-size: var(--fs-lg);
   color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 24px;
@@ -440,7 +455,7 @@ body {
 
 .metric-val {
   font-family: var(--font-display);
-  font-size: 1.8rem;
+  font-size: var(--fs-2xl);
   font-weight: 800;
   color: var(--accent-green);
   line-height: 1;
@@ -448,7 +463,7 @@ body {
 
 .metric-label {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: var(--fs-xs);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text-secondary);
@@ -464,7 +479,7 @@ body {
 
 .tech-tag {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   background: rgba(98, 184, 79, 0.07);
   color: var(--text-secondary);
   border: 1px solid rgba(98, 184, 79, 0.18);
@@ -519,7 +534,7 @@ body {
   align-items: center;
   justify-content: center;
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: var(--fs-xs);
   font-weight: 600;
   color: var(--text-muted);
   background: var(--bg-dark);
@@ -545,7 +560,7 @@ body {
   transform-origin: center center;
   z-index: 50;
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: var(--fs-xs);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--text-muted);
@@ -584,7 +599,7 @@ body {
   align-items: center;
   gap: 8px;
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: var(--fs-xs);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-muted);
@@ -611,7 +626,7 @@ body {
 
 .waypoint-arrow {
   color: var(--text-muted);
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
 }
 
 /* Scroll Discovery Cue */
@@ -625,7 +640,7 @@ body {
   align-items: center;
   gap: 8px;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--text-secondary);
@@ -663,7 +678,7 @@ body {
   padding: 8px 14px;
   border-radius: 999px;
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: var(--fs-xs);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   cursor: pointer;
@@ -725,7 +740,7 @@ body {
 }
 
 .page-hero p.lead {
-  font-size: 1.18rem;
+  font-size: var(--fs-lg);
   color: var(--text-secondary);
   line-height: 1.6;
 }
@@ -741,7 +756,7 @@ body {
 
 .filter-pill {
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -801,21 +816,21 @@ body {
 
 .card-num {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: var(--fs-base);
   font-weight: 700;
   color: var(--accent-green);
 }
 
 .card-category-badge {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: var(--fs-xs);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text-muted);
 }
 
 .service-card h3 {
-  font-size: 1.45rem;
+  font-size: var(--fs-xl);
   font-weight: 700;
   margin-bottom: 12px;
   color: var(--text-primary);
@@ -824,7 +839,7 @@ body {
 
 .service-card p {
   color: var(--text-secondary);
-  font-size: 0.95rem;
+  font-size: var(--fs-base);
   line-height: 1.6;
   margin-bottom: 20px;
 }
@@ -835,7 +850,7 @@ body {
 }
 
 .feature-list li {
-  font-size: 0.88rem;
+  font-size: var(--fs-sm);
   color: var(--text-secondary);
   padding: 4px 0;
   display: flex;
@@ -894,7 +909,7 @@ body {
 
 .time-val {
   font-family: var(--font-mono);
-  font-size: 1.6rem;
+  font-size: var(--fs-xl);
   font-weight: 700;
   color: var(--accent-green);
   display: block;
@@ -902,7 +917,7 @@ body {
 
 .time-lbl {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: var(--fs-xs);
   text-transform: uppercase;
   color: var(--text-muted);
 }
@@ -925,7 +940,7 @@ body {
 
 .stat-number {
   font-family: var(--font-display);
-  font-size: 2.8rem;
+  font-size: var(--fs-3xl);
   font-weight: 900;
   color: var(--accent-green);
   line-height: 1.1;
@@ -933,7 +948,7 @@ body {
 
 .stat-desc {
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text-secondary);
@@ -981,15 +996,16 @@ body {
   border: 2px solid var(--accent-green);
 }
 
-.timeline-node-card h4 {
-  font-size: 1.1rem;
+.timeline-node-card h4,
+.timeline-node-card .milestone-title {
+  font-size: var(--fs-lg);
   font-weight: 700;
   margin-bottom: 8px;
   color: var(--text-primary);
 }
 
 .timeline-node-card p {
-  font-size: 0.85rem;
+  font-size: var(--fs-sm);
   color: var(--text-secondary);
   line-height: 1.5;
 }
@@ -1020,7 +1036,7 @@ body {
 
 .arch-col-title {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   font-weight: 700;
   color: var(--accent-green);
   text-transform: uppercase;
@@ -1036,7 +1052,7 @@ body {
   padding: 8px 6px;
   margin-bottom: 8px;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   color: var(--text-primary);
 }
 
@@ -1066,7 +1082,7 @@ body {
 .form-label {
   display: block;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text-secondary);
@@ -1081,7 +1097,7 @@ body {
   border: 1px solid var(--border-card);
   color: var(--text-primary);
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: var(--fs-base);   /* must stay >= 16px or iOS Safari auto-zooms (F-15) */
   padding: 12px 16px;
   border-radius: 6px;
   outline: none;
@@ -1111,7 +1127,7 @@ body {
 }
 
 .checkbox-wrap label {
-  font-size: 0.85rem;
+  font-size: var(--fs-sm);
   color: var(--text-secondary);
   line-height: 1.4;
   cursor: pointer;
@@ -1137,7 +1153,7 @@ body {
   color: var(--text-primary);
   text-decoration: none;
   font-family: var(--font-mono);
-  font-size: 0.92rem;
+  font-size: var(--fs-sm);
   padding: 10px 0;
   border-bottom: 1px solid var(--border-subtle);
   transition: color 0.2s ease;
@@ -1212,13 +1228,13 @@ body {
   align-items: center;
   gap: 12px;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
   margin-bottom: 12px;
 }
 
 .insight-title {
-  font-size: 1.3rem;
+  font-size: var(--fs-xl);
   font-weight: 700;
   line-height: 1.3;
   margin-bottom: 12px;
@@ -1227,7 +1243,7 @@ body {
 
 .insight-excerpt {
   color: var(--text-secondary);
-  font-size: 0.92rem;
+  font-size: var(--fs-sm);
   line-height: 1.6;
   margin-bottom: 20px;
 }
@@ -1267,13 +1283,13 @@ body {
   align-items: center;
   justify-content: center;
   font-family: var(--font-mono);
-  font-size: 1.5rem;
+  font-size: var(--fs-xl);
   font-weight: 700;
   color: var(--accent-green);
 }
 
 .team-name {
-  font-size: 1.2rem;
+  font-size: var(--fs-lg);
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 4px;
@@ -1281,7 +1297,7 @@ body {
 
 .team-role {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--accent-green);
@@ -1289,7 +1305,7 @@ body {
 }
 
 .team-bio {
-  font-size: 0.85rem;
+  font-size: var(--fs-sm);
   color: var(--text-secondary);
   line-height: 1.5;
 }
@@ -1326,15 +1342,16 @@ body {
 
 .footer-brand p {
   color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-size: var(--fs-sm);
   max-width: 320px;
   margin-top: 14px;
   line-height: 1.6;
 }
 
-.footer-col h5 {
+.footer-col h5,
+.footer-col .footer-col-title {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--accent-green);
@@ -1351,7 +1368,7 @@ body {
 .footer-link {
   color: var(--text-secondary);
   text-decoration: none;
-  font-size: 0.88rem;
+  font-size: var(--fs-sm);
   transition: color 0.2s ease;
 }
 
@@ -1368,7 +1385,7 @@ body {
   align-items: center;
   justify-content: space-between;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
 }
 
@@ -1426,4 +1443,289 @@ body {
   .footer-inner {
     grid-template-columns: 1fr;
   }
+}
+
+/* ==========================================================================
+   AUDIT FIXES — 26 Aug 2026
+   Appended last so these win on equal specificity. See audit F-numbers.
+   ========================================================================== */
+
+/* --- F-09: visible keyboard focus. Previously only form fields had any. --- */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--accent-green);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+.form-input:focus-visible,
+.form-select:focus-visible,
+.form-textarea:focus-visible {
+  outline: 2px solid var(--accent-green);
+  outline-offset: 1px;
+}
+
+/* Skip link — first focusable element on every page */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 200;
+  background: var(--accent-green);
+  color: #0A1310;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 0 0 4px 0;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* --- F-05: fixed header must not cover an anchored heading on arrival --- */
+[id] {
+  scroll-margin-top: calc(var(--header-height) + 24px);
+}
+
+/* --- F-08: honour the OS motion preference --- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  /* The WebGL scene is decorative — remove it entirely rather than freeze it */
+  #webgl-canvas-container {
+    display: none !important;
+  }
+  .scroll-section .section-content-card {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* --- F-29: if WebGL is unavailable the canvas layer stays empty.
+       js/three-scene.js adds .no-webgl to <html> in that case. --- */
+html.no-webgl #webgl-canvas-container {
+  background:
+    radial-gradient(ellipse 70% 50% at 72% 38%, rgba(98, 184, 79, 0.10), transparent 70%),
+    radial-gradient(ellipse 55% 45% at 28% 78%, rgba(0, 240, 255, 0.06), transparent 70%);
+}
+
+/* --- F-03 + F-04: the mobile header and the 320px clipping --------------- */
+
+@media (max-width: 1024px) {
+  /* max-width alone loses to the flex item's automatic minimum size,
+     which is why copy was being clipped at 320px. min-width:0 is the fix. */
+  .section-content-card {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+  /* Sections previously had no top padding, so the first badge sat behind
+     the fixed header. */
+  .scroll-section {
+    padding-top: calc(var(--header-height) + 24px);
+    padding-bottom: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* The quote pill, the wordmark and the hamburger could not all fit.
+     The CTA is already repeated in the drawer and at the foot of every page. */
+  .btn-nav-cta {
+    display: none;
+  }
+  .mobile-menu-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .brand-logo {
+    min-width: 0;
+    flex-shrink: 1;
+  }
+  .brand-logo span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .section-content-card {
+    padding: 28px 22px;
+  }
+}
+
+@media (max-width: 430px) {
+  /* Three fixed columns could not hold their labels below ~400px */
+  .section-metrics-row {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 360px) {
+  .site-header {
+    padding: 0 14px;
+  }
+  .brand-icon {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* --- F-25: the drawer needs to sit above the page and lock the body ----- */
+body.nav-open {
+  overflow: hidden;
+}
+
+/* --- F-02: submission status, announced via aria-live ------------------- */
+.form-status {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  line-height: 1.55;
+  margin: 0 0 16px;
+  padding: 0;
+  color: var(--text-secondary);
+}
+.form-status:empty {
+  display: none;
+}
+.form-status.is-ok {
+  color: var(--accent-green);
+}
+.form-status.is-warn {
+  color: #D9A441;
+}
+.form-status.is-error {
+  color: #E8695E;
+}
+
+/* --- F-20: headings that belong in the outline but not in the design ---- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --- F-04 (round 2): the real causes found by re-testing at 320px ------- */
+
+/* .section-metrics-row is FLEX, not grid — a grid-template-columns override
+   on it did nothing. Three flex items could not hold their labels. */
+@media (max-width: 560px) {
+  .section-metrics-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+/* minmax(360px, …) forces a 360px track even in a 320px viewport, so the
+   grid overflowed on small phones. min() lets the track collapse. */
+.cards-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(360px, 100%), 1fr));
+}
+
+/* Same class, same trap, elsewhere in the sheet */
+.stats-banner-grid,
+.timeline-track,
+.arch-layer-grid,
+.insights-grid,
+.team-grid {
+  min-width: 0;
+}
+
+/* Grid and flex children need this or their content sets the floor */
+.service-card,
+.insight-card,
+.section-content-card,
+.metric-item,
+.timeline-node-card {
+  min-width: 0;
+}
+
+/* Long unbroken strings (URLs, emails) must not set the page width */
+.footer-link,
+.section-body,
+.insight-excerpt,
+p {
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 420px) {
+  .page-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .tag-cloud {
+    gap: 6px;
+  }
+}
+
+/* --- F-04 (round 3): the same two traps in the remaining grids ---------- */
+
+/* Every auto-fill grid had a fixed minmax floor larger than a 320px screen */
+.insights-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(360px, 100%), 1fr));
+}
+.team-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
+}
+
+/* A bare `1fr` track still floors at the content's min-content width, so an
+   uppercase heading pushed this banner wider than its own padding box. */
+.flagship-hero-banner {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  padding: clamp(22px, 5vw, 48px);
+}
+
+.contact-layout-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+@media (max-width: 1024px) {
+  .flagship-hero-banner,
+  .contact-layout-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Very narrow screens: let a long single word break rather than overflow */
+@media (max-width: 360px) {
+  h1, h2, h3,
+  .section-heading {
+    overflow-wrap: break-word;
+  }
+}
+
+/* --- F-14 (round 2): boundaries you must see in order to operate -------- */
+.form-input,
+.form-select,
+.form-textarea,
+.mobile-menu-btn,
+.filter-pill,
+.checkbox-wrap input[type="checkbox"] {
+  border-color: var(--border-field);
+}
+
+/* Tag chips used as links should not carry a text underline */
+a.tech-tag {
+  text-decoration: none;
+}
+a.tech-tag:hover {
+  border-color: var(--border-field);
+  color: var(--text-primary);
 }
