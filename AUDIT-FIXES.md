@@ -116,7 +116,7 @@ Options:
 | ID | Finding | Why |
 |---|---|---|
 | F-24 | Homepage is ~10 screens tall | Cutting 9 stages to 5 is an editorial call |
-| F-27 | No case studies, team, or pricing | Content, not code — and the highest-leverage thing left |
+| F-27 | No case studies or pricing | Content, not code. **Team is now done** — see below |
 | F-28 | 156 inline `style=` attributes | Partly addressed (font sizes migrated); full extraction is a refactor |
 | F-10 | three.js is still r128 (2021) | `three-scene.js` uses APIs that changed after r155; needs its own pass |
 
@@ -173,3 +173,42 @@ open http://localhost:8899/
   re-introduces F-20.
 - **`COHORT_CLOSES`** in `js/main.js` is a real date now. It will genuinely
   expire, which is the point — put a reminder somewhere.
+
+
+---
+
+## Team section — real people replacing invented ones (F-27, partial)
+
+The team grids on `about.html` and `launchpad.html` listed **three people who do
+not exist**: Vikram Sharma, Ananya Roy and Rohan Mehta. Atul Jha was also listed
+at "12+ years". Six fabricated entries across two pages.
+
+Replaced with the four real engineers:
+
+| Initials | Name | Role | Experience |
+|---|---|---|---|
+| AJ | Atul Jha | Founder · Cloud & Cybersecurity | 6+ years |
+| AS | Anurag Singh | Lead SRE | 6+ years |
+| HM | Harsh Mohur | Full-Stack Engineer | 5+ years |
+| MS | Mohit Sharma | Security & Cloud | 12+ years |
+
+Also added to the homepage JSON-LD as `employee` entries plus
+`numberOfEmployees`, so search engines can associate real people with the
+organisation.
+
+**The bios are deliberately minimal.** They restate only the years and the domain
+that were supplied — nothing else. That is the opposite of the previous copy,
+which invented specifics ("Terraform infrastructure-as-code, multi-cloud
+Kubernetes orchestration, and cost optimization audits") for a person who does
+not exist. Expand them with real detail when you have it; do not let anyone
+re-add invented credentials to a site that sells security audits.
+
+**Two things to confirm:**
+- **"Harsh Mohur"** is spelled exactly as supplied. The GitHub handle is
+  `harshkm`, so check this is right before it goes any further.
+- **Atul Jha's title** keeps "Founder" from the previous markup and pairs it with
+  the Cloud & Cybersecurity specialism supplied. The old "Principal Architect"
+  claim was dropped rather than carried forward unverified.
+
+Still missing for full F-27: client names, case studies, a founding year, and any
+pricing signal. Photographs would replace the initial avatars.

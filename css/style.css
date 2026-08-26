@@ -1304,6 +1304,30 @@ body {
   margin-bottom: 12px;
 }
 
+/* Years of experience — the one hard number on a team card, so it gets
+   its own treatment rather than being buried in the bio. */
+.team-years {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-card);
+  border-radius: 999px;
+  padding: 4px 12px 5px;
+  margin-bottom: 14px;
+}
+.team-years span {
+  font-family: var(--font-display);
+  font-size: var(--fs-base);
+  font-weight: 800;
+  color: var(--accent-green);
+  font-variant-numeric: tabular-nums;
+}
+
 .team-bio {
   font-size: var(--fs-sm);
   color: var(--text-secondary);
@@ -1728,4 +1752,23 @@ a.tech-tag {
 a.tech-tag:hover {
   border-color: var(--border-field);
   color: var(--text-primary);
+}
+
+/* --- Team cards: keep the rows aligned when a role wraps to two lines --- */
+.team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.team-role {
+  /* Reserve two lines so a longer title does not shunt the chip and bio
+     down relative to the cards beside it. */
+  min-height: 2.6em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-wrap: balance;
+}
+.team-bio {
+  margin-top: auto;
 }
