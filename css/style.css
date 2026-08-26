@@ -22,7 +22,11 @@
   /* Typography Colors */
   --text-primary: #F1F5F0;
   --text-secondary: #8FA898;
-  --text-muted: #7A9384;   /* was #5A7262 = 3.61:1, failed AA (F-12) */
+  /* #5A7262 was 3.61:1 on the ground (F-12). #7A9384 fixed that but then
+     failed at 3.97:1 on the lighter --bg-surface-3 card added later — caught
+     by axe-core, not by the original check. #87A090 clears both:
+     4.68:1 on #1E3527 cards, 6.70:1 on the #0A1310 ground. */
+  --text-muted: #87A090;
 
   /* Borders */
   --border-subtle: rgba(98, 184, 79, 0.12);
@@ -1912,46 +1916,6 @@ h2 span.highlight {
   color: var(--text-secondary);
 }
 
-/* --- 6. Trust pill strip ------------------------------------------------- */
-
-.trust-strip {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: center;
-  margin-top: 26px;
-  padding-top: 22px;
-  border-top: 1px solid var(--border-card);
-}
-
-.trust-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  background: rgba(20, 35, 27, 0.8);
-  border: 1px solid var(--border-hairline);
-  border-radius: var(--pill);
-  padding: 6px 14px 7px;
-  font-family: var(--font-mono);
-  font-size: var(--fs-xs);
-  letter-spacing: 0.05em;
-  color: var(--text-secondary);
-  white-space: nowrap;
-  text-decoration: none;
-}
-.trust-pill svg {
-  width: 13px;
-  height: 13px;
-  flex-shrink: 0;
-  stroke: var(--accent-green);
-  fill: none;
-  stroke-width: 2;
-}
-a.trust-pill:hover {
-  border-color: var(--accent-green);
-  color: var(--text-primary);
-}
-
 /* --- 7. The accent, demoted to eyebrows and hairlines -------------------- */
 
 .section-num-label,
@@ -1996,9 +1960,9 @@ a.trust-pill:hover {
   .hero-cta-row .btn-chamfer { justify-content: center; }
 }
 
-/* --- Hero fit. The trust strip + twin CTA made the stage-01 card taller
-       than the viewport, and .scroll-section had no vertical padding on
-       desktop, so the card clipped under the fixed header. --------------- */
+/* --- Hero fit. The twin CTA row made the stage-01 card taller than the
+       viewport, and .scroll-section had no vertical padding on desktop, so
+       the card clipped under the fixed header. ------------------------- */
 
 .scroll-section {
   padding-top: calc(var(--header-height) + 32px);
@@ -2011,18 +1975,28 @@ a.trust-pill:hover {
   max-width: 680px;
 }
 
-.trust-strip {
-  margin-top: 18px;
-  padding-top: 16px;
-  gap: 8px;
-}
 .hero-cta-row {
   margin-top: 22px;
 }
 
-/* The cue collides with the taller card; only show it where there is room */
-@media (max-height: 940px) {
-  #stage-01 .scroll-cue { display: none; }
+/* Scroll cue placement.
+   The cue is position:absolute at bottom:40px inside a flex-centred section.
+   Measured budget for it to sit fully in view without touching the card:
+     header padding 112 + card ~565 + gap 16 + cue 49 + margin 20 = ~762px
+   So it needs a viewport at least ~780px tall. Below that the section grows
+   past 100vh and the cue lands under the fold, where it says nothing the
+   reader cannot already see. Hidden rather than nudged.
+   Also hidden under 1025px wide, where the card alone exceeds the viewport. */
+#stage-01 .scroll-cue {
+  display: none;
+}
+@media (min-width: 1025px) and (min-height: 800px) {
+  #stage-01 {
+    padding-bottom: 130px;
+  }
+  #stage-01 .scroll-cue {
+    display: flex;
+  }
 }
 
 /* Tighten the stage-01 vertical rhythm — two proof rows plus a CTA row need
@@ -2030,3 +2004,17 @@ a.trust-pill:hover {
 #stage-01 .section-content-card { padding: 30px 36px 32px; }
 #stage-01 .section-metrics-row  { margin-top: 18px; padding-top: 15px; }
 #stage-01 .section-body         { margin-bottom: 0; }
+
+/* --- axe-core finding: .badge-tag inside a .service-card ----------------
+   The badge's own rgba(98,184,79,0.1) tint composites over the lighter
+   --bg-surface-3 card to #25422B, where the accent text lands at 4.48:1 —
+   two hundredths under AA. Dropping the tint on cards (the card already
+   provides the surface) takes it to 5.33:1 and keeps the accent colour.
+   Deliberately not solved by brightening the text: that would give the
+   same component two different greens depending on where it sits. */
+.service-card .badge-tag,
+.insight-card .badge-tag,
+.team-card .badge-tag {
+  background: transparent;
+  border-color: var(--border-field);
+}
