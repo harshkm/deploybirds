@@ -6,6 +6,25 @@
 document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
+  // 0. Tidy /index.html out of the address bar.
+  //
+  // Every internal link now points at "./", so nobody reaches /index.html
+  // from inside the site. But bookmarks, old links and anything already
+  // indexed still land there, and GitHub Pages cannot issue a 301 to fix it.
+  // replaceState rewrites the bar with no reload and no history entry.
+  //
+  // Strips only the trailing filename, so this stays correct if the site is
+  // ever served from a subpath (e.g. harshkm.github.io/deploybirds/).
+  try {
+    if (location.pathname.endsWith('/index.html')) {
+      const clean = location.pathname.slice(0, -'index.html'.length) +
+                    location.search + location.hash;
+      history.replaceState(null, '', clean);
+    }
+  } catch (e) {
+    /* file:// or a sandboxed context — the ugly URL is cosmetic, ignore */
+  }
+
   // 1. Navigation Scroll Effect
   const header = document.querySelector('.site-header');
   window.addEventListener('scroll', () => {
