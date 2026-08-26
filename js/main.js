@@ -240,25 +240,35 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateTimer, 1000);
   }
 
-  // 8. Contact Form — real submission
+  // 8. Contact Form — Web3Forms submission
   //
   // F-02: this handler used to call preventDefault(), wait one second, and then
-  // tell the visitor "MESSAGE TRANSMITTED" without sending anything anywhere.
-  // Every enquiry was silently discarded.
+  // display "MESSAGE TRANSMITTED" without sending anything. Every enquiry was
+  // silently discarded.
   //
-  // SET THIS to your endpoint, then the fetch path below goes live:
-  //   Web3Forms  -> https://api.web3forms.com/submit   (needs access_key field)
-  //   Formspree  -> https://formspree.io/f/xxxxxxxx
-  //   Getform    -> https://getform.io/f/xxxxxxxx
-  // Leave it empty and the form falls back to a pre-filled mailto: — slower,
-  // but honest. It never claims success it cannot verify.
-  const FORM_ENDPOINT = '';
+  // The endpoint and access_key now live in the form markup itself
+  // (contact.html), so a no-JS submit still POSTs correctly. This handler only
+  // upgrades that to an in-page async submit with real error reporting.
+  //
+  // TO GO LIVE: paste the access key into the hidden access_key field in
+  // contact.html. Until then this falls back to a pre-filled mailto: — slower,
+  // but it never claims a delivery it cannot verify.
+  const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
+  const KEY_PLACEHOLDER = 'PASTE-YOUR-WEB3FORMS-ACCESS-KEY-HERE';
   const FALLBACK_EMAIL = 'support@deploybirds.com';
+  const FALLBACK_PHONE = '+91 97081 67283';
 
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
     const statusEl = document.getElementById('form-status');
     const submitBtn = contactForm.querySelector('button[type="submit"]');
+    // Read the key at submit time, not at load — it stays correct if the
+    // markup is ever templated or swapped in after hydration.
+    const keyIsSet = () => {
+      const f = contactForm.querySelector('input[name="access_key"]');
+      const v = f ? f.value.trim() : '';
+      return !!v && v !== KEY_PLACEHOLDER;
+    };
 
     // F-06: twelve links point here as contact.html?service=cloud etc.
     // Nothing read the parameter, so the dropdown always opened on its default.
@@ -300,10 +310,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const data = new FormData(contactForm);
 
-      // honeypot — a filled hidden field means a bot
-      if (data.get('company_url')) {
+      // Honeypot. Web3Forms also rejects a filled botcheck server-side, so a
+      // bot has to defeat both. Answer as if it worked - never tell a bot why.
+      if (data.get('botcheck')) {
         setStatus('Thanks — your request has been received.', 'ok');
         contactForm.reset();
+        return;
+      }
+
+      if (!keyIsSet()) {
+        mailtoFallback(data);
         return;
       }
 
@@ -312,34 +328,53 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.innerHTML = '<span>SENDING…</span>';
       setStatus('Sending your request…');
 
-      if (!FORM_ENDPOINT) {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalHTML;
-        mailtoFallback(data);
-        return;
-      }
-
       try {
-        const res = await fetch(FORM_ENDPOINT, {
+        const res = await fetch(WEB3FORMS_ENDPOINT, {
           method: 'POST',
           headers: { Accept: 'application/json' },
           body: data
         });
 
-        if (!res.ok) throw new Error('HTTP ' + res.status);
+        // Web3Forms answers with {success, message} on both paths, so read the
+        // body before deciding - their message names the actual problem
+        // (invalid key, quota reached, blocked domain).
+        let payload = {};
+        try { payload = await res.json(); } catch (_) { /* non-JSON: fall through */ }
+
+        if (!res.ok || payload.success === false) {
+          throw new Error(payload.message || ('HTTP ' + res.status));
+        }
 
         submitBtn.innerHTML = '<span>✓ REQUEST SENT</span>';
         setStatus('Received. Our engineering team will review your specs and reply within 24 hours.', 'ok');
         contactForm.reset();
         if (window.ambientAudio) window.ambientAudio.playBlip(1200, 0.15);
       } catch (err) {
-        // A silent failure here is worse than no form. Say so, and give
-        // the visitor a route that definitely works.
+        // A silent failure here is worse than no form. Say what happened and
+        // give a route that definitely works.
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalHTML;
-        setStatus('That did not go through. Email us directly at ' + FALLBACK_EMAIL +
-                  ' or call +91 97081 67283 — we will pick it up either way.', 'error');
-        console.error('[contact-form] submission failed:', err);
+
+        // An invalid access_key makes Web3Forms answer 403 with no CORS
+        // headers, so the browser reports only "Failed to fetch" and the real
+        // cause is invisible. Verified against the live API from the
+        // deploybirds.com origin on 26 Aug 2026. Name it in the console so
+        // whoever is on call is not guessing.
+        const isNetworkOrCors = err instanceof TypeError ||
+                                /failed to fetch|networkerror|load failed/i.test(err.message);
+        if (isNetworkOrCors) {
+          console.error('[contact-form] Request blocked before a response could be read. ' +
+            'Most likely causes, in order: (1) the access_key in contact.html is wrong or ' +
+            'still the placeholder — an invalid key returns 403 with no CORS header, which ' +
+            'surfaces exactly like this; (2) the visitor is offline. ' +
+            'Check the key at https://web3forms.com first.', err);
+        } else {
+          console.error('[contact-form] API rejected the submission:', err.message, err);
+        }
+
+        setStatus('That did not send' + (isNetworkOrCors ? '' : ' (' + err.message + ')') +
+                  '. Email us at ' + FALLBACK_EMAIL + ' or call ' + FALLBACK_PHONE +
+                  ' — we will pick it up either way.', 'error');
       }
     });
   }

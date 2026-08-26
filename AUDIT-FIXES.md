@@ -39,26 +39,26 @@ insecure hop.
 `github.io` URL in about a minute. I left the file untouched — removing it
 changes production routing, and that's your call, not mine.
 
-### 2. The contact form needs an endpoint (F-02)
+### 2. Paste the Web3Forms access key (F-02)
 
-The form no longer fakes success, but it can't deliver anything until you set one
-line in `js/main.js`:
+Web3Forms is fully wired. One value is missing, in `contact.html`:
 
-```js
-const FORM_ENDPOINT = '';   // ← set this
+```html
+<input type="hidden" name="access_key" value="PASTE-YOUR-WEB3FORMS-ACCESS-KEY-HERE">
 ```
 
-Options:
+**To get it:** go to https://web3forms.com, enter `support@deploybirds.com`, and the
+key arrives by email as a UUID. Paste it over the placeholder and commit — the key
+is safe to commit publicly, it only permits sending to your own verified address.
 
-| Service | Endpoint | Notes |
-|---|---|---|
-| Web3Forms | `https://api.web3forms.com/submit` | free, needs an `access_key` hidden field |
-| Formspree | `https://formspree.io/f/xxxxxxxx` | free tier is 50/month |
-| Getform | `https://getform.io/f/xxxxxxxx` | free tier is 50/month |
-| Lambda + SES | your own | keeps leads inside your AWS account |
+**Until then**, submitting opens a pre-filled `mailto:` — nothing is lost, and it
+never claims a delivery it cannot verify.
 
-**Until it's set**, submitting opens a pre-filled `mailto:` to
-`support@deploybirds.com`. Slower, but it never claims a delivery it can't verify.
+**⚠ If the key is ever wrong**, Web3Forms answers `403` with no CORS header, so the
+browser reports only `Failed to fetch` and the real cause is invisible in the UI.
+Verified against the live API from the `deploybirds.com` origin on 26 Aug 2026.
+The handler prints an explicit diagnostic to the console for exactly this case —
+check there first, then check the key.
 
 ---
 
@@ -212,3 +212,52 @@ re-add invented credentials to a site that sells security audits.
 
 Still missing for full F-27: client names, case studies, a founding year, and any
 pricing signal. Photographs would replace the initial avatars.
+
+
+---
+
+## Web3Forms integration (26 Aug 2026)
+
+Wired against the documented API contract, not from memory:
+
+```
+POST https://api.web3forms.com/submit
+Accept: application/json
+body: FormData (multipart/form-data)
+success: 200 {"success": true,  "message": "..."}
+error:   4xx {"success": false, "message": "..."}
+```
+
+**Fields posted** — verified by intercepting a real request:
+`access_key, subject, from_name, name, email, service, message, nda_consent`
+
+**What changed from the first pass:**
+
+- The honeypot was renamed `company_url` → **`botcheck`**, which is Web3Forms'
+  *reserved* name. Their server now rejects a filled honeypot too, so a bot has
+  to defeat both their check and ours. An unchecked checkbox is correctly absent
+  from the FormData, so only a *filled* honeypot ever appears in the payload.
+- `subject` and `from_name` added so the notification email is readable rather
+  than arriving as "Notifications".
+- The endpoint moved from a JS constant into the form's `action` attribute, so a
+  **no-JS submit still posts correctly** (it lands on Web3Forms' own success
+  page — adding a `redirect` field pointing at a thank-you page would improve
+  that, but no such page exists yet).
+- The key is read **at submit time**, not at page load, so it stays correct if
+  the markup is ever templated.
+- Error handling now reads the JSON body on the failure path and surfaces
+  Web3Forms' own message, instead of discarding it and reporting a bare status
+  code.
+
+**Two findings worth recording:**
+
+1. **The free tier is browser-only.** A `curl` POST from a server IP is rejected
+   with *"This method is not allowed. Use our API in client side"* — regardless
+   of whether the key is valid. Fine for this use (it is a browser form), but it
+   means the success path cannot be smoke-tested from a script or from CI.
+2. **An invalid key is indistinguishable from being offline**, in the UI. See the
+   warning above.
+
+**What could not be verified without the real key:** the success path. Everything
+up to and including the API's rejection is verified. The moment the key is pasted,
+submit the form once from the live site and confirm the email arrives.
