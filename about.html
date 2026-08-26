@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architecture & Team › DeployBirds</title>
+  <meta name="description" content="Meet the engineering team behind DeployBirds. Learn about our reference cloud architecture, disciplined delivery process, and commitment to full accountability.">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <a href="index.html" class="brand-logo">
+      <div class="brand-icon">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 8 L4 20 L12 18 L18 28 L24 18 L32 20 Z" fill="#62B84F"/>
+          <path d="M18 28 L18 16" stroke="#0A1310" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span>deploybirds</span>
+    </a>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="services.html" class="nav-link">Services & Work</a></li>
+        <li><a href="launchpad.html" class="nav-link">Launchpad</a></li>
+        <li><a href="insights.html" class="nav-link">Insights</a></li>
+        <li><a href="about.html" class="nav-link active">About Us</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-cta-wrap">
+      <a href="contact.html" class="btn-nav-cta">
+        <span>Work With Us</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <button class="mobile-menu-btn" aria-label="Toggle Navigation">☰ MENU</button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-drawer">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="services.html" class="nav-link">Services & Work</a>
+    <a href="launchpad.html" class="nav-link">Launchpad</a>
+    <a href="insights.html" class="nav-link">Insights</a>
+    <a href="about.html" class="nav-link active">About Us</a>
+    <a href="contact.html" class="btn-chamfer btn-primary" style="margin-top: 10px;">Work With Us</a>
+  </div>
+
+  <main class="page-container">
+    
+    <!-- Hero Section -->
+    <div class="page-hero">
+      <div class="badge-tag">Why DeployBirds</div>
+      <h1>One Team, <span style="color: var(--accent-lime);">Full Accountability</span></h1>
+      <p class="lead">
+        No handoffs between a dev shop, a DevOps vendor, a database DBA, and a security agency. We own the technical outcome end-to-end so you can focus on building your business.
+      </p>
+    </div>
+
+    <!-- 4 Core Pillars Grid -->
+    <section class="cards-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); margin-bottom: 70px;">
+      <div class="service-card" style="padding: 26px;">
+        <span class="badge-tag" style="margin-bottom: 12px;">Pillar 01</span>
+        <h3 style="font-size: 1.25rem;">Security-First Delivery</h3>
+        <p style="font-size: 0.9rem; margin-bottom: 0;">VAPT vulnerability assessments and static/dynamic code reviews baked into every milestone, not billed as an afterthought.</p>
+      </div>
+
+      <div class="service-card" style="padding: 26px;">
+        <span class="badge-tag" style="margin-bottom: 12px;">Pillar 02</span>
+        <h3 style="font-size: 1.25rem;">Built to Scale From Day One</h3>
+        <p style="font-size: 0.9rem; margin-bottom: 0;">Cloud-native Kubernetes architecture and load-tested infrastructure designed to handle millions of requests without midnight pages.</p>
+      </div>
+
+      <div class="service-card" style="padding: 26px;">
+        <span class="badge-tag" style="margin-bottom: 12px;">Pillar 03</span>
+        <h3 style="font-size: 1.25rem;">Transparent Timelines</h3>
+        <p style="font-size: 0.9rem; margin-bottom: 0;">Weekly demos, shared sprint boards, and clear deliverables. No black-box development or hidden surprise fees.</p>
+      </div>
+
+      <div class="service-card" style="padding: 26px;">
+        <span class="badge-tag" style="margin-bottom: 12px;">Pillar 04</span>
+        <h3 style="font-size: 1.25rem;">Flexible Engagement</h3>
+        <p style="font-size: 0.9rem; margin-bottom: 0;">Fixed Price, Time & Material, or Dedicated Team — whatever matches your project certainty and budget needs.</p>
+      </div>
+    </section>
+
+    <!-- Reference Architecture Interactive Showcase (Page 9 from Deck) -->
+    <section style="margin-bottom: 80px;">
+      <div class="badge-tag">How We Build</div>
+      <h2 style="font-size: 2.2rem; font-weight: 800; text-transform: uppercase; margin: 16px 0 12px;">DeployBirds Reference Architecture</h2>
+      <p style="color: var(--text-secondary); max-width: 680px; margin-bottom: 32px;">
+        Every engagement starts from a hardened, observable baseline, then adapts to your unique stack and business constraints.
+      </p>
+
+      <div class="architecture-canvas-wrap">
+        <div class="arch-layer-grid">
+          
+          <!-- Column 1: Edge -->
+          <div class="arch-col">
+            <div class="arch-col-title">01 · Edge</div>
+            <div class="arch-node-chip">Users & DNS</div>
+            <div class="arch-node-chip">Global CDN</div>
+            <div class="arch-node-chip">WAF Shield</div>
+          </div>
+
+          <!-- Column 2: App Tier -->
+          <div class="arch-col">
+            <div class="arch-col-title">02 · App Tier</div>
+            <div class="arch-node-chip">Web App (React/Next)</div>
+            <div class="arch-node-chip">Mobile (iOS / Android)</div>
+            <div class="arch-node-chip">Admin Console</div>
+          </div>
+
+          <!-- Column 3: Services -->
+          <div class="arch-col">
+            <div class="arch-col-title">03 · Services</div>
+            <div class="arch-node-chip">API Gateway</div>
+            <div class="arch-node-chip">Microservices (Node/Py)</div>
+            <div class="arch-node-chip">Queue Workers</div>
+          </div>
+
+          <!-- Column 4: Data Tier -->
+          <div class="arch-col">
+            <div class="arch-col-title">04 · Data Tier</div>
+            <div class="arch-node-chip">Primary DB (Postgres)</div>
+            <div class="arch-node-chip">Read Replicas</div>
+            <div class="arch-node-chip">Redis Cache Layer</div>
+          </div>
+
+          <!-- Column 5: CI/CD & Infra -->
+          <div class="arch-col">
+            <div class="arch-col-title">05 · CI/CD & IaC</div>
+            <div class="arch-node-chip">GitHub Actions</div>
+            <div class="arch-node-chip">Docker Containers</div>
+            <div class="arch-node-chip">Terraform IaC</div>
+          </div>
+
+          <!-- Column 6: Security & Telemetry -->
+          <div class="arch-col">
+            <div class="arch-col-title">06 · Security & Ops</div>
+            <div class="arch-node-chip">VAPT & Secrets Vault</div>
+            <div class="arch-node-chip">OpenTelemetry & APM</div>
+            <div class="arch-node-chip">24/7 Alerting SLA</div>
+          </div>
+
+        </div>
+
+        <div style="margin-top: 24px; text-align: center; font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-lime);">
+          › Hardened baseline deployed on AWS, Google Cloud, or Microsoft Azure with 99.99% uptime target.
+        </div>
+      </div>
+    </section>
+
+    <!-- 6-Stage Process Flow (Page 8 from Deck) -->
+    <section style="margin-bottom: 80px;">
+      <div class="badge-tag">Our Process</div>
+      <h2 style="font-size: 2.2rem; font-weight: 800; text-transform: uppercase; margin: 16px 0 12px;">From Idea to Production</h2>
+      <p style="color: var(--text-secondary); max-width: 640px; margin-bottom: 32px;">
+        The same disciplined engineering flow, whether it's a 2-week emergency sprint or a multi-year partnership.
+      </p>
+
+      <div class="cards-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-card" style="padding: 22px;">
+          <div class="card-top"><span class="card-num">01</span><span class="card-category-badge">Step 1</span></div>
+          <h4 style="font-size: 1.1rem; margin-bottom: 6px;">Discovery</h4>
+          <p style="font-size: 0.85rem; margin: 0;">Understand goals, technical constraints, user personas, and core success metrics.</p>
+        </div>
+
+        <div class="service-card" style="padding: 22px;">
+          <div class="card-top"><span class="card-num">02</span><span class="card-category-badge">Step 2</span></div>
+          <h4 style="font-size: 1.1rem; margin-bottom: 6px;">Planning</h4>
+          <p style="font-size: 0.85rem; margin: 0;">Scope, cloud architecture blueprints, sprint timelines, and written engagement model.</p>
+        </div>
+
+        <div class="service-card" style="padding: 22px;">
+          <div class="card-top"><span class="card-num">03</span><span class="card-category-badge">Step 3</span></div>
+          <h4 style="font-size: 1.1rem; margin-bottom: 6px;">Design</h4>
+          <p style="font-size: 0.85rem; margin: 0;">Wireframes, high-fidelity UI in Figma, design systems, and technical design sign-off.</p>
+        </div>
+
+        <div class="service-card" style="padding: 22px;">
+          <div class="card-top"><span class="card-num">04</span><span class="card-category-badge">Step 4</span></div>
+          <h4 style="font-size: 1.1rem; margin-bottom: 6px;">Development</h4>
+          <p style="font-size: 0.85rem; margin: 0;">Iterative 2-week sprint builds with weekly video demos, shared boards, and merge reviews.</p>
+        </div>
+
+        <div class="service-card" style="padding: 22px;">
+          <div class="card-top"><span class="card-num">05</span><span class="card-category-badge">Step 5</span></div>
+          <h4 style="font-size: 1.1rem; margin-bottom: 6px;">Testing & Security</h4>
+          <p style="font-size: 0.85rem; margin: 0;">Comprehensive QA regression testing, k6 load testing, and VAPT pen-testing before release.</p>
+        </div>
+
+        <div class="service-card" style="padding: 22px;">
+          <div class="card-top"><span class="card-num">06</span><span class="card-category-badge">Step 6</span></div>
+          <h4 style="font-size: 1.1rem; margin-bottom: 6px;">Launch & Support</h4>
+          <p style="font-size: 0.85rem; margin: 0;">Zero-downtime production deployment, telemetry alerting, and ongoing SLA-backed AMC.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Team Grid -->
+    <section style="margin-bottom: 80px;">
+      <div class="badge-tag">The People Behind the Code</div>
+      <h2 style="font-size: 2.2rem; font-weight: 800; text-transform: uppercase; margin: 16px 0 32px;">Core Engineering Team</h2>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">AJ</div>
+          <div class="team-name">Atul Jha</div>
+          <div class="team-role">Founder & Principal Architect</div>
+          <p class="team-bio">12+ years designing distributed cloud backends, high-throughput database systems, and zero-downtime DevOps pipelines.</p>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar">VS</div>
+          <div class="team-name">Vikram Sharma</div>
+          <div class="team-role">Lead SRE & Cloud Architect</div>
+          <p class="team-bio">Specialist in Terraform infrastructure-as-code, multi-cloud Kubernetes orchestration, and cost optimization audits.</p>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar">AR</div>
+          <div class="team-name">Ananya Roy</div>
+          <div class="team-role">Head of Cybersecurity & VAPT</div>
+          <p class="team-bio">Offensive security researcher focused on web/mobile penetration testing, OWASP Top 10 remediation, and SOC 2 audits.</p>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar">RM</div>
+          <div class="team-name">Rohan Mehta</div>
+          <div class="team-role">Senior Full-Stack Lead</div>
+          <p class="team-bio">React, Next.js, and Node.js architect crafting responsive, accessible user experiences and scalable REST/GraphQL APIs.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Signup Module -->
+    <div class="newsletter-box">
+      <span class="badge-tag">Stay in the Loop</span>
+      <h2 style="font-size: 2rem; margin: 16px 0 12px; text-transform: uppercase;">DeployBirds Dispatch</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 24px;">
+        Monthly architecture breakdowns, cloud cost optimization tactics, and offensive security alerts. No sales spam.
+      </p>
+      <form style="display: flex; gap: 12px; max-width: 480px; margin: 0 auto; flex-wrap: wrap;" onsubmit="event.preventDefault(); alert('Thank you for subscribing to DeployBirds Dispatch!'); this.reset();">
+        <input type="email" class="form-input" placeholder="you@company.com" required style="flex: 1; min-width: 220px;">
+        <button type="submit" class="btn-chamfer btn-primary">Subscribe</button>
+      </form>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-icon">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 8 L4 20 L12 18 L18 28 L24 18 L32 20 Z" fill="#62B84F"/>
+              <path d="M18 28 L18 16" stroke="#0A1310" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span>deploybirds</span>
+        </a>
+        <p>End-to-end software partner for growing businesses.</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Reference Blueprint</h5>
+        <ul class="footer-links">
+          <li><a href="#" class="footer-link">Edge CDN & WAF</a></li>
+          <li><a href="#" class="footer-link">App & Microservices</a></li>
+          <li><a href="#" class="footer-link">Data & Caching</a></li>
+          <li><a href="#" class="footer-link">CI/CD Automation</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul class="footer-links">
+          <li><a href="index.html" class="footer-link">Flight Engine</a></li>
+          <li><a href="services.html" class="footer-link">Services & Work</a></li>
+          <li><a href="launchpad.html" class="footer-link">Launchpad</a></li>
+          <li><a href="insights.html" class="footer-link">Technical Insights</a></li>
+          <li><a href="contact.html" class="footer-link">Schedule Consultation</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul class="footer-links">
+          <li><a href="mailto:atuljha.arth@gmail.com" class="footer-link">atuljha.arth@gmail.com</a></li>
+          <li><a href="tel:+919708167283" class="footer-link">+91 97081 67283</a></li>
+          <li><a href="https://wa.me/919708167283" target="_blank" class="footer-link">WhatsApp us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 DeployBirds. All rights reserved.</div>
+      <div>Obsidian & Electric Lime Architecture</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

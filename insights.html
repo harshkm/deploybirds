@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technical Insights › DeployBirds</title>
+  <meta name="description" content="Deep-dive engineering articles on Kubernetes orchestration, VAPT penetration testing, database indexing, and high-concurrency systems.">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <a href="index.html" class="brand-logo">
+      <div class="brand-icon">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 8 L4 20 L12 18 L18 28 L24 18 L32 20 Z" fill="#62B84F"/>
+          <path d="M18 28 L18 16" stroke="#0A1310" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span>deploybirds</span>
+    </a>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="services.html" class="nav-link">Services & Work</a></li>
+        <li><a href="launchpad.html" class="nav-link">Launchpad</a></li>
+        <li><a href="insights.html" class="nav-link active">Insights</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-cta-wrap">
+      <a href="contact.html" class="btn-nav-cta">
+        <span>Get a Quote</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <button class="mobile-menu-btn" aria-label="Toggle Navigation">☰ MENU</button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-drawer">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="services.html" class="nav-link">Services & Work</a>
+    <a href="launchpad.html" class="nav-link">Launchpad</a>
+    <a href="insights.html" class="nav-link active">Insights</a>
+    <a href="about.html" class="nav-link">About Us</a>
+    <a href="contact.html" class="btn-chamfer btn-primary" style="margin-top: 10px;">Get a Quote</a>
+  </div>
+
+  <main class="page-container">
+    
+    <div class="page-hero">
+      <div class="badge-tag">Engineering Dispatch</div>
+      <h1>Architectural <span style="color: var(--accent-lime);">Insights</span> & Research</h1>
+      <p class="lead">
+        Field notes, post-mortems, and reference implementations from our cloud infrastructure, database, and security teams.
+      </p>
+    </div>
+
+    <!-- Filterable Tag Pills -->
+    <div class="filter-pills-wrap">
+      <button class="filter-pill active" data-filter="all">All Topics</button>
+      <button class="filter-pill" data-filter="cloud">Cloud & DevOps</button>
+      <button class="filter-pill" data-filter="security">Security & VAPT</button>
+      <button class="filter-pill" data-filter="data">Databases & Scaling</button>
+      <button class="filter-pill" data-filter="frontend">Frontend & Performance</button>
+    </div>
+
+    <!-- Insights Card Grid with Custom Illustrated Cover Art -->
+    <div class="insights-grid">
+
+      <!-- Post 1: Cloud & DevOps -->
+      <article class="insight-card" data-category="cloud">
+        <div class="insight-illustration-header">
+          <svg viewBox="0 0 100 100" fill="none">
+            <rect x="25" y="25" width="50" height="50" rx="8" stroke="#36E05E" stroke-width="2" fill="rgba(54,224,94,0.1)"/>
+            <circle cx="50" cy="50" r="14" stroke="#00F0FF" stroke-width="1.5"/>
+            <path d="M50 15V25M50 75V85M15 50H25M75 50H85" stroke="#36E05E" stroke-width="2"/>
+            <circle cx="50" cy="50" r="4" fill="#36E05E"/>
+          </svg>
+        </div>
+        <div class="insight-body">
+          <div>
+            <div class="insight-meta">
+              <span>CLOUD & DEVOPS</span>
+              <span>•</span>
+              <span>8 MIN READ</span>
+            </div>
+            <h3 class="insight-title">Zero-Downtime Multi-Region Kubernetes Failover on AWS</h3>
+            <p class="insight-excerpt">
+              How we architected cross-region EKS cluster replication with Terraform, Route 53 latency routing, and ArgoCD GitOps to survive full AWS zone outages.
+            </p>
+          </div>
+          <div class="tag-cloud">
+            <span class="tech-tag">Kubernetes</span>
+            <span class="tech-tag">Terraform</span>
+            <span class="tech-tag">GitOps</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Post 2: Security & VAPT -->
+      <article class="insight-card" data-category="security">
+        <div class="insight-illustration-header">
+          <svg viewBox="0 0 100 100" fill="none">
+            <path d="M50 20L75 32V55C75 70 50 82 50 82C50 82 25 70 25 55V32L50 20Z" stroke="#36E05E" stroke-width="2" fill="rgba(54,224,94,0.12)"/>
+            <circle cx="50" cy="48" r="8" stroke="#00F0FF" stroke-width="1.5"/>
+            <path d="M50 56V64" stroke="#00F0FF" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="insight-body">
+          <div>
+            <div class="insight-meta">
+              <span>CYBERSECURITY</span>
+              <span>•</span>
+              <span>11 MIN READ</span>
+            </div>
+            <h3 class="insight-title">The OWASP Top 10 Mistakes We Find in 90% of Pre-Launch Audits</h3>
+            <p class="insight-excerpt">
+              A detailed breakdown of Broken Object Level Authorization (BOLA), SSRF vulnerabilities, and JWT misconfigurations, accompanied by automated CI/CD guardrails.
+            </p>
+          </div>
+          <div class="tag-cloud">
+            <span class="tech-tag">VAPT</span>
+            <span class="tech-tag">OWASP Top 10</span>
+            <span class="tech-tag">AppSec</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Post 3: Databases -->
+      <article class="insight-card" data-category="data">
+        <div class="insight-illustration-header">
+          <svg viewBox="0 0 100 100" fill="none">
+            <ellipse cx="50" cy="30" rx="30" ry="10" stroke="#36E05E" stroke-width="2" fill="rgba(54,224,94,0.15)"/>
+            <path d="M20 30V50C20 56 33 60 50 60C67 60 80 56 80 50V30" stroke="#36E05E" stroke-width="2"/>
+            <path d="M20 50V70C20 76 33 80 50 80C67 80 80 76 80 70V50" stroke="#36E05E" stroke-width="2"/>
+            <line x1="50" y1="30" x2="50" y2="80" stroke="#00F0FF" stroke-width="1" stroke-dasharray="3 3"/>
+          </svg>
+        </div>
+        <div class="insight-body">
+          <div>
+            <div class="insight-meta">
+              <span>DATA ARCHITECTURE</span>
+              <span>•</span>
+              <span>9 MIN READ</span>
+            </div>
+            <h3 class="insight-title">Tuning PostgreSQL for 50,000 Reads/Sec: Indexes, Pools & Replicas</h3>
+            <p class="insight-excerpt">
+              Practical strategies for optimizing query plans with EXPLAIN ANALYZE, configuring PgBouncer connection pools, and implementing Redis write-through caching.
+            </p>
+          </div>
+          <div class="tag-cloud">
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">Redis</span>
+            <span class="tech-tag">Query Tuning</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Post 4: Frontend & WebGL -->
+      <article class="insight-card" data-category="frontend">
+        <div class="insight-illustration-header">
+          <svg viewBox="0 0 100 100" fill="none">
+            <polygon points="50,20 80,75 20,75" stroke="#36E05E" stroke-width="2" fill="rgba(54,224,94,0.08)"/>
+            <circle cx="50" cy="55" r="10" stroke="#00F0FF" stroke-width="1.5"/>
+            <line x1="50" y1="20" x2="50" y2="55" stroke="#36E05E" stroke-width="1.5"/>
+            <line x1="80" y1="75" x2="50" y2="55" stroke="#36E05E" stroke-width="1.5"/>
+            <line x1="20" y1="75" x2="50" y2="55" stroke="#36E05E" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="insight-body">
+          <div>
+            <div class="insight-meta">
+              <span>FRONTEND & 3D</span>
+              <span>•</span>
+              <span>7 MIN READ</span>
+            </div>
+            <h3 class="insight-title">Building 60FPS Scroll-Driven 3D Experiences with Three.js</h3>
+            <p class="insight-excerpt">
+              Techniques for geometry instancing, procedural shader lighting, and memory management to achieve cinematic 3D web graphics without sacrificing Core Web Vitals.
+            </p>
+          </div>
+          <div class="tag-cloud">
+            <span class="tech-tag">Three.js</span>
+            <span class="tech-tag">WebGL</span>
+            <span class="tech-tag">Performance</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Post 5: Cloud & DevOps -->
+      <article class="insight-card" data-category="cloud">
+        <div class="insight-illustration-header">
+          <svg viewBox="0 0 100 100" fill="none">
+            <circle cx="35" cy="45" r="16" stroke="#36E05E" stroke-width="2"/>
+            <circle cx="65" cy="45" r="16" stroke="#36E05E" stroke-width="2"/>
+            <circle cx="50" cy="65" r="16" stroke="#00F0FF" stroke-width="2"/>
+            <line x1="35" y1="45" x2="65" y2="45" stroke="#36E05E" stroke-width="1.5"/>
+            <line x1="35" y1="45" x2="50" y2="65" stroke="#36E05E" stroke-width="1.5"/>
+            <line x1="65" y1="45" x2="50" y2="65" stroke="#36E05E" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="insight-body">
+          <div>
+            <div class="insight-meta">
+              <span>CLOUD COST</span>
+              <span>•</span>
+              <span>6 MIN READ</span>
+            </div>
+            <h3 class="insight-title">Slashing $30k/Month from an AWS Bill Without Sacrificing Uptime</h3>
+            <p class="insight-excerpt">
+              Real-world case study right-sizing overprovisioned RDS instances, leveraging Graviton ARM instances, and replacing NAT gateways with VPC endpoints.
+            </p>
+          </div>
+          <div class="tag-cloud">
+            <span class="tech-tag">AWS FinOps</span>
+            <span class="tech-tag">Graviton</span>
+            <span class="tech-tag">Cost Audit</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Post 6: Performance & Testing -->
+      <article class="insight-card" data-category="frontend">
+        <div class="insight-illustration-header">
+          <svg viewBox="0 0 100 100" fill="none">
+            <circle cx="50" cy="50" r="32" stroke="#36E05E" stroke-width="2" stroke-dasharray="6 6"/>
+            <path d="M50 50L68 32" stroke="#00F0FF" stroke-width="2.5"/>
+            <circle cx="50" cy="50" r="5" fill="#36E05E"/>
+            <path d="M30 70L50 50" stroke="#36E05E" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="insight-body">
+          <div>
+            <div class="insight-meta">
+              <span>LOAD TESTING</span>
+              <span>•</span>
+              <span>10 MIN READ</span>
+            </div>
+            <h3 class="insight-title">Simulating 100k Concurrent Users with Distributed k6 and Grafana</h3>
+            <p class="insight-excerpt">
+              How to write realistic user journey scripts, run distributed load generators in Kubernetes, and pinpoint memory leaks and thread pool starvation.
+            </p>
+          </div>
+          <div class="tag-cloud">
+            <span class="tech-tag">k6</span>
+            <span class="tech-tag">Grafana</span>
+            <span class="tech-tag">Stress Testing</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Newsletter Box -->
+    <div class="newsletter-box" style="margin-top: 80px;">
+      <span class="badge-tag">Architecture Dispatch</span>
+      <h2 style="font-size: 2rem; margin: 16px 0 12px; text-transform: uppercase;">Get Engineering Deep Dives</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 24px;">
+        Zero marketing fluff. Just technical blueprints, performance benchmarks, and security incident analyses delivered once a month.
+      </p>
+      <form style="display: flex; gap: 12px; max-width: 480px; margin: 0 auto; flex-wrap: wrap;" onsubmit="event.preventDefault(); alert('Subscribed to DeployBirds Dispatch!'); this.reset();">
+        <input type="email" class="form-input" placeholder="engineer@company.com" required style="flex: 1; min-width: 220px;">
+        <button type="submit" class="btn-chamfer btn-primary">Subscribe</button>
+      </form>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-icon">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 8 L4 20 L12 18 L18 28 L24 18 L32 20 Z" fill="#62B84F"/>
+              <path d="M18 28 L18 16" stroke="#0A1310" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span>deploybirds</span>
+        </a>
+        <p>End-to-end software partner for growing businesses.</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Topics</h5>
+        <ul class="footer-links">
+          <li><a href="#" class="footer-link">Kubernetes & IaC</a></li>
+          <li><a href="#" class="footer-link">VAPT Penetration Testing</a></li>
+          <li><a href="#" class="footer-link">PostgreSQL Optimization</a></li>
+          <li><a href="#" class="footer-link">High-Load Concurrency</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul class="footer-links">
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="services.html" class="footer-link">Services & Work</a></li>
+          <li><a href="launchpad.html" class="footer-link">Launchpad</a></li>
+          <li><a href="about.html" class="footer-link">About Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul class="footer-links">
+          <li><a href="mailto:atuljha.arth@gmail.com" class="footer-link">atuljha.arth@gmail.com</a></li>
+          <li><a href="tel:+919708167283" class="footer-link">+91 97081 67283</a></li>
+          <li><a href="https://wa.me/919708167283" target="_blank" class="footer-link">WhatsApp us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 DeployBirds. All rights reserved.</div>
+      <div>Knowledge Base & Research</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

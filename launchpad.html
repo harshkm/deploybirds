@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Launchpad Program › DeployBirds</title>
+  <meta name="description" content="DeployBirds Launchpad - Accelerating breakout startups with production-ready architecture, automated DevOps, VAPT security, and dedicated engineering capacity.">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <a href="index.html" class="brand-logo">
+      <div class="brand-icon">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 8 L4 20 L12 18 L18 28 L24 18 L32 20 Z" fill="#62B84F"/>
+          <path d="M18 28 L18 16" stroke="#0A1310" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span>deploybirds</span>
+    </a>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="services.html" class="nav-link">Services & Work</a></li>
+        <li><a href="launchpad.html" class="nav-link active">Launchpad</a></li>
+        <li><a href="insights.html" class="nav-link">Insights</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-cta-wrap">
+      <a href="contact.html?source=launchpad" class="btn-nav-cta">
+        <span>Apply for Cohort</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <button class="mobile-menu-btn" aria-label="Toggle Navigation">☰ MENU</button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-drawer">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="services.html" class="nav-link">Services & Work</a>
+    <a href="launchpad.html" class="nav-link active">Launchpad</a>
+    <a href="insights.html" class="nav-link">Insights</a>
+    <a href="about.html" class="nav-link">About Us</a>
+    <a href="contact.html?source=launchpad" class="btn-chamfer btn-primary" style="margin-top: 10px;">Apply for Cohort</a>
+  </div>
+
+  <main class="page-container">
+    
+    <!-- Cinematic Opening Hero Banner -->
+    <section class="flagship-hero-banner">
+      <div>
+        <div class="badge-tag">Flagship Startup Initiative</div>
+        <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.4rem); font-weight: 800; text-transform: uppercase; margin: 18px 0 16px; line-height: 1.1;">
+          DeployBirds <span style="color: var(--accent-lime);">Launchpad</span> 2026
+        </h1>
+        <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.6; max-width: 580px;">
+          A dedicated technical launchpad for high-growth tech ventures. We engineer hardened cloud architecture, automated CI/CD pipelines, offensive VAPT testing, and dedicated engineering sprints to get you to market fast.
+        </p>
+
+        <!-- Countdown Timer -->
+        <div id="cohort-countdown" class="countdown-box">
+          <div class="time-slot">
+            <span id="cd-days" class="time-val">18</span>
+            <span class="time-lbl">Days</span>
+          </div>
+          <div class="time-slot">
+            <span id="cd-hours" class="time-val">14</span>
+            <span class="time-lbl">Hours</span>
+          </div>
+          <div class="time-slot">
+            <span id="cd-min" class="time-val">32</span>
+            <span class="time-lbl">Minutes</span>
+          </div>
+          <div class="time-slot">
+            <span id="cd-sec" class="time-val">45</span>
+            <span class="time-lbl">Seconds</span>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <a href="contact.html?source=launchpad" class="btn-chamfer btn-primary">Apply for Next Cohort</a>
+          <a href="#milestones" class="btn-chamfer btn-secondary">View Milestones</a>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Animated Key Stat Counters -->
+    <section class="stats-banner-grid">
+      <div class="stat-box">
+        <div class="stat-number" data-target="2.4" data-prefix="$" data-suffix="M+">0</div>
+        <div class="stat-desc">Cloud Spend Saved for Clients</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number" data-target="99.99" data-suffix="%">0</div>
+        <div class="stat-desc">Production Uptime Maintained</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number" data-target="100" data-suffix="+">0</div>
+        <div class="stat-desc">Microservices Shipped</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number" data-target="24" data-suffix="h">0</div>
+        <div class="stat-desc">Turnaround Discovery Guarantee</div>
+      </div>
+    </section>
+
+    <!-- Horizontal Milestone Timeline -->
+    <section id="milestones" style="margin-top: 40px;">
+      <div class="badge-tag">Program Roadmap</div>
+      <h2 style="font-size: 2.2rem; font-weight: 800; text-transform: uppercase; margin: 16px 0 12px;">Milestone Execution Flow</h2>
+      <p style="color: var(--text-secondary); max-width: 640px;">
+        A disciplined, 4-phase acceleration track designed to eliminate engineering debt before launch.
+      </p>
+
+      <div class="timeline-track">
+        <!-- Milestone 1 -->
+        <div class="timeline-node-card">
+          <div class="timeline-dot"></div>
+          <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-lime); font-weight: bold;">PHASE 01</span>
+          <h4>Architecture & Discovery</h4>
+          <p>Deep-dive review of system requirements, user personas, API contracts, schema models, and cloud infrastructure budget.</p>
+        </div>
+
+        <!-- Milestone 2 -->
+        <div class="timeline-node-card">
+          <div class="timeline-dot"></div>
+          <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-lime); font-weight: bold;">PHASE 02</span>
+          <h4>MVP Sprint & IaC</h4>
+          <p>Rapid iterative sprints with weekly demos, shared Jira/GitHub boards, and Terraform-provisioned staging environments.</p>
+        </div>
+
+        <!-- Milestone 3 -->
+        <div class="timeline-node-card">
+          <div class="timeline-dot"></div>
+          <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-lime); font-weight: bold;">PHASE 03</span>
+          <h4>VAPT & Load Hardening</h4>
+          <p>Full offensive penetration testing against OWASP Top 10 vectors and simulated stress tests up to 100k+ concurrent requests.</p>
+        </div>
+
+        <!-- Milestone 4 -->
+        <div class="timeline-node-card">
+          <div class="timeline-dot"></div>
+          <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-lime); font-weight: bold;">PHASE 04</span>
+          <h4>Launch & 24/7 AMC</h4>
+          <p>Blue/green zero-downtime deployment to production, automated Datadog/CloudWatch telemetry, and SLA-backed maintenance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partner & Security Credentials -->
+    <section style="margin-top: 60px;">
+      <div class="badge-tag">Hardened Standards</div>
+      <h2 style="font-size: 2.2rem; font-weight: 800; text-transform: uppercase; margin: 16px 0 28px;">Credentials & Ecosystem</h2>
+      
+      <div class="cards-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-card" style="padding: 24px;">
+          <h3 style="font-size: 1.15rem; color: var(--accent-lime); margin-bottom: 8px;">AWS Well-Architected</h3>
+          <p style="font-size: 0.88rem; margin: 0;">Certified infrastructure patterns prioritizing reliability, cost optimization, and performance efficiency.</p>
+        </div>
+        <div class="service-card" style="padding: 24px;">
+          <h3 style="font-size: 1.15rem; color: var(--accent-lime); margin-bottom: 8px;">SOC 2 & ISO 27001</h3>
+          <p style="font-size: 0.88rem; margin: 0;">Groundwork compliance frameworks, audit trails, and strict role-based access control configurations.</p>
+        </div>
+        <div class="service-card" style="padding: 24px;">
+          <h3 style="font-size: 1.15rem; color: var(--accent-lime); margin-bottom: 8px;">Kubernetes Orchestration</h3>
+          <p style="font-size: 0.88rem; margin: 0;">Production-grade microservices containerization with Helm charts and zero-downtime rolling updates.</p>
+        </div>
+        <div class="service-card" style="padding: 24px;">
+          <h3 style="font-size: 1.15rem; color: var(--accent-lime); margin-bottom: 8px;">OWASP Top 10 VAPT</h3>
+          <p style="font-size: 0.88rem; margin: 0;">Rigorous vulnerability assessments and offensive penetration testing protocols with prioritized fixes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Leadership Grid -->
+    <section style="margin-top: 80px;">
+      <div class="badge-tag">Accountability</div>
+      <h2 style="font-size: 2.2rem; font-weight: 800; text-transform: uppercase; margin: 16px 0 32px;">Engineering Leadership</h2>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">AJ</div>
+          <div class="team-name">Atul Jha</div>
+          <div class="team-role">Principal Architect & Founder</div>
+          <p class="team-bio">12+ years designing distributed cloud backends, high-throughput database systems, and zero-downtime DevOps pipelines.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">VS</div>
+          <div class="team-name">Vikram Sharma</div>
+          <div class="team-role">Lead SRE & Cloud Architect</div>
+          <p class="team-bio">Specialist in Terraform infrastructure-as-code, multi-cloud Kubernetes orchestration, and cost optimization audits.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">AR</div>
+          <div class="team-name">Ananya Roy</div>
+          <div class="team-role">Cybersecurity & VAPT Lead</div>
+          <p class="team-bio">Offensive security specialist focused on web/mobile penetration testing, OWASP Top 10 remediation, and SOC 2 audits.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">RM</div>
+          <div class="team-name">Rohan Mehta</div>
+          <div class="team-role">Senior Full-Stack Engineer</div>
+          <p class="team-bio">React, Next.js, and Node.js architect crafting responsive, accessible user experiences and scalable REST/GraphQL APIs.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call To Action -->
+    <div class="newsletter-box" style="margin-top: 60px;">
+      <span class="badge-tag">Limited Cohort Slots</span>
+      <h2 style="font-size: 2rem; margin: 16px 0 12px; text-transform: uppercase;">Ready to Accelerate Your Architecture?</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 24px;">
+        Submit your project specs to receive a complimentary architecture evaluation and technical due diligence brief.
+      </p>
+      <a href="contact.html?source=launchpad" class="btn-chamfer btn-primary">Apply for Free Technical Review</a>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-icon">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 8 L4 20 L12 18 L18 28 L24 18 L32 20 Z" fill="#62B84F"/>
+              <path d="M18 28 L18 16" stroke="#0A1310" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span>deploybirds</span>
+        </a>
+        <p>DeployBirds Launchpad is the acceleration program for modern, scalable software ventures.</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul class="footer-links">
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="services.html" class="footer-link">Services & Work</a></li>
+          <li><a href="launchpad.html" class="footer-link">Launchpad Program</a></li>
+          <li><a href="insights.html" class="footer-link">Technical Insights</a></li>
+          <li><a href="about.html" class="footer-link">About Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contact Channels</h5>
+        <ul class="footer-links">
+          <li><a href="mailto:atuljha.arth@gmail.com" class="footer-link">atuljha.arth@gmail.com</a></li>
+          <li><a href="tel:+919708167283" class="footer-link">+91 97081 67283</a></li>
+          <li><a href="https://wa.me/919708167283" target="_blank" class="footer-link">WhatsApp us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Engagement</h5>
+        <ul class="footer-links">
+          <li><a href="contact.html" class="footer-link">Fixed Price</a></li>
+          <li><a href="contact.html" class="footer-link">Time & Material</a></li>
+          <li><a href="contact.html" class="footer-link">Dedicated Team</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 DeployBirds. All rights reserved.</div>
+      <div>Engineered for Scalability</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

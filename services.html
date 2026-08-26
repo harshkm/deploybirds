@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services & Work › DeployBirds</title>
+  <meta name="description" content="Explore DeployBirds' full catalog of 12 engineering and cloud services: Development, DevOps, VAPT Security, Database Architecture, and 24/7 AMC.">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <a href="index.html" class="brand-logo">
+      <div class="brand-icon">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 8 L4 20 L12 18 L18 28 L24 18 L32 20 Z" fill="#62B84F"/>
+          <path d="M18 28 L18 16" stroke="#0A1310" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span>deploybirds</span>
+    </a>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="services.html" class="nav-link active">Services & Work</a></li>
+        <li><a href="launchpad.html" class="nav-link">Launchpad</a></li>
+        <li><a href="insights.html" class="nav-link">Insights</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-cta-wrap">
+      <a href="contact.html" class="btn-nav-cta">
+        <span>Request Scope</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <button class="mobile-menu-btn" aria-label="Toggle Navigation">☰ MENU</button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-drawer">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="services.html" class="nav-link active">Services & Work</a>
+    <a href="launchpad.html" class="nav-link">Launchpad</a>
+    <a href="insights.html" class="nav-link">Insights</a>
+    <a href="about.html" class="nav-link">About Us</a>
+    <a href="contact.html" class="btn-chamfer btn-primary" style="margin-top: 10px;">Request Scope</a>
+  </div>
+
+  <main class="page-container">
+    
+    <!-- Hero Header -->
+    <div class="page-hero">
+      <div class="badge-tag">Comprehensive Product Lifecycle</div>
+      <h1>Everything Your Product Needs, <span style="color: var(--accent-lime);">In One Place</span></h1>
+      <p class="lead">
+        From the first line of code to 24/7 production observability — we cover the full engineering and cloud lifecycle so you never have to coordinate across multiple vendors.
+      </p>
+    </div>
+
+    <!-- Filterable Category Pills -->
+    <div class="filter-pills-wrap">
+      <button class="filter-pill active" data-filter="all">All 12 Services</button>
+      <button class="filter-pill" data-filter="dev">Engineering & UI</button>
+      <button class="filter-pill" data-filter="cloud">DevOps & Cloud</button>
+      <button class="filter-pill" data-filter="data">Data & Databases</button>
+      <button class="filter-pill" data-filter="security">Security & VAPT</button>
+      <button class="filter-pill" data-filter="qa">QA & Performance</button>
+      <button class="filter-pill" data-filter="consulting">Advisory & AMC</button>
+    </div>
+
+    <!-- 12 Services Numbered Grid -->
+    <div class="cards-grid">
+
+      <!-- 01: Web & Mobile -->
+      <div class="service-card" data-category="dev">
+        <div>
+          <div class="card-top">
+            <span class="card-num">01</span>
+            <span class="card-category-badge">Engineering</span>
+          </div>
+          <h3>Web & Mobile App Development</h3>
+          <p>Custom software built around your unique business logic. We design, build, and ship robust web applications, native/hybrid mobile apps, and internal SaaS tools.</p>
+          <ul class="feature-list">
+            <li>Frontend & backend full-stack builds</li>
+            <li>Native iOS/Android & cross-platform apps</li>
+            <li>MVP sprint delivery for startups</li>
+            <li>Legacy code modernization & re-platforming</li>
+          </ul>
+        </div>
+        <div>
+          <div class="tag-cloud">
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Next.js</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">Python/Django</span>
+            <span class="tech-tag">Flutter</span>
+          </div>
+          <div style="margin-top: 20px;">
+            <a href="contact.html?service=dev" class="btn-chamfer btn-secondary" style="width: 100%;">Book Dev Sprint</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02: Database Systems -->
+      <div class="service-card" data-category="data">
+        <div>
+          <div class="card-top">
+            <span class="card-num">02</span>
+            <span class="card-category-badge">Data Systems</span>
+          </div>
+          <h3>Database Design & Management</h3>
+          <p>A slow database will sink a fast application. We architect scalable relational and NoSQL schemas, tune high-latency queries, and manage replication clusters.</p>
+          <ul class="feature-list">
+            <li>SQL & NoSQL schema design & indexing</li>
+            <li>Query optimization & execution plan tuning</li>
+            <li>Zero-downtime database migrations</li>
+            <li>Automated backup & replication failover</li>
+          </ul>
+        </div>
+        <div>
+          <div class="tag-cloud">
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">MongoDB</span>
+            <span class="tech-tag">Redis</span>
+            <span class="tech-tag">DynamoDB</span>
+          </div>
+          <div style="margin-top: 20px;">
+            <a href="contact.html?service=data" class="btn-chamfer btn-secondary" style="width: 100%;">Optimize Database</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03: DevOps & Cloud Infrastructure -->
+      <div class="service-card" data-category="cloud">
+        <div>
+          <div class="card-top">
+            <span class="card-num">03</span>
+            <span class="card-category-badge">Cloud Ops</span>
+          </div>
+          <h3>DevOps & Cloud Infrastructure</h3>
+          <p>Turn manual, error-prone releases into automated, immutable deployment pipelines. Infrastructure as Code and Kubernetes clusters that auto-scale under load.</p>
+          <ul class="feature-list">
+            <li>CI/CD pipeline design & automated checks</li>
+            <li>Containerization & Kubernetes orchestration</li>
+            <li>Infrastructure as Code (Terraform)</li>
+            <li>Auto-scaling, load balancing & multi-zone failover</li>
+          </ul>
+        </div>
+        <div>
+          <div class="tag-cloud">
+            <span class="tech-tag">AWS</span>
+            <span class="tech-tag">Docker</span>
+            <span class="tech-tag">Kubernetes</span>
+            <span class="tech-tag">Terraform</span>
+            <span class="tech-tag">GitHub Actions</span>
+          </div>
+          <div style="margin-top: 20px;">
+            <a href="contact.html?service=devops" class="btn-chamfer btn-secondary" style="width: 100%;">Automate Pipelines</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04: Digital Marketing & SEO -->
+      <div class="service-card" data-category="dev">
+        <div>
+          <div class="card-top">
+            <span class="card-num">04</span>
+            <span class="card-category-badge">Growth</span>
+          </div>
+          <h3>Digital Marketing & SEO</h3>
+          <p>Engineering and marketing pulling in the same direction. Technical SEO audits, conversion rate optimization, and paid acquisition funnels that convert traffic into revenue.</p>
+          <ul class="feature-list">
+            <li>Technical & on-page Core Web Vitals SEO</li>
+            <li>Paid ads management (Google, Meta, LinkedIn)</li>
+            <li>High-converting landing page CRO</li>
+            <li>Analytics event telemetry & attribution</li>
+          </ul>
+        </div>
+        <div>
+          <div class="tag-cloud">
+            <span class="tech-tag">Technical SEO</span>
+            <span class="tech-tag">Google Ads</span>
+            <span class="tech-tag">Meta Ads</span>
+            <span class="tech-tag">GA4 Analytics</span>
+          </div>
+          <div style="margin-top: 20px;">
+            <a href="contact.html?service=marketing" class="btn-chamfer btn-secondary" style="width: 100%;">Accelerate Growth</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05: UI/UX & Product Design -->
+      <div class="service-card" data-category="dev">
+        <div>
+          <div class="card-top">
+            <span class="card-num">05</span>
+            <span class="card-category-badge">Design</span>
+          </div>
+          <h3>UI/UX & Product Design</h3>
+          <p>More than just how a screen looks — validated with real user flows before a single line of code is written. Interactive prototypes and production-ready component libraries.</p>
+          <ul class="feature-list">
+            <li>User research & customer journey mapping</li>
+            <li>Wireframes & clickable interactive prototypes</li>
+            <li>High-fidelity UI design for web & mobile</li>
+            <li>Reusable design systems & tokens in Figma</li>
+          </ul>
+        </div>
+        <div>
+          <div class="tag-cloud">
+            <span class="tech-tag">Figma</span>
+            <span class="tech-tag">Design Systems</span>
+            <span class="tech-tag">Prototyping</span>
+            <span class="tech-tag">User Testing</span>
+          </div>
+          <div style="margin-top: 20px;">
+            <a href="contact.html?service=design" class="btn-chamfer btn-secondary" style="width: 100%;">Design Prototype</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 06: QA & Testing -->
+      <div class="service-card" data-category="qa">
+        <div>
+          <div class="card-top">
+            <span class="card-num">06</span>
+            <span class="card-category-badge">Quality</span>
+          </div>
+          <h3>QA & Automated Testing</h3>
+          <p>Manual and automated test suites that catch regressions in CI, not in production. Complete functional, integration, and cross-browser coverage before every release.</p>
+          <ul class="feature-list">
+            <li>Manual functional & exploratory test suites</li>
+            <li>Automated Cypress & Playwright E2E tests</li>
+            <li>Cross-browser & device matrix validation</li>
+            <li>Continuous regression gates in CI/CD</li>
+          </ul>
+        </div>
+        <div>
+          <div class="tag-cloud">
+            <span class="tech-tag">Playwright</span>
+            <span class="tech-tag">Cypress</span>
+            <span class="tech-tag">Selenium</span>
+            <span class="tech-tag">Regression CI</span>
+          </div>
+          <div style="margin-top: 20px;">
+            <a href="contact.html?service=qa" class="btn-chamfer btn-secondary" style="width: 100%;">Audit QA Pipeline</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 07: Maintenance & Support (AMC) -->
+      <div class="service-card" data-category="consulting">
+        <div>
+          <div class="card-top">
+            <span class="card-num">07</span>
+            <span class="card-category-badge">Support</span>
+          </div>
+          <h3>Maintenance & Support (AMC)</h3>
+          <p>Launch day is the start of the journey. We keep applications patched, monitored 24/7, and evolving under a strict SLA-backed annual maintenance agreement.</p>
+          <ul class="feature-list">
+            <li>24/7 uptime monitoring & instant alerts</li>
+            <li>Guaranteed SLA turnaround for bug fixes</li>
+            <li>Dependency & framework security updates</li>
+            <li>Monthly health, capacity & security reports</li>
+          </ul>
+        </div>
+        <div>
+          <div class="tag-cloud">
+            <span class="tech-tag">24/7 Alerts</span>
+            <span class="tech-tag">SLA Guarantees</span>
+            <span class="tech-tag">Patching</span>
+            <span class="tech-tag">Health Reports</span>
+          </div>
+          <div style="margin-top: 20px;">
+            <a href="contact.html?service=amc" class="btn-chamfer btn-secondary" style="width: 100%;">Get AMC Coverage</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 08: Cloud Migration & Consulting -->
+      <div class="service-card" data-category="cloud">
+        <div>
+          <div class="card-top">
+            <span class="card-num">08</span>
+            <span class="card-category-badge">Cloud</span>
+          </div>
+          <h3>Cloud Consulting & Migration</h3>
+          <p>Migrate off on-premise infrastructure or cut wasted cloud spend. We design well-architected cloud topologies and execute migrations with zero user disruption.</p>
+          <ul class="feature-list">
+            <li>Cloud readiness assessment & strategy</li>
+            <li>On-prem to cloud & cross-cloud migration</li>
+            <li>Cost audit & right-sizing (save 25-45%)</li>
+            <li>AWS Well-Architected Framework review</li>
+          </ul>
+        </div>
+        <div>
+          <div class="tag-cloud">
+            <span class="tech-tag">AWS</span>
+            <span class="tech-tag">GCP</span>
+            <span class="tech-tag">Azure</span>
+            <span class="tech-tag">Cost Audits</span>
+          </div>
+          <div style="margin-top: 20px;">
+            <a href="contact.html?service=cloud" class="btn-chamfer btn-secondary" style="width: 100%;">Review Cloud Costs</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 09: Cybersecurity & VAPT -->
+      <div class="service-card" data-category="security">
+        <div>
+          <div class="card-top">
+            <span class="card-num">09</span>
+            <span class="card-category-badge">Security</span>
+          </div>
+          <h3>Cybersecurity & VAPT</h3>
+          <p>Find vulnerabilities before malicious attackers do. Comprehensive application and infrastructure penetration testing with clear, prioritized remediation roadmaps.</p>
+          <ul class="feature-list">
+            <li>Web & mobile application penetration testing</li>
+            <li>OWASP Top 10 & static/dynamic code audits</li>
+            <li>Network & cloud infrastructure vulnerability scans</li>
+            <li>ISO 27001 & SOC 2 compliance readiness</li>
+          </ul>
+        </div>
+        <div>
+          <div class="tag-cloud">
+            <span class="tech-tag">VAPT</span>
+            <span class="tech-tag">OWASP Top 10</span>
+            <span class="tech-tag">Pen-Testing</span>
+            <span class="tech-tag">SOC 2</span>
+          </div>
+          <div style="margin-top: 20px;">
+            <a href="contact.html?service=security" class="btn-chamfer btn-secondary" style="width: 100%;">Schedule VAPT Audit</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10: Load & Performance Testing -->
+      <div class="service-card" data-category="qa">
+        <div>
+          <div class="card-top">
+            <span class="card-num">10</span>
+            <span class="card-category-badge">Performance</span>
+          </div>
+          <h3>Load & Performance Testing</h3>
+          <p>We simulate extreme traffic spikes — product launches, Black Friday surges, viral campaigns — so you know your exact breaking point before your customers do.</p>
+          <ul class="feature-list">
+            <li>Realistic distributed load & stress tests</li>
+            <li>Database & API layer bottleneck isolation</li>
+            <li>Infrastructure capacity planning for scale events</li>
+            <li>Actionable latency & throughput tuning</li>
+          </ul>
+        </div>
+        <div>
+          <div class="tag-cloud">
+            <span class="tech-tag">k6</span>
+            <span class="tech-tag">JMeter</span>
+            <span class="tech-tag">Locust</span>
+            <span class="tech-tag">Stress Testing</span>
+          </div>
+          <div style="margin-top: 20px;">
+            <a href="contact.html?service=perf" class="btn-chamfer btn-secondary" style="width: 100%;">Stress Test System</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11: API Testing & Integration -->
+      <div class="service-card" data-category="dev">
+        <div>
+          <div class="card-top">
+            <span class="card-num">11</span>
+            <span class="card-category-badge">Integration</span>
+          </div>
+          <h3>API Testing & Integration</h3>
+          <p>APIs are the contract between every tier of your software. We test contracts rigorously and integrate mission-critical payment gateways, CRMs, and 3rd-party services.</p>
+          <ul class="feature-list">
+            <li>Functional, contract & security API tests</li>
+            <li>Stripe, Razorpay, Twilio, OAuth2 integrations</li>
+            <li>Interactive OpenAPI/Swagger documentation</li>
+            <li>Webhook & event-driven architecture validation</li>
+          </ul>
+        </div>
+        <div>
+          <div class="tag-cloud">
+            <span class="tech-tag">REST</span>
+            <span class="tech-tag">GraphQL</span>
+            <span class="tech-tag">Postman</span>
+            <span class="tech-tag">Webhooks</span>
+          </div>
+          <div style="margin-top: 20px;">
+            <a href="contact.html?service=api" class="btn-chamfer btn-secondary" style="width: 100%;">Connect APIs</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12: Technical Consulting & Staff Augmentation -->
+      <div class="service-card" data-category="consulting">
+        <div>
+          <div class="card-top">
+            <span class="card-num">12</span>
+            <span class="card-category-badge">Consulting</span>
+          </div>
+          <h3>Technical Consulting & Dedicated Engineers</h3>
+          <p>Sometimes you need a senior architect's strategic opinion or dedicated high-caliber engineers to plug seamlessly into your existing sprint boards and code reviews.</p>
+          <ul class="feature-list">
+            <li>Architecture reviews & technology selection</li>
+            <li>Embedded full-stack & DevOps engineers</li>
+            <li>CTO-as-a-Service for growth-stage startups</li>
+            <li>Technical due diligence for investors & acquirers</li>
+          </ul>
+        </div>
+        <div>
+          <div class="tag-cloud">
+            <span class="tech-tag">Architecture</span>
+            <span class="tech-tag">Dedicated Devs</span>
+            <span class="tech-tag">CTO Advisory</span>
+            <span class="tech-tag">Due Diligence</span>
+          </div>
+          <div style="margin-top: 20px;">
+            <a href="contact.html?service=consulting" class="btn-chamfer btn-secondary" style="width: 100%;">Request Engineers</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Featured Case Studies Section -->
+    <div style="margin-top: 90px;">
+      <div class="badge-tag">Verified Engineering Impact</div>
+      <h2 style="font-size: 2.2rem; font-weight: 800; text-transform: uppercase; margin: 16px 0 32px;">Production Case Studies</h2>
+
+      <div class="cards-grid">
+        
+        <!-- Case 1 -->
+        <div class="service-card">
+          <div>
+            <div class="card-top">
+              <span class="card-num">CASE 01</span>
+              <span class="card-category-badge">FinTech · Scalability</span>
+            </div>
+            <h3>High-Throughput Neo-Banking Platform</h3>
+            <p>Architected a microservices backend with PostgreSQL read-replicas, Redis caching, and automated Terraform infrastructure on AWS for over 1.2M daily active transactions.</p>
+            <div class="section-metrics-row" style="margin-bottom: 20px;">
+              <div class="metric-item">
+                <span class="metric-val" style="font-size: 1.5rem;">99.995%</span>
+                <span class="metric-label">Uptime Achieved</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-val" style="font-size: 1.5rem;">-65%</span>
+                <span class="metric-label">API Latency</span>
+              </div>
+            </div>
+          </div>
+          <div class="tag-cloud">
+            <span class="tech-tag">Next.js</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">AWS EKS</span>
+          </div>
+        </div>
+
+        <!-- Case 2 -->
+        <div class="service-card">
+          <div>
+            <div class="card-top">
+              <span class="card-num">CASE 02</span>
+              <span class="card-category-badge">HealthTech · Security & VAPT</span>
+            </div>
+            <h3>HIPAA & SOC 2 Cloud Migration</h3>
+            <p>Executed zero-downtime database and container migration from legacy on-prem servers to GCP, implementing automated VAPT scans and strict least-privilege IAM controls.</p>
+            <div class="section-metrics-row" style="margin-bottom: 20px;">
+              <div class="metric-item">
+                <span class="metric-val" style="font-size: 1.5rem;">0 min</span>
+                <span class="metric-label">Migration Downtime</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-val" style="font-size: 1.5rem;">$42k/mo</span>
+                <span class="metric-label">Cost Reduced</span>
+              </div>
+            </div>
+          </div>
+          <div class="tag-cloud">
+            <span class="tech-tag">GCP</span>
+            <span class="tech-tag">Kubernetes</span>
+            <span class="tech-tag">VAPT</span>
+            <span class="tech-tag">Terraform</span>
+          </div>
+        </div>
+
+        <!-- Case 3 -->
+        <div class="service-card">
+          <div>
+            <div class="card-top">
+              <span class="card-num">CASE 03</span>
+              <span class="card-category-badge">E-Commerce · Load Stress</span>
+            </div>
+            <h3>Flash-Sale Peak Concurrency Engine</h3>
+            <p>Conducted distributed stress testing with k6 and restructured database indexes to support 150,000 simultaneous checkouts without checkout deadlocks or crashes.</p>
+            <div class="section-metrics-row" style="margin-bottom: 20px;">
+              <div class="metric-item">
+                <span class="metric-val" style="font-size: 1.5rem;">150K</span>
+                <span class="metric-label">Concurrent Users</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-val" style="font-size: 1.5rem;">0 Errors</span>
+                <span class="metric-label">During Flash Sale</span>
+              </div>
+            </div>
+          </div>
+          <div class="tag-cloud">
+            <span class="tech-tag">k6 Testing</span>
+            <span class="tech-tag">Redis Cluster</span>
+            <span class="tech-tag">FastAPI</span>
+            <span class="tech-tag">AWS CloudFront</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CTA Banner -->
+    <div class="newsletter-box" style="margin-top: 80px;">
+      <span class="badge-tag">Discovery Session</span>
+      <h2 style="font-size: 2rem; margin: 16px 0 12px; text-transform: uppercase;">Have a Project in Mind?</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 24px;">
+        Share your technical brief with our team. We respond with a scoped proposal, architecture review, and engagement model within 24 hours.
+      </p>
+      <a href="contact.html" class="btn-chamfer btn-primary">Start a Conversation</a>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-icon">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 8 L4 20 L12 18 L18 28 L24 18 L32 20 Z" fill="#62B84F"/>
+              <path d="M18 28 L18 16" stroke="#0A1310" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span>deploybirds</span>
+        </a>
+        <p>End-to-end software partner delivering development, databases, DevOps, cybersecurity, and 24/7 AMC.</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul class="footer-links">
+          <li><a href="index.html" class="footer-link">Flight Engine</a></li>
+          <li><a href="services.html" class="footer-link">Services & Work</a></li>
+          <li><a href="launchpad.html" class="footer-link">Launchpad Program</a></li>
+          <li><a href="insights.html" class="footer-link">Technical Insights</a></li>
+          <li><a href="about.html" class="footer-link">Architecture & Team</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Engagement</h5>
+        <ul class="footer-links">
+          <li><a href="contact.html" class="footer-link">Fixed Price Projects</a></li>
+          <li><a href="contact.html" class="footer-link">Time & Material Sprints</a></li>
+          <li><a href="contact.html" class="footer-link">Dedicated Team</a></li>
+          <li><a href="contact.html" class="footer-link">Annual AMC Support</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul class="footer-links">
+          <li><a href="mailto:atuljha.arth@gmail.com" class="footer-link">atuljha.arth@gmail.com</a></li>
+          <li><a href="tel:+919708167283" class="footer-link">+91 97081 67283</a></li>
+          <li><a href="https://wa.me/919708167283" target="_blank" class="footer-link">WhatsApp us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 DeployBirds. All rights reserved.</div>
+      <div>Designed with Precision & Accountability</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

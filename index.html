@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeployBirds › End-to-End Software, Cloud & Security Partner</title>
+  <meta name="description" content="We build, secure and scale digital products for growing businesses. Development, cloud infra, VAPT security and 24/7 AMC from one accountable team.">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Three.js (r128) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+  <!-- Persistent Header -->
+  <header class="site-header">
+    <a href="index.html" class="brand-logo">
+      <div class="brand-icon">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Bird body - left wing sweep -->
+          <path d="M18 8 L4 20 L12 18 L18 28 L24 18 L32 20 Z" fill="#62B84F"/>
+          <!-- Centerline detail -->
+          <path d="M18 28 L18 16" stroke="#0A1310" stroke-width="1.5" stroke-linecap="round"/>
+          <!-- Wing highlights -->
+          <path d="M18 8 L4 20" stroke="#4FA83D" stroke-width="0.5" stroke-linecap="round"/>
+          <path d="M18 8 L32 20" stroke="#4FA83D" stroke-width="0.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span>deploybirds</span>
+    </a>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="services.html" class="nav-link">Services & Work</a></li>
+        <li><a href="launchpad.html" class="nav-link">Launchpad</a></li>
+        <li><a href="insights.html" class="nav-link">Insights</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-cta-wrap">
+      <a href="contact.html" class="btn-nav-cta">
+        <span>Get a Quote</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <button class="mobile-menu-btn" aria-label="Toggle Navigation">☰ MENU</button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-drawer">
+    <a href="index.html" class="nav-link active">Home</a>
+    <a href="services.html" class="nav-link">Services & Work</a>
+    <a href="launchpad.html" class="nav-link">Launchpad</a>
+    <a href="insights.html" class="nav-link">Insights</a>
+    <a href="about.html" class="nav-link">About Us</a>
+    <a href="contact.html" class="btn-chamfer btn-primary" style="margin-top: 10px;">Get a Quote</a>
+  </div>
+
+  <!-- 3D WebGL Canvas Layer -->
+  <div id="webgl-canvas-container"></div>
+
+  <!-- Continuous 9-Stage Scroll Journey -->
+  <main class="scroll-experience-wrap">
+
+    <!-- Stage 01: Hero & Brand Statement -->
+    <section id="stage-01" class="scroll-section active" data-stage="1" data-title="Launch & Initiation">
+      <div class="section-content-card">
+        <div class="badge-tag">Full-Stack Software Partner</div>
+        <h1 class="section-heading" style="margin-top: 14px;">
+          We Build, Secure & Scale <span class="highlight">Digital Products</span> for Growing Businesses
+        </h1>
+        <p class="section-body">
+          DeployBirds is a full-service software company — custom development, databases, DevOps, security testing, and marketing, delivered by one accountable team instead of five fragmented agencies.
+        </p>
+        <div class="section-metrics-row">
+          <div class="metric-item">
+            <span class="metric-val">12+</span>
+            <span class="metric-label">Services Under One Roof</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-val">24/7</span>
+            <span class="metric-label">Support & Monitoring</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-val">3</span>
+            <span class="metric-label">Flexible Engagement Models</span>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-cue">
+        <span>Scroll to Discover</span>
+        <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5M12 4v11"/></svg>
+      </div>
+    </section>
+
+    <!-- Stage 02: Hardened Cloud Architecture & DevOps -->
+    <section id="stage-02" class="scroll-section section-right" data-stage="2" data-title="Cloud & Infra">
+      <div class="section-content-card">
+        <span class="section-num-label">02 · Cloud Infrastructure</span>
+        <h2 class="section-heading">
+          Hardened <span class="highlight">Cloud-Native</span> Architecture
+        </h2>
+        <p class="section-body">
+          Whether you're migrating off legacy bare-metal or optimizing bloated cloud bills, we engineer automated Kubernetes clusters, Terraform IaC, and zero-downtime multi-region deployments.
+        </p>
+        <div class="tag-cloud">
+          <span class="tech-tag">AWS</span>
+          <span class="tech-tag">GCP</span>
+          <span class="tech-tag">Azure</span>
+          <span class="tech-tag">Kubernetes</span>
+          <span class="tech-tag">Docker</span>
+          <span class="tech-tag">Terraform</span>
+        </div>
+        <div style="margin-top: 24px;">
+          <a href="services.html#cloud" class="btn-chamfer btn-secondary">Explore Cloud Ops</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stage 03: Full-Lifecycle Web & Mobile Development -->
+    <section id="stage-03" class="scroll-section" data-stage="3" data-title="Engineering">
+      <div class="section-content-card">
+        <span class="section-num-label">03 · Bespoke Engineering</span>
+        <h2 class="section-heading">
+          Custom <span class="highlight">Web & Mobile</span> Platforms
+        </h2>
+        <p class="section-body">
+          Custom software engineered around your unique business logic, not rigid templates. High-concurrency web apps, cross-platform mobile apps, and internal tools built to withstand real production load.
+        </p>
+        <div class="tag-cloud">
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">Next.js</span>
+          <span class="tech-tag">Node.js</span>
+          <span class="tech-tag">Python / Django</span>
+          <span class="tech-tag">React Native</span>
+          <span class="tech-tag">Flutter</span>
+        </div>
+        <div style="margin-top: 24px;">
+          <a href="services.html#dev" class="btn-chamfer btn-secondary">View Engineering Stack</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stage 04: Data Velocity & High Throughput -->
+    <section id="stage-04" class="scroll-section section-right" data-stage="4" data-title="Data Velocity">
+      <div class="section-content-card">
+        <span class="section-num-label">04 · Data & Caching</span>
+        <h2 class="section-heading">
+          Data Systems at <span class="highlight">Maximum Velocity</span>
+        </h2>
+        <p class="section-body">
+          A fragile database sinks a fast frontend. We design schemas that scale, optimize high-traffic queries, and engineer read replicas, Redis caching layers, and zero-loss disaster recovery.
+        </p>
+        <div class="tag-cloud">
+          <span class="tech-tag">PostgreSQL</span>
+          <span class="tech-tag">MySQL</span>
+          <span class="tech-tag">MongoDB</span>
+          <span class="tech-tag">Redis</span>
+          <span class="tech-tag">DynamoDB</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stage 05: Cybersecurity & VAPT -->
+    <section id="stage-05" class="scroll-section" data-stage="5" data-title="Security Matrix">
+      <div class="section-content-card">
+        <span class="section-num-label">05 · Offensive Defense</span>
+        <h2 class="section-heading">
+          VAPT & <span class="highlight">Bulletproof Security</span>
+        </h2>
+        <p class="section-body">
+          Vulnerability Assessment & Penetration Testing that spots the loopholes an attacker would find first. OWASP Top 10 audits, secure code review, and ISO 27001 / SOC 2 groundwork baked in.
+        </p>
+        <div class="tag-cloud">
+          <span class="tech-tag">VAPT Audits</span>
+          <span class="tech-tag">OWASP Top 10</span>
+          <span class="tech-tag">Network Hardening</span>
+          <span class="tech-tag">SOC 2 Prep</span>
+        </div>
+        <div style="margin-top: 24px;">
+          <a href="services.html#security" class="btn-chamfer btn-secondary">Audit Your Surface</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stage 06: Load & Stress Testing -->
+    <section id="stage-06" class="scroll-section section-right" data-stage="6" data-title="Stress Resilience">
+      <div class="section-content-card">
+        <span class="section-num-label">06 · Scale Resilience</span>
+        <h2 class="section-heading">
+          Tested to the <span class="highlight">Breaking Point</span>
+        </h2>
+        <p class="section-body">
+          We simulate viral spikes, product launches, and massive concurrency before your users arrive. Distributed stress testing across JMeter, k6, and Locust reveals bottlenecks before they hit production.
+        </p>
+        <div class="tag-cloud">
+          <span class="tech-tag">k6 Testing</span>
+          <span class="tech-tag">JMeter</span>
+          <span class="tech-tag">Locust</span>
+          <span class="tech-tag">Capacity Planning</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stage 07: 24/7 SLA Support & AMC -->
+    <section id="stage-07" class="scroll-section" data-stage="7" data-title="24/7 AMC">
+      <div class="section-content-card">
+        <span class="section-num-label">07 · Ongoing Operations</span>
+        <h2 class="section-heading">
+          Continuous <span class="highlight">Uptime & Support</span>
+        </h2>
+        <p class="section-body">
+          Launch day is the beginning, not the finish line. We keep applications patched, monitored 24/7, and evolving under an annual maintenance contract with strict SLA-backed turnaround times.
+        </p>
+        <div class="tag-cloud">
+          <span class="tech-tag">24/7 Telemetry</span>
+          <span class="tech-tag">SLA Response</span>
+          <span class="tech-tag">Patch Upgrades</span>
+          <span class="tech-tag">Monthly Reports</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stage 08: 3 Flexible Engagement Models -->
+    <section id="stage-08" class="scroll-section section-right" data-stage="8" data-title="Partnership Models">
+      <div class="section-content-card">
+        <span class="section-num-label">08 · Engagement</span>
+        <h2 class="section-heading">
+          Tailored <span class="highlight">Partnership</span> Models
+        </h2>
+        <p class="section-body">
+          Pick the engagement model that matches your certainty and budget: Fixed Price for defined scope, Time & Material for evolving sprints, or Dedicated Engineers embedded directly in your team.
+        </p>
+        <div class="section-metrics-row">
+          <div class="metric-item">
+            <span class="metric-val" style="font-size: 1.1rem; color: #fff;">Fixed Price</span>
+            <span class="metric-label">Defined Scope & Budget</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-val" style="font-size: 1.1rem; color: #fff;">Time & Material</span>
+            <span class="metric-label">Sprint-by-Sprint Flow</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-val" style="font-size: 1.1rem; color: #fff;">Dedicated Team</span>
+            <span class="metric-label">Staff Augmentation</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stage 09: Final Launchpad & Call to Action -->
+    <section id="stage-09" class="scroll-section section-center" data-stage="9" data-title="Initiate Project">
+      <div class="section-content-card" style="max-width: 680px; margin: 0 auto; text-align: center;">
+        <span class="section-num-label">09 · Mission Control</span>
+        <h2 class="section-heading" style="font-size: clamp(2.4rem, 4.5vw, 3.8rem);">
+          Ready for <span class="highlight">Takeoff?</span>
+        </h2>
+        <p class="section-body" style="max-width: 540px; margin: 0 auto 32px;">
+          Tell us what you're building. We sign a mutual NDA upfront and return with a complimentary architectural evaluation and scoped proposal within 24 hours.
+        </p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="contact.html" class="btn-chamfer btn-primary" style="font-size: 0.95rem; padding: 16px 36px;">
+            <span>Schedule Discovery Call</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="services.html" class="btn-chamfer btn-secondary">
+            <span>Browse 12 Services</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Persistent Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-icon">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Bird body - left wing sweep -->
+              <path d="M18 8 L4 20 L12 18 L18 28 L24 18 L32 20 Z" fill="#62B84F"/>
+              <!-- Centerline detail -->
+              <path d="M18 28 L18 16" stroke="#0A1310" stroke-width="1.5" stroke-linecap="round"/>
+              <!-- Wing highlights -->
+              <path d="M18 8 L4 20" stroke="#4FA83D" stroke-width="0.5" stroke-linecap="round"/>
+              <path d="M18 8 L32 20" stroke="#4FA83D" stroke-width="0.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span>deploybirds</span>
+        </a>
+        <p>
+          End-to-end software partner for growing businesses. Development, databases, DevOps, cybersecurity, and cloud operations by one accountable team.
+        </p>
+        <div style="margin-top: 16px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-lime);">
+          › Response Time: Guaranteed within 24 hours
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Core Services</h5>
+        <ul class="footer-links">
+          <li><a href="services.html#dev" class="footer-link">Custom Web & Mobile</a></li>
+          <li><a href="services.html#cloud" class="footer-link">DevOps & Cloud Infra</a></li>
+          <li><a href="services.html#data" class="footer-link">Database Architecture</a></li>
+          <li><a href="services.html#security" class="footer-link">VAPT & Security Audits</a></li>
+          <li><a href="services.html#support" class="footer-link">24/7 SLA Support (AMC)</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <ul class="footer-links">
+          <li><a href="services.html" class="footer-link">Services & Work</a></li>
+          <li><a href="launchpad.html" class="footer-link">Launchpad Program</a></li>
+          <li><a href="insights.html" class="footer-link">Technical Insights</a></li>
+          <li><a href="about.html" class="footer-link">Reference Architecture</a></li>
+          <li><a href="contact.html" class="footer-link">Schedule Consultation</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Direct Channels</h5>
+        <ul class="footer-links">
+          <li><a href="mailto:atuljha.arth@gmail.com" class="footer-link">atuljha.arth@gmail.com</a></li>
+          <li><a href="tel:+919708167283" class="footer-link">+91 97081 67283</a></li>
+          <li><a href="https://wa.me/919708167283" target="_blank" class="footer-link">WhatsApp Direct</a></li>
+          <li><a href="https://linkedin.com/company/deploybirds" target="_blank" class="footer-link">LinkedIn: /company/deploybirds</a></li>
+          <li><a href="https://instagram.com/deploybirds" target="_blank" class="footer-link">Instagram: @deploybirds</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 DeployBirds. All rights reserved. Hardened, observable, and built to scale.</div>
+      <div>Engineered with DeployBirds Core Architecture</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/three-scene.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
