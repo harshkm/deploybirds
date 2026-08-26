@@ -5,10 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact & Discovery › DeployBirds</title>
   <meta name="description" content="Talk to our principal architects about your software, cloud migration, or security audit. Guaranteed 24-hour turnaround with upfront NDA.">
+
+  <link rel="canonical" href="https://deploybirds.com/contact.html">
+
+  <!-- Social preview (F-18/F-19: previously zero OG tags -> blank link cards) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DeployBirds">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:url" content="https://deploybirds.com/contact.html">
+  <meta property="og:title" content="Contact & Discovery › DeployBirds">
+  <meta property="og:description" content="Talk to our principal architects about your software, cloud migration, or security audit. Guaranteed 24-hour turnaround with upfront NDA.">
+  <meta property="og:image" content="https://deploybirds.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="DeployBirds — we build, secure and scale digital products.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact & Discovery › DeployBirds">
+  <meta name="twitter:description" content="Talk to our principal architects about your software, cloud migration, or security audit. Guaranteed 24-hour turnaround with upfront NDA.">
+  <meta name="twitter:image" content="https://deploybirds.com/assets/og-image.png">
+
+  <!-- Icons (F-18: /favicon.ico was 404-ing on every page load) -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/icon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <meta name="theme-color" content="#0A1310">
+
+  <!-- Fonts (F-11: moved out of style.css, where @import forced a 4-hop chain.
+       IBM Plex Sans dropped entirely - it was requested but never referenced.) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800;900&display=swap">
+
   
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
 
   <!-- Header -->
   <header class="site-header">
@@ -33,8 +66,8 @@
     </nav>
 
     <div class="nav-cta-wrap">
-      <a href="tel:+919708167283" class="btn-nav-cta">
-        <span>Call Directly</span>
+      <a href="contact.html" class="btn-nav-cta">
+        <span>Get a Quote</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       </a>
       <button class="mobile-menu-btn" aria-label="Toggle Navigation">☰ MENU</button>
@@ -51,7 +84,7 @@
     <a href="contact.html" class="btn-chamfer btn-primary" style="margin-top: 10px;">Contact Now</a>
   </div>
 
-  <main class="page-container" style="max-width: 1100px;">
+  <main id="main" class="page-container" style="max-width: 1100px;">
     
     <div class="page-hero" style="margin-bottom: 40px;">
       <div class="badge-tag">Direct Architect Channel</div>
@@ -65,24 +98,28 @@
       
       <!-- Minimal Fast 2-4 Field Form -->
       <div class="contact-form-card">
-        <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 20px; text-transform: uppercase;">
+        <h2 style="font-size: var(--fs-xl); font-weight: 700; margin-bottom: 20px; text-transform: uppercase;">
           Project Discovery Intake
-        </h3>
+        </h2>
 
-        <form id="contact-form">
+        <!-- F-02: set FORM_ENDPOINT in js/main.js. Until it is set the form
+           falls back to a pre-filled mailto: instead of faking success. -->
+        <form id="contact-form" method="POST" action="" novalidate>
           <div class="form-group">
             <label class="form-label" for="name">Your Name / Title</label>
-            <input type="text" id="name" class="form-input" placeholder="e.g. Alex Rivera, VP of Engineering" required>
+            <input type="text" id="name" name="name" autocomplete="name" class="form-input"
+                   placeholder="e.g. Alex Rivera, VP of Engineering" required>
           </div>
 
           <div class="form-group">
             <label class="form-label" for="email">Work Email</label>
-            <input type="email" id="email" class="form-input" placeholder="alex@company.com" required>
+            <input type="email" id="email" name="email" autocomplete="email" class="form-input"
+                   placeholder="alex@company.com" required>
           </div>
 
           <div class="form-group">
             <label class="form-label" for="service">Primary Area of Engagement</label>
-            <select id="service" class="form-select">
+            <select id="service" name="service" class="form-select">
               <option value="dev">Web & Mobile Application Development</option>
               <option value="cloud">Cloud Infrastructure & DevOps (IaC / K8s)</option>
               <option value="data">Database Architecture & Query Optimization</option>
@@ -94,15 +131,25 @@
 
           <div class="form-group">
             <label class="form-label" for="message">Project Scope / Technical Goals</label>
-            <textarea id="message" class="form-textarea" rows="4" placeholder="Describe your current tech stack, timelines, key challenges, or estimated budget..." required></textarea>
+            <textarea id="message" name="message" class="form-textarea" rows="4"
+                      placeholder="Describe your current tech stack, timelines, key challenges, or estimated budget..."
+                      required></textarea>
           </div>
 
           <div class="checkbox-wrap">
-            <input type="checkbox" id="nda-consent" required checked>
+            <input type="checkbox" id="nda-consent" name="nda_consent" value="yes" required checked>
             <label for="nda-consent">
-              I agree to mutual NDA confidentiality standards. DeployBirds never shares client data or credentials with third parties.
+              I agree to mutual NDA confidentiality standards. DeployBirds never shares client data or credentials with third parties. See our <a href="privacy.html" style="color: var(--accent-green);">Privacy Policy</a>.
             </label>
           </div>
+
+          <!-- honeypot: real people never fill this in -->
+          <div aria-hidden="true" style="position:absolute;left:-9999px;">
+            <label for="company-url">Company URL</label>
+            <input type="text" id="company-url" name="company_url" tabindex="-1" autocomplete="off">
+          </div>
+
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
 
           <button type="submit" class="btn-chamfer btn-primary" style="width: 100%; padding: 16px;">
             <span>Transmit Discovery Request</span>
@@ -132,20 +179,20 @@
             <line x1="150" y1="80" x2="195" y2="60" stroke="#00F0FF" stroke-width="1" stroke-dasharray="2 2"/>
             <line x1="150" y1="80" x2="105" y2="100" stroke="#00F0FF" stroke-width="1" stroke-dasharray="2 2"/>
           </svg>
-          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-lime); letter-spacing: 0.15em; margin-top: 8px;">
+          <div style="font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--accent-lime); letter-spacing: 0.15em; margin-top: 8px;">
             › SECURE TRANSMISSION CHANNEL ENCRYPTED
           </div>
         </div>
 
         <!-- Direct Contact Channels -->
         <div class="direct-contact-card">
-          <h4 style="font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase; color: var(--accent-lime); margin-bottom: 12px;">
+          <h3 style="font-family: var(--font-mono); font-size: var(--fs-xs); text-transform: uppercase; color: var(--accent-lime); margin-bottom: 12px;">
             Direct Technical Lines
-          </h4>
+          </h3>
 
-          <a href="mailto:atuljha.arth@gmail.com" class="contact-link-row">
+          <a href="mailto:support@deploybirds.com" class="contact-link-row">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-lime)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <span>atuljha.arth@gmail.com</span>
+            <span>support@deploybirds.com</span>
           </a>
 
           <a href="tel:+919708167283" class="contact-link-row">
@@ -160,10 +207,10 @@
         </div>
 
         <div class="consultation-badge-box">
-          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-lime); text-transform: uppercase; font-weight: bold; margin-bottom: 4px;">
+          <div style="font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--accent-lime); text-transform: uppercase; font-weight: bold; margin-bottom: 4px;">
             › Accountability Guarantee
           </div>
-          <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">
+          <p style="font-size: var(--fs-sm); color: var(--text-secondary); margin: 0;">
             No junior account manager handoffs. You speak directly with our senior cloud architects and engineering leads from call one.
           </p>
         </div>
@@ -191,7 +238,7 @@
       </div>
 
       <div class="footer-col">
-        <h5>Services</h5>
+        <h2 class="footer-col-title">Services</h2>
         <ul class="footer-links">
           <li><a href="services.html#dev" class="footer-link">Web & Mobile</a></li>
           <li><a href="services.html#cloud" class="footer-link">DevOps & Cloud</a></li>
@@ -200,7 +247,7 @@
       </div>
 
       <div class="footer-col">
-        <h5>Quick Links</h5>
+        <h2 class="footer-col-title">Quick Links</h2>
         <ul class="footer-links">
           <li><a href="index.html" class="footer-link">Home</a></li>
           <li><a href="services.html" class="footer-link">Services & Work</a></li>
@@ -210,9 +257,9 @@
       </div>
 
       <div class="footer-col">
-        <h5>Connect</h5>
+        <h2 class="footer-col-title">Connect</h2>
         <ul class="footer-links">
-          <li><a href="mailto:atuljha.arth@gmail.com" class="footer-link">atuljha.arth@gmail.com</a></li>
+          <li><a href="mailto:support@deploybirds.com" class="footer-link">support@deploybirds.com</a></li>
           <li><a href="tel:+919708167283" class="footer-link">+91 97081 67283</a></li>
           <li><a href="https://wa.me/919708167283" target="_blank" class="footer-link">WhatsApp us</a></li>
         </ul>
@@ -220,11 +267,11 @@
     </div>
 
     <div class="footer-bottom">
-      <div>© 2026 DeployBirds. All rights reserved.</div>
+      <div>© 2026 DeployBirds. All rights reserved. &nbsp;·&nbsp; <a href="privacy.html" class="footer-link" style="display:inline;">Privacy Policy</a></div>
       <div>Zero-Friction Technical Intake</div>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script defer src="js/main.js"></script>
 </body>
 </html>

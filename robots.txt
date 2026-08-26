@@ -1,0 +1,5 @@
+# https://deploybirds.com/robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://deploybirds.com/sitemap.xml

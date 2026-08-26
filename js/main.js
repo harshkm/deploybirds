@@ -16,14 +16,49 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, { passive: true });
 
-  // 2. Mobile Menu Toggle
+  // 2. Mobile Menu Toggle  (F-25: close on link, Esc and outside tap; announce state)
   const mobileBtn = document.querySelector('.mobile-menu-btn');
   const mobileDrawer = document.querySelector('.mobile-nav-drawer');
+
   if (mobileBtn && mobileDrawer) {
-    mobileBtn.addEventListener('click', () => {
-      mobileDrawer.classList.toggle('open');
-      mobileBtn.textContent = mobileDrawer.classList.contains('open') ? '✕ CLOSE' : '☰ MENU';
+    mobileBtn.setAttribute('aria-expanded', 'false');
+    if (!mobileDrawer.id) mobileDrawer.id = 'mobile-nav';
+    mobileBtn.setAttribute('aria-controls', mobileDrawer.id);
+
+    const setMenu = (open) => {
+      mobileDrawer.classList.toggle('open', open);
+      document.body.classList.toggle('nav-open', open);
+      mobileBtn.setAttribute('aria-expanded', String(open));
+      mobileBtn.textContent = open ? '✕ CLOSE' : '☰ MENU';
+      if (!open) mobileBtn.focus();
+    };
+
+    const isOpen = () => mobileDrawer.classList.contains('open');
+
+    mobileBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setMenu(!isOpen());
     });
+
+    // Navigating away should not leave the drawer open behind the new page
+    mobileDrawer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => setMenu(false));
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen()) setMenu(false);
+    });
+
+    document.addEventListener('click', (e) => {
+      if (isOpen() && !mobileDrawer.contains(e.target) && e.target !== mobileBtn) {
+        setMenu(false);
+      }
+    });
+
+    // A resize past the breakpoint leaves a stranded drawer otherwise
+    window.addEventListener('resize', () => {
+      if (isOpen() && window.innerWidth > 768) setMenu(false);
+    }, { passive: true });
   }
 
   // 3. Homepage Scroll & HUD Synchronization
@@ -165,12 +200,23 @@ document.addEventListener('DOMContentLoaded', () => {
   // 7. Flagship Program Countdown Timer
   const countdownEl = document.getElementById('cohort-countdown');
   if (countdownEl) {
-    // Set target date 18 days from now
-    const targetDate = new Date().getTime() + (18 * 24 * 60 * 60 * 1000 + 14 * 60 * 60 * 1000);
+    // F-22: this used to be `Date.now() + 18 days`, recomputed on every page
+    // load, so it never expired. It is now a real fixed date.
+    // >>> UPDATE THIS EACH COHORT, or delete the timer block entirely. <<<
+    const COHORT_CLOSES = '2026-09-30T18:00:00+05:30';
+    const targetDate = new Date(COHORT_CLOSES).getTime();
 
     const updateTimer = () => {
       const now = new Date().getTime();
       const diff = targetDate - now;
+
+      if (diff <= 0) {
+        const wrap = countdownEl.closest('.countdown-wrap') || countdownEl;
+        wrap.innerHTML = '<p style="font-family: var(--font-mono); font-size: var(--fs-xs);' +
+          ' letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-green);">' +
+          '› Applications for this cohort have closed — talk to us about the next one</p>';
+        return;
+      }
 
       if (diff > 0) {
         const days = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -194,34 +240,107 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateTimer, 1000);
   }
 
-  // 8. Contact Form Fast Feedback
+  // 8. Contact Form — real submission
+  //
+  // F-02: this handler used to call preventDefault(), wait one second, and then
+  // tell the visitor "MESSAGE TRANSMITTED" without sending anything anywhere.
+  // Every enquiry was silently discarded.
+  //
+  // SET THIS to your endpoint, then the fetch path below goes live:
+  //   Web3Forms  -> https://api.web3forms.com/submit   (needs access_key field)
+  //   Formspree  -> https://formspree.io/f/xxxxxxxx
+  //   Getform    -> https://getform.io/f/xxxxxxxx
+  // Leave it empty and the form falls back to a pre-filled mailto: — slower,
+  // but honest. It never claims success it cannot verify.
+  const FORM_ENDPOINT = '';
+  const FALLBACK_EMAIL = 'support@deploybirds.com';
+
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    const statusEl = document.getElementById('form-status');
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+    // F-06: twelve links point here as contact.html?service=cloud etc.
+    // Nothing read the parameter, so the dropdown always opened on its default.
+    const preselect = new URLSearchParams(location.search).get('service');
+    const serviceSel = document.getElementById('service');
+    if (preselect && serviceSel) {
+      const match = [...serviceSel.options].find(o => o.value === preselect);
+      if (match) serviceSel.value = preselect;
+    }
+
+    const setStatus = (msg, kind) => {
+      if (!statusEl) return;
+      statusEl.textContent = msg;
+      statusEl.className = 'form-status' + (kind ? ' is-' + kind : '');
+    };
+
+    const mailtoFallback = (data) => {
+      const body = [
+        'Name: ' + (data.get('name') || ''),
+        'Email: ' + (data.get('email') || ''),
+        'Area: ' + (data.get('service') || ''),
+        '',
+        data.get('message') || ''
+      ].join('\n');
+      const href = 'mailto:' + FALLBACK_EMAIL +
+        '?subject=' + encodeURIComponent('Discovery request — ' + (data.get('name') || 'website')) +
+        '&body=' + encodeURIComponent(body);
+      setStatus('Opening your email client so nothing gets lost — press send there and we will reply within 24 hours.', 'warn');
+      window.location.href = href;
+    };
+
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const submitBtn = contactForm.querySelector('button[type="submit"]');
-      const originalText = submitBtn.innerHTML;
 
-      submitBtn.innerHTML = `<span>TRANSMITTING...</span>`;
-      submitBtn.disabled = true;
+      if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        return;
+      }
 
-      setTimeout(() => {
-        submitBtn.innerHTML = `<span style="color:#040705;">✓ MESSAGE TRANSMITTED</span>`;
-        submitBtn.style.background = '#4efa7b';
-        
-        // Show success alert
-        const alertBox = document.createElement('div');
-        alertBox.className = 'consultation-badge-box';
-        alertBox.style.marginTop = '20px';
-        alertBox.innerHTML = `
-          <h4 style="color:#36E05E; margin-bottom:6px;">› Discovery Request Received</h4>
-          <p style="font-size:0.88rem; color:#F2F7F4;">Our senior engineering team will review your specs and send a calendar invite and technical brief within 24 hours.</p>
-        `;
-        contactForm.appendChild(alertBox);
+      const data = new FormData(contactForm);
+
+      // honeypot — a filled hidden field means a bot
+      if (data.get('company_url')) {
+        setStatus('Thanks — your request has been received.', 'ok');
         contactForm.reset();
+        return;
+      }
 
+      const originalHTML = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>SENDING…</span>';
+      setStatus('Sending your request…');
+
+      if (!FORM_ENDPOINT) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalHTML;
+        mailtoFallback(data);
+        return;
+      }
+
+      try {
+        const res = await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: data
+        });
+
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+
+        submitBtn.innerHTML = '<span>✓ REQUEST SENT</span>';
+        setStatus('Received. Our engineering team will review your specs and reply within 24 hours.', 'ok');
+        contactForm.reset();
         if (window.ambientAudio) window.ambientAudio.playBlip(1200, 0.15);
-      }, 1000);
+      } catch (err) {
+        // A silent failure here is worse than no form. Say so, and give
+        // the visitor a route that definitely works.
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalHTML;
+        setStatus('That did not go through. Email us directly at ' + FALLBACK_EMAIL +
+                  ' or call +91 97081 67283 — we will pick it up either way.', 'error');
+        console.error('[contact-form] submission failed:', err);
+      }
     });
   }
 

@@ -5,11 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Launchpad Program › DeployBirds</title>
   <meta name="description" content="DeployBirds Launchpad - Accelerating breakout startups with production-ready architecture, automated DevOps, VAPT security, and dedicated engineering capacity.">
+
+  <link rel="canonical" href="https://deploybirds.com/launchpad.html">
+
+  <!-- Social preview (F-18/F-19: previously zero OG tags -> blank link cards) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DeployBirds">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:url" content="https://deploybirds.com/launchpad.html">
+  <meta property="og:title" content="Launchpad Program › DeployBirds">
+  <meta property="og:description" content="DeployBirds Launchpad - Accelerating breakout startups with production-ready architecture, automated DevOps, VAPT security, and dedicated engineering capacity.">
+  <meta property="og:image" content="https://deploybirds.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="DeployBirds — we build, secure and scale digital products.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Launchpad Program › DeployBirds">
+  <meta name="twitter:description" content="DeployBirds Launchpad - Accelerating breakout startups with production-ready architecture, automated DevOps, VAPT security, and dedicated engineering capacity.">
+  <meta name="twitter:image" content="https://deploybirds.com/assets/og-image.png">
+
+  <!-- Icons (F-18: /favicon.ico was 404-ing on every page load) -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/icon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <meta name="theme-color" content="#0A1310">
+
+  <!-- Fonts (F-11: moved out of style.css, where @import forced a 4-hop chain.
+       IBM Plex Sans dropped entirely - it was requested but never referenced.) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800;900&display=swap">
+
   
   <link rel="stylesheet" href="css/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
 
   <!-- Header -->
   <header class="site-header">
@@ -34,8 +67,8 @@
     </nav>
 
     <div class="nav-cta-wrap">
-      <a href="contact.html?source=launchpad" class="btn-nav-cta">
-        <span>Apply for Cohort</span>
+      <a href="contact.html" class="btn-nav-cta">
+        <span>Get a Quote</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
       <button class="mobile-menu-btn" aria-label="Toggle Navigation">☰ MENU</button>
@@ -52,16 +85,16 @@
     <a href="contact.html?source=launchpad" class="btn-chamfer btn-primary" style="margin-top: 10px;">Apply for Cohort</a>
   </div>
 
-  <main class="page-container">
+  <main id="main" class="page-container">
     
     <!-- Cinematic Opening Hero Banner -->
     <section class="flagship-hero-banner">
       <div>
         <div class="badge-tag">Flagship Startup Initiative</div>
-        <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.4rem); font-weight: 800; text-transform: uppercase; margin: 18px 0 16px; line-height: 1.1;">
+        <h1 style="font-size: clamp(1.6rem, 6vw, 3.4rem); font-weight: 800; text-transform: uppercase; margin: 18px 0 16px; line-height: 1.1;">
           DeployBirds <span style="color: var(--accent-lime);">Launchpad</span> 2026
         </h1>
-        <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.6; max-width: 580px;">
+        <p style="color: var(--text-secondary); font-size: var(--fs-lg); line-height: 1.6; max-width: 580px;">
           A dedicated technical launchpad for high-growth tech ventures. We engineer hardened cloud architecture, automated CI/CD pipelines, offensive VAPT testing, and dedicated engineering sprints to get you to market fast.
         </p>
 
@@ -116,7 +149,7 @@
     <!-- Horizontal Milestone Timeline -->
     <section id="milestones" style="margin-top: 40px;">
       <div class="badge-tag">Program Roadmap</div>
-      <h2 style="font-size: 2.2rem; font-weight: 800; text-transform: uppercase; margin: 16px 0 12px;">Milestone Execution Flow</h2>
+      <h2 style="font-size: var(--fs-2xl); font-weight: 800; text-transform: uppercase; margin: 16px 0 12px;">Milestone Execution Flow</h2>
       <p style="color: var(--text-secondary); max-width: 640px;">
         A disciplined, 4-phase acceleration track designed to eliminate engineering debt before launch.
       </p>
@@ -125,32 +158,32 @@
         <!-- Milestone 1 -->
         <div class="timeline-node-card">
           <div class="timeline-dot"></div>
-          <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-lime); font-weight: bold;">PHASE 01</span>
-          <h4>Architecture & Discovery</h4>
+          <span style="font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--accent-lime); font-weight: bold;">PHASE 01</span>
+          <h3 class="milestone-title">Architecture & Discovery</h3>
           <p>Deep-dive review of system requirements, user personas, API contracts, schema models, and cloud infrastructure budget.</p>
         </div>
 
         <!-- Milestone 2 -->
         <div class="timeline-node-card">
           <div class="timeline-dot"></div>
-          <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-lime); font-weight: bold;">PHASE 02</span>
-          <h4>MVP Sprint & IaC</h4>
+          <span style="font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--accent-lime); font-weight: bold;">PHASE 02</span>
+          <h3 class="milestone-title">MVP Sprint & IaC</h3>
           <p>Rapid iterative sprints with weekly demos, shared Jira/GitHub boards, and Terraform-provisioned staging environments.</p>
         </div>
 
         <!-- Milestone 3 -->
         <div class="timeline-node-card">
           <div class="timeline-dot"></div>
-          <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-lime); font-weight: bold;">PHASE 03</span>
-          <h4>VAPT & Load Hardening</h4>
+          <span style="font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--accent-lime); font-weight: bold;">PHASE 03</span>
+          <h3 class="milestone-title">VAPT & Load Hardening</h3>
           <p>Full offensive penetration testing against OWASP Top 10 vectors and simulated stress tests up to 100k+ concurrent requests.</p>
         </div>
 
         <!-- Milestone 4 -->
         <div class="timeline-node-card">
           <div class="timeline-dot"></div>
-          <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-lime); font-weight: bold;">PHASE 04</span>
-          <h4>Launch & 24/7 AMC</h4>
+          <span style="font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--accent-lime); font-weight: bold;">PHASE 04</span>
+          <h3 class="milestone-title">Launch & 24/7 AMC</h3>
           <p>Blue/green zero-downtime deployment to production, automated Datadog/CloudWatch telemetry, and SLA-backed maintenance.</p>
         </div>
       </div>
@@ -159,24 +192,24 @@
     <!-- Partner & Security Credentials -->
     <section style="margin-top: 60px;">
       <div class="badge-tag">Hardened Standards</div>
-      <h2 style="font-size: 2.2rem; font-weight: 800; text-transform: uppercase; margin: 16px 0 28px;">Credentials & Ecosystem</h2>
+      <h2 style="font-size: var(--fs-2xl); font-weight: 800; text-transform: uppercase; margin: 16px 0 28px;">Credentials & Ecosystem</h2>
       
       <div class="cards-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
         <div class="service-card" style="padding: 24px;">
-          <h3 style="font-size: 1.15rem; color: var(--accent-lime); margin-bottom: 8px;">AWS Well-Architected</h3>
-          <p style="font-size: 0.88rem; margin: 0;">Certified infrastructure patterns prioritizing reliability, cost optimization, and performance efficiency.</p>
+          <h3 style="font-size: var(--fs-lg); color: var(--accent-lime); margin-bottom: 8px;">AWS Well-Architected</h3>
+          <p style="font-size: var(--fs-sm); margin: 0;">Certified infrastructure patterns prioritizing reliability, cost optimization, and performance efficiency.</p>
         </div>
         <div class="service-card" style="padding: 24px;">
-          <h3 style="font-size: 1.15rem; color: var(--accent-lime); margin-bottom: 8px;">SOC 2 & ISO 27001</h3>
-          <p style="font-size: 0.88rem; margin: 0;">Groundwork compliance frameworks, audit trails, and strict role-based access control configurations.</p>
+          <h3 style="font-size: var(--fs-lg); color: var(--accent-lime); margin-bottom: 8px;">SOC 2 & ISO 27001</h3>
+          <p style="font-size: var(--fs-sm); margin: 0;">Groundwork compliance frameworks, audit trails, and strict role-based access control configurations.</p>
         </div>
         <div class="service-card" style="padding: 24px;">
-          <h3 style="font-size: 1.15rem; color: var(--accent-lime); margin-bottom: 8px;">Kubernetes Orchestration</h3>
-          <p style="font-size: 0.88rem; margin: 0;">Production-grade microservices containerization with Helm charts and zero-downtime rolling updates.</p>
+          <h3 style="font-size: var(--fs-lg); color: var(--accent-lime); margin-bottom: 8px;">Kubernetes Orchestration</h3>
+          <p style="font-size: var(--fs-sm); margin: 0;">Production-grade microservices containerization with Helm charts and zero-downtime rolling updates.</p>
         </div>
         <div class="service-card" style="padding: 24px;">
-          <h3 style="font-size: 1.15rem; color: var(--accent-lime); margin-bottom: 8px;">OWASP Top 10 VAPT</h3>
-          <p style="font-size: 0.88rem; margin: 0;">Rigorous vulnerability assessments and offensive penetration testing protocols with prioritized fixes.</p>
+          <h3 style="font-size: var(--fs-lg); color: var(--accent-lime); margin-bottom: 8px;">OWASP Top 10 VAPT</h3>
+          <p style="font-size: var(--fs-sm); margin: 0;">Rigorous vulnerability assessments and offensive penetration testing protocols with prioritized fixes.</p>
         </div>
       </div>
     </section>
@@ -184,7 +217,7 @@
     <!-- Technical Leadership Grid -->
     <section style="margin-top: 80px;">
       <div class="badge-tag">Accountability</div>
-      <h2 style="font-size: 2.2rem; font-weight: 800; text-transform: uppercase; margin: 16px 0 32px;">Engineering Leadership</h2>
+      <h2 style="font-size: var(--fs-2xl); font-weight: 800; text-transform: uppercase; margin: 16px 0 32px;">Engineering Leadership</h2>
 
       <div class="team-grid">
         <div class="team-card">
@@ -217,7 +250,7 @@
     <!-- Call To Action -->
     <div class="newsletter-box" style="margin-top: 60px;">
       <span class="badge-tag">Limited Cohort Slots</span>
-      <h2 style="font-size: 2rem; margin: 16px 0 12px; text-transform: uppercase;">Ready to Accelerate Your Architecture?</h2>
+      <h2 style="font-size: var(--fs-2xl); margin: 16px 0 12px; text-transform: uppercase;">Ready to Accelerate Your Architecture?</h2>
       <p style="color: var(--text-secondary); margin-bottom: 24px;">
         Submit your project specs to receive a complimentary architecture evaluation and technical due diligence brief.
       </p>
@@ -243,7 +276,7 @@
       </div>
 
       <div class="footer-col">
-        <h5>Quick Links</h5>
+        <h2 class="footer-col-title">Quick Links</h2>
         <ul class="footer-links">
           <li><a href="index.html" class="footer-link">Home</a></li>
           <li><a href="services.html" class="footer-link">Services & Work</a></li>
@@ -254,16 +287,16 @@
       </div>
 
       <div class="footer-col">
-        <h5>Contact Channels</h5>
+        <h2 class="footer-col-title">Contact Channels</h2>
         <ul class="footer-links">
-          <li><a href="mailto:atuljha.arth@gmail.com" class="footer-link">atuljha.arth@gmail.com</a></li>
+          <li><a href="mailto:support@deploybirds.com" class="footer-link">support@deploybirds.com</a></li>
           <li><a href="tel:+919708167283" class="footer-link">+91 97081 67283</a></li>
           <li><a href="https://wa.me/919708167283" target="_blank" class="footer-link">WhatsApp us</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h5>Engagement</h5>
+        <h2 class="footer-col-title">Engagement</h2>
         <ul class="footer-links">
           <li><a href="contact.html" class="footer-link">Fixed Price</a></li>
           <li><a href="contact.html" class="footer-link">Time & Material</a></li>
@@ -273,11 +306,11 @@
     </div>
 
     <div class="footer-bottom">
-      <div>© 2026 DeployBirds. All rights reserved.</div>
+      <div>© 2026 DeployBirds. All rights reserved. &nbsp;·&nbsp; <a href="privacy.html" class="footer-link" style="display:inline;">Privacy Policy</a></div>
       <div>Engineered for Scalability</div>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script defer src="js/main.js"></script>
 </body>
 </html>
