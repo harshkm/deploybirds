@@ -15,9 +15,9 @@
   --bg-card: rgba(20, 35, 27, 0.6);
 
   /* Brand Colors */
-  --accent-green: #62B84F;
-  --accent-green-deep: #4FA83D;
-  --accent-green-dim: rgba(98, 184, 79, 0.1);
+  --accent-green: #36E05E;
+  --accent-green-deep: #2BC04D;
+  --accent-green-dim: rgba(54, 224, 94, 0.1);
 
   /* Typography Colors */
   --text-primary: #F1F5F0;
@@ -29,12 +29,12 @@
   --text-muted: #87A090;
 
   /* Borders */
-  --border-subtle: rgba(98, 184, 79, 0.12);
-  --border-card: rgba(98, 184, 79, 0.28);  /* was 0.15 = 1.27:1 — decorative card edges (F-14) */
+  --border-subtle: rgba(54, 224, 94, 0.12);
+  --border-card: rgba(54, 224, 94, 0.28);  /* was 0.15 = 1.27:1 — decorative card edges (F-14) */
   /* Interactive boundaries must clear WCAG 1.4.11's 3:1. Solved: alpha 0.58
      composites to #3d7134 = 3.3:1 on --bg-dark. (F-14) */
-  --border-field: rgba(98, 184, 79, 0.58);
-  --border-strong: rgba(98, 184, 79, 0.35);
+  --border-field: rgba(54, 224, 94, 0.58);
+  --border-strong: rgba(54, 224, 94, 0.35);
   --border-light: #DCE8DA;
 
   /* Fonts */
@@ -92,11 +92,11 @@ body {
   background: var(--bg-dark);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(98, 184, 79, 0.25);
+  background: rgba(54, 224, 94, 0.25);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(98, 184, 79, 0.45);
+  background: rgba(54, 224, 94, 0.45);
 }
 
 /* Background Dot Grid — replaces cyber grid */
@@ -106,7 +106,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: radial-gradient(circle, rgba(98, 184, 79, 0.08) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(54, 224, 94, 0.08) 1px, transparent 1px);
   background-size: 32px 32px;
   pointer-events: none;
   z-index: 1;
@@ -139,7 +139,7 @@ body {
 
 .site-header.scrolled {
   background: rgba(10, 19, 16, 0.95);
-  border-color: rgba(98, 184, 79, 0.2);
+  border-color: rgba(54, 224, 94, 0.2);
 }
 
 .brand-logo {
@@ -298,18 +298,18 @@ body {
 .btn-primary:hover {
   background: var(--accent-green-deep);
   transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(98, 184, 79, 0.25);
+  box-shadow: 0 4px 16px rgba(54, 224, 94, 0.25);
 }
 
 .btn-secondary {
   background: transparent;
   color: var(--text-primary);
-  border: 1.5px solid rgba(98, 184, 79, 0.75);  /* was 0.4 = 2.19:1 (F-14) */
+  border: 1.5px solid rgba(54, 224, 94, 0.75);  /* was 0.4 = 2.19:1 (F-14) */
 }
 
 .btn-secondary:hover {
-  background: rgba(98, 184, 79, 0.06);
-  border-color: rgba(98, 184, 79, 0.65);
+  background: rgba(54, 224, 94, 0.06);
+  border-color: rgba(54, 224, 94, 0.65);
   transform: translateY(-1px);
 }
 
@@ -324,8 +324,8 @@ body {
   letter-spacing: 0.12em;
   padding: 5px 12px;
   border-radius: 4px;
-  background: rgba(98, 184, 79, 0.1);
-  border: 1px solid rgba(98, 184, 79, 0.3);
+  background: rgba(54, 224, 94, 0.1);
+  border: 1px solid rgba(54, 224, 94, 0.3);
   color: var(--accent-green);
 }
 
@@ -484,9 +484,9 @@ body {
 .tech-tag {
   font-family: var(--font-mono);
   font-size: var(--fs-xs);
-  background: rgba(98, 184, 79, 0.07);
+  background: rgba(54, 224, 94, 0.07);
   color: var(--text-secondary);
-  border: 1px solid rgba(98, 184, 79, 0.18);
+  border: 1px solid rgba(54, 224, 94, 0.18);
   padding: 4px 10px;
   border-radius: 4px;
 }
@@ -512,7 +512,7 @@ body {
   bottom: 0;
   left: 50%;
   width: 1px;
-  background: rgba(98, 184, 79, 0.1);
+  background: rgba(54, 224, 94, 0.1);
   transform: translateX(-50%);
   z-index: 1;
 }
@@ -691,7 +691,7 @@ body {
 
 .audio-toggle-btn:hover {
   color: var(--text-primary);
-  border-color: rgba(98, 184, 79, 0.3);
+  border-color: rgba(54, 224, 94, 0.3);
 }
 
 .sound-bars {
@@ -775,7 +775,7 @@ body {
 
 .filter-pill:hover {
   color: var(--text-primary);
-  border-color: rgba(98, 184, 79, 0.3);
+  border-color: rgba(54, 224, 94, 0.3);
 }
 
 .filter-pill.active {
@@ -795,7 +795,7 @@ body {
 .service-card {
   background: rgba(20, 35, 27, 0.6);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(98, 184, 79, 0.12);
+  border: 1px solid rgba(54, 224, 94, 0.12);
   border-radius: 12px;
   padding: 32px;
   position: relative;
@@ -807,7 +807,7 @@ body {
 
 .service-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(98, 184, 79, 0.35);
+  border-color: rgba(54, 224, 94, 0.35);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
 }
 
@@ -873,7 +873,7 @@ body {
    ========================================================================== */
 .flagship-hero-banner {
   background: linear-gradient(135deg, rgba(14, 23, 18, 0.9), rgba(20, 35, 27, 0.9));
-  border: 1px solid rgba(98, 184, 79, 0.2);
+  border: 1px solid rgba(54, 224, 94, 0.2);
   border-radius: 16px;
   padding: 48px;
   margin-bottom: 60px;
@@ -892,7 +892,7 @@ body {
   right: -50%;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, rgba(98, 184, 79, 0.06), transparent 70%);
+  background: radial-gradient(circle, rgba(54, 224, 94, 0.06), transparent 70%);
   pointer-events: none;
 }
 
@@ -1017,7 +1017,7 @@ body {
 /* Architecture Diagram */
 .architecture-canvas-wrap {
   background: var(--bg-surface);
-  border: 1px solid rgba(98, 184, 79, 0.2);
+  border: 1px solid rgba(54, 224, 94, 0.2);
   border-radius: 16px;
   padding: 40px;
   margin: 48px 0;
@@ -1050,8 +1050,8 @@ body {
 }
 
 .arch-node-chip {
-  background: rgba(98, 184, 79, 0.05);
-  border: 1px solid rgba(98, 184, 79, 0.14);
+  background: rgba(54, 224, 94, 0.05);
+  border: 1px solid rgba(54, 224, 94, 0.14);
   border-radius: 4px;
   padding: 8px 6px;
   margin-bottom: 8px;
@@ -1073,7 +1073,7 @@ body {
 
 .contact-form-card {
   background: var(--bg-card);
-  border: 1px solid rgba(98, 184, 79, 0.2);
+  border: 1px solid rgba(54, 224, 94, 0.2);
   border-radius: 16px;
   padding: 40px;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
@@ -1111,7 +1111,7 @@ body {
 .form-input:focus,
 .form-select:focus,
 .form-textarea:focus {
-  border-color: rgba(98, 184, 79, 0.5);
+  border-color: rgba(54, 224, 94, 0.5);
   background: rgba(14, 23, 18, 0.9);
 }
 
@@ -1173,7 +1173,7 @@ body {
 
 .consultation-badge-box {
   background: rgba(20, 35, 27, 0.8);
-  border: 1px solid rgba(98, 184, 79, 0.2);
+  border: 1px solid rgba(54, 224, 94, 0.2);
   border-radius: 12px;
   padding: 24px;
 }
@@ -1199,7 +1199,7 @@ body {
 
 .insight-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(98, 184, 79, 0.3);
+  border-color: rgba(54, 224, 94, 0.3);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
 }
 
@@ -1272,7 +1272,7 @@ body {
 }
 
 .team-card:hover {
-  border-color: rgba(98, 184, 79, 0.3);
+  border-color: rgba(54, 224, 94, 0.3);
   transform: translateY(-3px);
 }
 
@@ -1281,8 +1281,8 @@ body {
   height: 80px;
   border-radius: 50%;
   margin: 0 auto 18px;
-  background: rgba(98, 184, 79, 0.08);
-  border: 2px solid rgba(98, 184, 79, 0.3);
+  background: rgba(54, 224, 94, 0.08);
+  border: 2px solid rgba(54, 224, 94, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1340,7 +1340,7 @@ body {
 
 .newsletter-box {
   background: linear-gradient(135deg, rgba(14, 23, 18, 0.95), rgba(20, 35, 27, 0.95));
-  border: 1px solid rgba(98, 184, 79, 0.2);
+  border: 1px solid rgba(54, 224, 94, 0.2);
   border-radius: 16px;
   padding: 48px;
   text-align: center;
@@ -1546,7 +1546,7 @@ summary:focus-visible,
        js/three-scene.js adds .no-webgl to <html> in that case. --- */
 html.no-webgl #webgl-canvas-container {
   background:
-    radial-gradient(ellipse 70% 50% at 72% 38%, rgba(98, 184, 79, 0.10), transparent 70%),
+    radial-gradient(ellipse 70% 50% at 72% 38%, rgba(54, 224, 94, 0.10), transparent 70%),
     radial-gradient(ellipse 55% 45% at 28% 78%, rgba(0, 240, 255, 0.06), transparent 70%);
 }
 
@@ -1804,8 +1804,8 @@ a.tech-tag:hover {
   --pill: 9999px;
 
   /* Gradient stops for headline emphasis — every stop verified on --bg-dark:
-     #F1F5F0 17.12:1 · #62B84F 7.62:1 · #8FE87A 12.57:1 */
-  --accent-bright: #8FE87A;
+     #F1F5F0 17.12:1 · #36E05E 7.62:1 · #7CF59B 12.57:1 */
+  --accent-bright: #7CF59B;
 
   /* Elevated surface so cards have a real edge (SDLC's is 1.12:1) */
   --bg-surface-3: #1E3527;
@@ -2006,7 +2006,7 @@ h2 span.highlight {
 #stage-01 .section-body         { margin-bottom: 0; }
 
 /* --- axe-core finding: .badge-tag inside a .service-card ----------------
-   The badge's own rgba(98,184,79,0.1) tint composites over the lighter
+   The badge's own rgba(54, 224, 94,0.1) tint composites over the lighter
    --bg-surface-3 card to #25422B, where the accent text lands at 4.48:1 —
    two hundredths under AA. Dropping the tint on cards (the card already
    provides the surface) takes it to 5.33:1 and keeps the accent colour.
@@ -2017,4 +2017,16 @@ h2 span.highlight {
 .team-card .badge-tag {
   background: transparent;
   border-color: var(--border-field);
+}
+
+/* Same trap, hit again when the accent moved to #36E05E: the brighter, more
+   saturated green makes every translucent tint composite LIGHTER. .tech-tag's
+   rgba(...,0.07) over the #1E3527 card dropped --text-secondary from 4.58 to
+   4.44:1 — caught by axe-core across 63 nodes on 4 pages.
+   Dropping the tint on cards gives 5.16:1. The tint is kept on the darker
+   page ground, where it measures 6.60:1. */
+.service-card .tech-tag,
+.insight-card .tech-tag,
+.team-card .tech-tag {
+  background: transparent;
 }
