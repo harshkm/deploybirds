@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (diff <= 0) {
         const wrap = countdownEl.closest('.countdown-wrap') || countdownEl;
         wrap.innerHTML = '<p style="font-family: var(--font-mono); font-size: var(--fs-xs);' +
-          ' letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-green);">' +
+          ' letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent);">' +
           '› Applications for this cohort have closed — talk to us about the next one</p>';
         return;
       }

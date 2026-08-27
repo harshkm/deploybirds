@@ -79,7 +79,7 @@
   function init() {
     // 1. Scene setup
     scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x040705, 0.06);
+    scene.fog = new THREE.FogExp2(0x05070A, 0.06);
 
     // 2. Camera setup
     const aspect = window.innerWidth / window.innerHeight;
@@ -115,21 +115,21 @@
   }
 
   function setupLights() {
-    const ambientLight = new THREE.AmbientLight(0x102014, 2.0);
+    const ambientLight = new THREE.AmbientLight(0x131A24, 2.0);
     scene.add(ambientLight);
 
     // Main Neon Green Key Light
-    const keyLight = new THREE.DirectionalLight(0x36E05E, 3.5);
+    const keyLight = new THREE.DirectionalLight(0x4D93FF, 3.5);
     keyLight.position.set(5, 8, 5);
     scene.add(keyLight);
 
     // Cyan Rim Light
-    const rimLight = new THREE.DirectionalLight(0x00F0FF, 2.0);
+    const rimLight = new THREE.DirectionalLight(0x7DD3FC, 2.0);
     rimLight.position.set(-6, -4, -4);
     scene.add(rimLight);
 
     // Deep Top Down Fill
-    const topLight = new THREE.PointLight(0x36E05E, 2.0, 20);
+    const topLight = new THREE.PointLight(0x4D93FF, 2.0, 20);
     topLight.position.set(0, 5, 2);
     scene.add(topLight);
   }
@@ -139,7 +139,7 @@
 
     // High tech dark obsidian material
     const hullMat = new THREE.MeshStandardMaterial({
-      color: 0x08100B,
+      color: 0x080C12,
       metalness: 0.85,
       roughness: 0.25,
       flatShading: true
@@ -147,7 +147,7 @@
 
     // Glowing Neon Lime Line Material
     const wireMat = new THREE.LineBasicMaterial({
-      color: 0x36E05E,
+      color: 0x4D93FF,
       linewidth: 1.5,
       transparent: true,
       opacity: 0.85
@@ -155,7 +155,7 @@
 
     // Emissive Core Material
     const glowMat = new THREE.MeshBasicMaterial({
-      color: 0x36E05E,
+      color: 0x4D93FF,
       wireframe: true
     });
 
@@ -211,7 +211,7 @@
     const glowGeo = new THREE.ConeGeometry(0.2, 1.2, 8);
     glowGeo.rotateX(-Math.PI / 2);
     const plumeMat = new THREE.MeshBasicMaterial({
-      color: 0x36E05E,
+      color: 0x4D93FF,
       transparent: true,
       opacity: 0.75
     });
@@ -227,13 +227,13 @@
 
     // 4. Orbiting Holographic Radar Gimbal Rings
     const ringGeo1 = new THREE.TorusGeometry(2.6, 0.015, 8, 64);
-    const ringMat1 = new THREE.MeshBasicMaterial({ color: 0x36E05E, transparent: true, opacity: 0.35, wireframe: true });
+    const ringMat1 = new THREE.MeshBasicMaterial({ color: 0x4D93FF, transparent: true, opacity: 0.35, wireframe: true });
     radarRing1 = new THREE.Mesh(ringGeo1, ringMat1);
     radarRing1.rotation.x = Math.PI / 3;
     shipGroup.add(radarRing1);
 
     const ringGeo2 = new THREE.TorusGeometry(3.1, 0.012, 6, 48);
-    const ringMat2 = new THREE.MeshBasicMaterial({ color: 0x00F0FF, transparent: true, opacity: 0.25, wireframe: true });
+    const ringMat2 = new THREE.MeshBasicMaterial({ color: 0x7DD3FC, transparent: true, opacity: 0.25, wireframe: true });
     radarRing2 = new THREE.Mesh(ringGeo2, ringMat2);
     radarRing2.rotation.y = Math.PI / 4;
     shipGroup.add(radarRing2);
@@ -257,14 +257,19 @@
       starPos[idx + 1] = (Math.random() - 0.5) * 60;
       starPos[idx + 2] = (Math.random() - 0.5) * 40 - 5;
 
-      // Color variation between subtle green, white, and cyan
+      // Colour variation across the blue palette. These are float RGB, not hex,
+      // which is why a hex-based find/replace misses them — the green build left
+      // lime and cyan specks in the starfield after the palette changed.
       const rand = Math.random();
       if (rand > 0.7) {
-        starColors[idx] = 0.21; starColors[idx + 1] = 0.88; starColors[idx + 2] = 0.37; // Lime
+        // #4D93FF accent
+        starColors[idx] = 0.302; starColors[idx + 1] = 0.576; starColors[idx + 2] = 1.0;
       } else if (rand > 0.4) {
-        starColors[idx] = 0.0; starColors[idx + 1] = 0.94; starColors[idx + 2] = 1.0; // Cyan
+        // #7DD3FC light rim
+        starColors[idx] = 0.490; starColors[idx + 1] = 0.827; starColors[idx + 2] = 0.988;
       } else {
-        starColors[idx] = 0.7; starColors[idx + 1] = 0.8; starColors[idx + 2] = 0.75; // White-green
+        // #EEF3FA near-white
+        starColors[idx] = 0.933; starColors[idx + 1] = 0.953; starColors[idx + 2] = 0.980;
       }
     }
 
@@ -285,7 +290,7 @@
   function buildDataNodes() {
     dataNodesGroup = new THREE.Group();
     const nodeGeo = new THREE.OctahedronGeometry(0.1, 0);
-    const nodeMat = new THREE.MeshBasicMaterial({ color: 0x36E05E, wireframe: true });
+    const nodeMat = new THREE.MeshBasicMaterial({ color: 0x4D93FF, wireframe: true });
 
     for (let i = 0; i < 16; i++) {
       const mesh = new THREE.Mesh(nodeGeo, nodeMat);
