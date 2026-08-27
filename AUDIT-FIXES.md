@@ -261,3 +261,43 @@ error:   4xx {"success": false, "message": "..."}
 **What could not be verified without the real key:** the success path. Everything
 up to and including the API's rejection is verified. The moment the key is pasted,
 submit the form once from the live site and confirm the email arrives.
+
+
+---
+
+## OG image cache busting (27 Aug 2026)
+
+The social preview image is **content-hashed**: `assets/og-image.81a78ce4.png`.
+
+**Why.** Facebook, LinkedIn and WhatsApp cache a preview image against its URL,
+and the caches cannot be purged without an authenticated request:
+
+- Facebook's scrape API needs an access token
+  (`POST graph.facebook.com/?id=<url>&scrape=true&access_token=...`)
+- LinkedIn's Post Inspector has no API at all — it needs a logged-in session
+
+So when the accent green changed and the image was regenerated under the same
+filename, every already-cached preview kept serving the old green. Changing the
+URL sidesteps the problem entirely: there is nothing cached against the new one.
+
+**If you regenerate the image, re-hash the filename.** Reusing a name puts you
+straight back into the stale-cache problem.
+
+```bash
+# after regenerating assets/og-image.png
+HASH=$(shasum -a 256 assets/og-image.png | cut -c1-8)
+git mv assets/og-image.png "assets/og-image.$HASH.png"
+# then update the 17 references across the 8 pages:
+#   og:image, twitter:image, and the JSON-LD "image" field on index.html
+grep -rln 'og-image' *.html | xargs sed -i '' "s|og-image\.[a-f0-9]*\.png|og-image.$HASH.png|g"
+```
+
+**Still worth doing manually once after any change**, because these platforms
+also cache the *page metadata* separately from the image bytes:
+
+| Platform | Where | Notes |
+|---|---|---|
+| Facebook / WhatsApp | developers.facebook.com/tools/debug/ | "Scrape Again" |
+| LinkedIn | linkedin.com/post-inspector/ | needs to be logged in |
+| Slack | — | self-expires in roughly 30 minutes |
+| X / Twitter | — | card validator retired; refreshes on its own |
