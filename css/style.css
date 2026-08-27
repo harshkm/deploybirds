@@ -1251,93 +1251,6 @@ body {
   line-height: 1.6;
   margin-bottom: 20px;
 }
-
-/* ==========================================================================
-   TEAM & ABOUT US
-   ========================================================================== */
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 28px;
-  margin-bottom: 60px;
-}
-
-.team-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-card);
-  border-radius: 12px;
-  padding: 28px;
-  text-align: center;
-  transition: border-color 0.25s ease, transform 0.25s ease;
-}
-
-.team-card:hover {
-  border-color: rgba(54, 224, 94, 0.3);
-  transform: translateY(-3px);
-}
-
-.team-avatar {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin: 0 auto 18px;
-  background: rgba(54, 224, 94, 0.08);
-  border: 2px solid rgba(54, 224, 94, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-mono);
-  font-size: var(--fs-xl);
-  font-weight: 700;
-  color: var(--accent-green);
-}
-
-.team-name {
-  font-size: var(--fs-lg);
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 4px;
-}
-
-.team-role {
-  font-family: var(--font-mono);
-  font-size: var(--fs-xs);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--accent-green);
-  margin-bottom: 12px;
-}
-
-/* Years of experience — the one hard number on a team card, so it gets
-   its own treatment rather than being buried in the bio. */
-.team-years {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 5px;
-  font-family: var(--font-mono);
-  font-size: var(--fs-xs);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-secondary);
-  border: 1px solid var(--border-card);
-  border-radius: 999px;
-  padding: 4px 12px 5px;
-  margin-bottom: 14px;
-}
-.team-years span {
-  font-family: var(--font-display);
-  font-size: var(--fs-base);
-  font-weight: 800;
-  color: var(--accent-green);
-  font-variant-numeric: tabular-nums;
-}
-
-.team-bio {
-  font-size: var(--fs-sm);
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
-
 .newsletter-box {
   background: linear-gradient(135deg, rgba(14, 23, 18, 0.95), rgba(20, 35, 27, 0.95));
   border: 1px solid rgba(54, 224, 94, 0.2);
@@ -1672,10 +1585,6 @@ body.nav-open {
 .timeline-track,
 .arch-layer-grid,
 .insights-grid,
-.team-grid {
-  min-width: 0;
-}
-
 /* Grid and flex children need this or their content sets the floor */
 .service-card,
 .insight-card,
@@ -1709,10 +1618,6 @@ p {
 .insights-grid {
   grid-template-columns: repeat(auto-fill, minmax(min(360px, 100%), 1fr));
 }
-.team-grid {
-  grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
-}
-
 /* A bare `1fr` track still floors at the content's min-content width, so an
    uppercase heading pushed this banner wider than its own padding box. */
 .flagship-hero-banner {
@@ -1756,25 +1661,6 @@ a.tech-tag {
 a.tech-tag:hover {
   border-color: var(--border-field);
   color: var(--text-primary);
-}
-
-/* --- Team cards: keep the rows aligned when a role wraps to two lines --- */
-.team-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.team-role {
-  /* Reserve two lines so a longer title does not shunt the chip and bio
-     down relative to the cards beside it. */
-  min-height: 2.6em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-wrap: balance;
-}
-.team-bio {
-  margin-top: auto;
 }
 
 /* ==========================================================================
@@ -1932,16 +1818,8 @@ h2 span.highlight {
 /* Cards get a real edge — SDLC's is 1.12:1 and invisible */
 .section-content-card,
 .service-card,
+.insight-card,.service-card,
 .insight-card,
-.team-card {
-  border-radius: 16px;
-}
-.service-card,
-.insight-card,
-.team-card {
-  background: var(--bg-surface-3);
-}
-
 /* A single hairline accent glow at the top of a card, replacing the old
    full-width gradient bar */
 .section-content-card::before {
@@ -2013,8 +1891,7 @@ h2 span.highlight {
    Deliberately not solved by brightening the text: that would give the
    same component two different greens depending on where it sits. */
 .service-card .badge-tag,
-.insight-card .badge-tag,
-.team-card .badge-tag {
+.insight-card .badge-tag {
   background: transparent;
   border-color: var(--border-field);
 }
@@ -2026,7 +1903,6 @@ h2 span.highlight {
    Dropping the tint on cards gives 5.16:1. The tint is kept on the darker
    page ground, where it measures 6.60:1. */
 .service-card .tech-tag,
-.insight-card .tech-tag,
-.team-card .tech-tag {
+.insight-card .tech-tag {
   background: transparent;
 }
